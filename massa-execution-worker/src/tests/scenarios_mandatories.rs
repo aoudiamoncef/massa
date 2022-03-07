@@ -126,8 +126,6 @@ fn generate_events() {
     blockclique.insert(block_id, block);
 
     controller.update_blockclique_status(finalized_blocks, blockclique);
-
-    std::thread::sleep(Duration::from_millis(1000));
     manager.stop();
     let events = controller.get_filtered_sc_output_event(
         Some(slot),
