@@ -3219,13 +3219,14 @@ impl BlockGraph {
         for (thread, id) in latest_final_blocks.iter().enumerate() {
             let mut current_block_id = *id;
             while let Some(current_block) = self.get_active_block(&current_block_id) {
-                let (is_genesis, parent_id) = {
+                let parent_id = {
                     let block = self.storage.retrieve_block(&current_block_id).unwrap();
                     let stored_block = block.read();
-                    (
-                        stored_block.block.header.content.parents.is_empty(),
-                        stored_block.block.header.content.parents[thread as usize],
-                    )
+                    if !stored_block.block.header.content.parents.is_empty() {
+                        Some(stored_block.block.header.content.parents[thread as usize])
+                    } else {
+                        None
+                    }
                 };
 
                 // retain block
@@ -3243,11 +3244,10 @@ impl BlockGraph {
                 }
 
                 // if not genesis, traverse parent
-                if is_genesis {
-                    break;
+                match parent_id {
+                    Some(p_id) => current_block_id = p_id,
+                    None => break,
                 }
-
-                current_block_id = parent_id;
             }
         }
 
