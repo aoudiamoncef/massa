@@ -12,8 +12,8 @@ use massa_execution_exports::{
     ExecutionConfig, ExecutionController, ExecutionError, ExecutionManager, ExecutionOutput,
     ReadOnlyExecutionRequest,
 };
-use massa_models::storage::Storage;
 use massa_final_state::FinalState;
+use massa_models::storage::Storage;
 use massa_models::BlockId;
 use massa_models::{
     timeslots::{get_block_slot_timestamp, get_latest_block_slot_at_timestamp},
