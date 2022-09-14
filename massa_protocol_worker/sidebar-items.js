@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["start_protocol_controller","start a new ProtocolController from a ProtocolConfig"]]});
+window.SIDEBAR_ITEMS = {"mod":[["protocol_worker","protocol worker Copyright (c) 2022 MASSA LABS info@massa.net"],["worker_operations_impl","Contains the implementation of the life cycle of operations"]]};

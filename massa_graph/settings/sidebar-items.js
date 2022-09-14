@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["GraphConfig",""],["LedgerConfig",""]]});
+window.SIDEBAR_ITEMS = {"struct":[["GraphConfig","Graph configuration"]]};

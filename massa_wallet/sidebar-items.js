@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["WalletError",""]],"struct":[["ConsensusConfigData",""],["Wallet","Contains the private keys created in the wallet."]]});
+window.SIDEBAR_ITEMS = {"enum":[["WalletError","wallet error"]],"struct":[["Wallet","Contains the keypairs created in the wallet."]]};

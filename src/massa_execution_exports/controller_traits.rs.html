@@ -1,9 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-execution-exports/src/controller_traits.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>controller_traits.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_execution_exports/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../massa_execution_exports/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_execution_exports/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-execution-exports/src/controller_traits.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>controller_traits.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_execution_exports/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../massa_execution_exports/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_execution_exports/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -90,93 +85,146 @@
 <span id="85">85</span>
 <span id="86">86</span>
 <span id="87">87</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;</span>
+<span id="88">88</span>
+<span id="89">89</span>
+<span id="90">90</span>
+<span id="91">91</span>
+<span id="92">92</span>
+<span id="93">93</span>
+<span id="94">94</span>
+<span id="95">95</span>
+<span id="96">96</span>
+<span id="97">97</span>
+<span id="98">98</span>
+<span id="99">99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;
 
-<span class="doccomment">//! This module exports generic traits representing interfaces for interacting with the Execution worker</span>
+</span><span class="doccomment">//! This module exports generic traits representing interfaces for interacting with the Execution worker
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::types::ExecutionOutput</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::types::ReadOnlyExecutionRequest</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ExecutionError</span>;
-<span class="kw">use</span> <span class="ident">massa_ledger::LedgerEntry</span>;
-<span class="kw">use</span> <span class="ident">massa_models::output_event::SCOutputEvent</span>;
-<span class="kw">use</span> <span class="ident">massa_models::prehash::Map</span>;
-<span class="kw">use</span> <span class="ident">massa_models::Address</span>;
-<span class="kw">use</span> <span class="ident">massa_models::Block</span>;
-<span class="kw">use</span> <span class="ident">massa_models::BlockId</span>;
-<span class="kw">use</span> <span class="ident">massa_models::OperationId</span>;
-<span class="kw">use</span> <span class="ident">massa_models::Slot</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::types::ExecutionOutput;
+<span class="kw">use </span><span class="kw">crate</span>::types::ReadOnlyExecutionRequest;
+<span class="kw">use </span><span class="kw">crate</span>::ExecutionAddressInfo;
+<span class="kw">use </span><span class="kw">crate</span>::ExecutionError;
+<span class="kw">use </span>massa_models::address::Address;
+<span class="kw">use </span>massa_models::amount::Amount;
+<span class="kw">use </span>massa_models::api::EventFilter;
+<span class="kw">use </span>massa_models::block::BlockId;
+<span class="kw">use </span>massa_models::operation::OperationId;
+<span class="kw">use </span>massa_models::output_event::SCOutputEvent;
+<span class="kw">use </span>massa_models::prehash::PreHashSet;
+<span class="kw">use </span>massa_models::slot::Slot;
+<span class="kw">use </span>massa_models::stats::ExecutionStats;
+<span class="kw">use </span>massa_storage::Storage;
+<span class="kw">use </span>std::collections::BTreeMap;
+<span class="kw">use </span>std::collections::HashMap;
 
-<span class="doccomment">/// interface that communicates with the execution worker thread</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ExecutionController</span>: <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span> {
-    <span class="doccomment">/// Updates blockclique status by signalling newly finalized blocks and the latest blockclique.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # arguments</span>
-    <span class="doccomment">/// * finalized_blocks: newly finalized blocks</span>
-    <span class="doccomment">/// * blockclique: new blockclique</span>
-    <span class="kw">fn</span> <span class="ident">update_blockclique_status</span>(
+<span class="doccomment">/// interface that communicates with the execution worker thread
+</span><span class="kw">pub trait </span>ExecutionController: Send + Sync {
+    <span class="doccomment">/// Updates blockclique status by signaling newly finalized blocks and the latest blockclique.
+    ///
+    /// # Arguments
+    /// * `finalized_blocks`: newly finalized blocks. Each Storage owns refs to the block and its ops/endorsements/parents.
+    /// * `blockclique`: new blockclique. Each Storage owns refs to the block and its ops/endorsements/parents
+    </span><span class="kw">fn </span>update_blockclique_status(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">finalized_blocks</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">BlockId</span>, <span class="ident">Block</span><span class="op">&gt;</span>,
-        <span class="ident">blockclique</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">BlockId</span>, <span class="ident">Block</span><span class="op">&gt;</span>,
+        finalized_blocks: HashMap&lt;Slot, (BlockId, Storage)&gt;,
+        blockclique: HashMap&lt;Slot, (BlockId, Storage)&gt;,
     );
 
-    <span class="doccomment">/// Get execution events optionnally filtered by:</span>
-    <span class="doccomment">/// * start slot</span>
-    <span class="doccomment">/// * end slot</span>
-    <span class="doccomment">/// * emitter address</span>
-    <span class="doccomment">/// * original caller address</span>
-    <span class="doccomment">/// * operation id</span>
-    <span class="kw">fn</span> <span class="ident">get_filtered_sc_output_event</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">start</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Slot</span><span class="op">&gt;</span>,
-        <span class="ident">end</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Slot</span><span class="op">&gt;</span>,
-        <span class="ident">emitter_address</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Address</span><span class="op">&gt;</span>,
-        <span class="ident">original_caller_address</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Address</span><span class="op">&gt;</span>,
-        <span class="ident">original_operation_id</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">OperationId</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">SCOutputEvent</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Get execution events optionally filtered by:
+    /// * start slot
+    /// * end slot
+    /// * emitter address
+    /// * original caller address
+    /// * operation id
+    </span><span class="kw">fn </span>get_filtered_sc_output_event(<span class="kw-2">&amp;</span><span class="self">self</span>, filter: EventFilter) -&gt; Vec&lt;SCOutputEvent&gt;;
 
-    <span class="doccomment">/// Get a copy of a full ledger entry with its final and active values</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # return value</span>
-    <span class="doccomment">/// * (final_entry, active_entry)</span>
-    <span class="kw">fn</span> <span class="ident">get_final_and_active_ledger_entry</span>(
+    <span class="doccomment">/// Get the final and active values of sequential balances.
+    ///
+    /// # Return value
+    /// * `(final_balance, active_balance)`
+    </span><span class="kw">fn </span>get_final_and_candidate_sequential_balances(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">addr</span>: <span class="kw-2">&amp;</span><span class="ident">Address</span>,
-    ) -&gt; (<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LedgerEntry</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LedgerEntry</span><span class="op">&gt;</span>);
+        addresses: <span class="kw-2">&amp;</span>[Address],
+    ) -&gt; Vec&lt;(<span class="prelude-ty">Option</span>&lt;Amount&gt;, <span class="prelude-ty">Option</span>&lt;Amount&gt;)&gt;;
 
-    <span class="doccomment">/// Execute read-only bytecode without causing modifications to the consensus state</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # arguments</span>
-    <span class="doccomment">/// * req: an instance of ReadOnlyExecutionRequest describing the parameters of the execution</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # returns</span>
-    <span class="doccomment">/// An instance of ExecutionOutput containing a summary of the effects of the execution,</span>
-    <span class="doccomment">/// or an error if the execution failed.</span>
-    <span class="kw">fn</span> <span class="ident">execute_readonly_request</span>(
+    <span class="doccomment">/// Get a copy of a single datastore entry with its final and active values
+    ///
+    /// # Return value
+    /// * `(final_data_entry, active_data_entry)`
+    </span><span class="attribute">#[allow(clippy::type_complexity)]
+    </span><span class="kw">fn </span>get_final_and_active_data_entry(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">req</span>: <span class="ident">ReadOnlyExecutionRequest</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ExecutionOutput</span>, <span class="ident">ExecutionError</span><span class="op">&gt;</span>;
+        input: Vec&lt;(Address, Vec&lt;u8&gt;)&gt;,
+    ) -&gt; Vec&lt;(<span class="prelude-ty">Option</span>&lt;Vec&lt;u8&gt;&gt;, <span class="prelude-ty">Option</span>&lt;Vec&lt;u8&gt;&gt;)&gt;;
 
-    <span class="doccomment">/// Returns a boxed clone of self.</span>
-    <span class="doccomment">/// Useful to alow cloning Box&lt;dyn ExecutionController&gt;.</span>
-    <span class="kw">fn</span> <span class="ident">clone_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">ExecutionController</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Returns for a given cycle the stakers taken into account
+    /// by the selector. That correspond to the roll_counts in `cycle - 3`.
+    ///
+    /// By default it returns an empty map.
+    </span><span class="kw">fn </span>get_cycle_active_rolls(<span class="kw-2">&amp;</span><span class="self">self</span>, cycle: u64) -&gt; BTreeMap&lt;Address, u64&gt;;
+
+    <span class="doccomment">/// Execute read-only SC function call without causing modifications to the consensus state
+    ///
+    /// # arguments
+    /// * `req`: an instance of `ReadOnlyCallRequest` describing the parameters of the execution
+    ///
+    /// # returns
+    /// An instance of `ExecutionOutput` containing a summary of the effects of the execution,
+    /// or an error if the execution failed.
+    </span><span class="kw">fn </span>execute_readonly_request(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        req: ReadOnlyExecutionRequest,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;ExecutionOutput, ExecutionError&gt;;
+
+    <span class="doccomment">/// List which operations inside the provided list were not executed
+    </span><span class="kw">fn </span>unexecuted_ops_among(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        ops: <span class="kw-2">&amp;</span>PreHashSet&lt;OperationId&gt;,
+        thread: u8,
+    ) -&gt; PreHashSet&lt;OperationId&gt;;
+
+    <span class="doccomment">/// Gets infos about a batch of addresses
+    </span><span class="kw">fn </span>get_addresses_infos(<span class="kw-2">&amp;</span><span class="self">self</span>, addresses: <span class="kw-2">&amp;</span>[Address]) -&gt; Vec&lt;ExecutionAddressInfo&gt;;
+
+    <span class="doccomment">/// Get execution statistics
+    </span><span class="kw">fn </span>get_stats(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; ExecutionStats;
+
+    <span class="doccomment">/// Returns a boxed clone of self.
+    /// Useful to allow cloning `Box&lt;dyn ExecutionController&gt;`.
+    </span><span class="kw">fn </span>clone_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Box&lt;<span class="kw">dyn </span>ExecutionController&gt;;
 }
 
-<span class="doccomment">/// Allow cloning Box&lt;dyn ExecutionController&gt;</span>
-<span class="doccomment">/// Uses ExecutionController::clone_box internally</span>
-<span class="kw">impl</span> <span class="ident">Clone</span> <span class="kw">for</span> <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">ExecutionController</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">ExecutionController</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">clone_box</span>()
+<span class="doccomment">/// Allow cloning `Box&lt;dyn ExecutionController&gt;`
+/// Uses `ExecutionController::clone_box` internally
+</span><span class="kw">impl </span>Clone <span class="kw">for </span>Box&lt;<span class="kw">dyn </span>ExecutionController&gt; {
+    <span class="kw">fn </span>clone(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Box&lt;<span class="kw">dyn </span>ExecutionController&gt; {
+        <span class="self">self</span>.clone_box()
     }
 }
 
-<span class="doccomment">/// Execution manager used to stop the execution thread</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ExecutionManager</span> {
-    <span class="doccomment">/// Stop the execution thread</span>
-    <span class="doccomment">/// Note that we do not take self by value to consume it</span>
-    <span class="doccomment">/// because it is not allowed to move out of Box&lt;dyn ExecutionManager&gt;</span>
-    <span class="doccomment">/// This will improve if the `unsized_fn_params` feature stabilizes enough to be safely usable.</span>
-    <span class="kw">fn</span> <span class="ident">stop</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>);
+<span class="doccomment">/// Execution manager used to stop the execution thread
+</span><span class="kw">pub trait </span>ExecutionManager {
+    <span class="doccomment">/// Stop the execution thread
+    /// Note that we do not take self by value to consume it
+    /// because it is not allowed to move out of Box&lt;dyn ExecutionManager&gt;
+    /// This will improve if the `unsized_fn_params` feature stabilizes enough to be safely usable.
+    </span><span class="kw">fn </span>stop(<span class="kw-2">&amp;mut </span><span class="self">self</span>);
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_execution_exports" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (285fa7ecd 2022-03-14)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_execution_exports" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (17cbdfd07 2022-09-13)" ></div></body></html>

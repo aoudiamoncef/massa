@@ -1,9 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-api/src/public.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>public.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_api/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../massa_api/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_api/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-api/src/public.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>public.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_api/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../massa_api/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_api/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -655,658 +650,1133 @@
 <span id="650">650</span>
 <span id="651">651</span>
 <span id="652">652</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;</span>
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::too_many_arguments</span>)]</span>
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::error::ApiError</span>;
-<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">Endpoints</span>, <span class="ident">Public</span>, <span class="ident">RpcServer</span>, <span class="ident">StopHandle</span>, <span class="ident">API</span>};
-<span class="kw">use</span> <span class="ident">futures</span>::{<span class="ident">stream::FuturesUnordered</span>, <span class="ident">StreamExt</span>};
-<span class="kw">use</span> <span class="ident">jsonrpc_core::BoxFuture</span>;
-<span class="kw">use</span> <span class="ident">massa_consensus_exports</span>::{<span class="ident">ConsensusCommandSender</span>, <span class="ident">ConsensusConfig</span>};
-<span class="kw">use</span> <span class="ident">massa_execution_exports</span>::{
-    <span class="ident">ExecutionController</span>, <span class="ident">ExecutionStackElement</span>, <span class="ident">ReadOnlyExecutionRequest</span>,
+<span id="653">653</span>
+<span id="654">654</span>
+<span id="655">655</span>
+<span id="656">656</span>
+<span id="657">657</span>
+<span id="658">658</span>
+<span id="659">659</span>
+<span id="660">660</span>
+<span id="661">661</span>
+<span id="662">662</span>
+<span id="663">663</span>
+<span id="664">664</span>
+<span id="665">665</span>
+<span id="666">666</span>
+<span id="667">667</span>
+<span id="668">668</span>
+<span id="669">669</span>
+<span id="670">670</span>
+<span id="671">671</span>
+<span id="672">672</span>
+<span id="673">673</span>
+<span id="674">674</span>
+<span id="675">675</span>
+<span id="676">676</span>
+<span id="677">677</span>
+<span id="678">678</span>
+<span id="679">679</span>
+<span id="680">680</span>
+<span id="681">681</span>
+<span id="682">682</span>
+<span id="683">683</span>
+<span id="684">684</span>
+<span id="685">685</span>
+<span id="686">686</span>
+<span id="687">687</span>
+<span id="688">688</span>
+<span id="689">689</span>
+<span id="690">690</span>
+<span id="691">691</span>
+<span id="692">692</span>
+<span id="693">693</span>
+<span id="694">694</span>
+<span id="695">695</span>
+<span id="696">696</span>
+<span id="697">697</span>
+<span id="698">698</span>
+<span id="699">699</span>
+<span id="700">700</span>
+<span id="701">701</span>
+<span id="702">702</span>
+<span id="703">703</span>
+<span id="704">704</span>
+<span id="705">705</span>
+<span id="706">706</span>
+<span id="707">707</span>
+<span id="708">708</span>
+<span id="709">709</span>
+<span id="710">710</span>
+<span id="711">711</span>
+<span id="712">712</span>
+<span id="713">713</span>
+<span id="714">714</span>
+<span id="715">715</span>
+<span id="716">716</span>
+<span id="717">717</span>
+<span id="718">718</span>
+<span id="719">719</span>
+<span id="720">720</span>
+<span id="721">721</span>
+<span id="722">722</span>
+<span id="723">723</span>
+<span id="724">724</span>
+<span id="725">725</span>
+<span id="726">726</span>
+<span id="727">727</span>
+<span id="728">728</span>
+<span id="729">729</span>
+<span id="730">730</span>
+<span id="731">731</span>
+<span id="732">732</span>
+<span id="733">733</span>
+<span id="734">734</span>
+<span id="735">735</span>
+<span id="736">736</span>
+<span id="737">737</span>
+<span id="738">738</span>
+<span id="739">739</span>
+<span id="740">740</span>
+<span id="741">741</span>
+<span id="742">742</span>
+<span id="743">743</span>
+<span id="744">744</span>
+<span id="745">745</span>
+<span id="746">746</span>
+<span id="747">747</span>
+<span id="748">748</span>
+<span id="749">749</span>
+<span id="750">750</span>
+<span id="751">751</span>
+<span id="752">752</span>
+<span id="753">753</span>
+<span id="754">754</span>
+<span id="755">755</span>
+<span id="756">756</span>
+<span id="757">757</span>
+<span id="758">758</span>
+<span id="759">759</span>
+<span id="760">760</span>
+<span id="761">761</span>
+<span id="762">762</span>
+<span id="763">763</span>
+<span id="764">764</span>
+<span id="765">765</span>
+<span id="766">766</span>
+<span id="767">767</span>
+<span id="768">768</span>
+<span id="769">769</span>
+<span id="770">770</span>
+<span id="771">771</span>
+<span id="772">772</span>
+<span id="773">773</span>
+<span id="774">774</span>
+<span id="775">775</span>
+<span id="776">776</span>
+<span id="777">777</span>
+<span id="778">778</span>
+<span id="779">779</span>
+<span id="780">780</span>
+<span id="781">781</span>
+<span id="782">782</span>
+<span id="783">783</span>
+<span id="784">784</span>
+<span id="785">785</span>
+<span id="786">786</span>
+<span id="787">787</span>
+<span id="788">788</span>
+<span id="789">789</span>
+<span id="790">790</span>
+<span id="791">791</span>
+<span id="792">792</span>
+<span id="793">793</span>
+<span id="794">794</span>
+<span id="795">795</span>
+<span id="796">796</span>
+<span id="797">797</span>
+<span id="798">798</span>
+<span id="799">799</span>
+<span id="800">800</span>
+<span id="801">801</span>
+<span id="802">802</span>
+<span id="803">803</span>
+<span id="804">804</span>
+<span id="805">805</span>
+<span id="806">806</span>
+<span id="807">807</span>
+<span id="808">808</span>
+<span id="809">809</span>
+<span id="810">810</span>
+<span id="811">811</span>
+<span id="812">812</span>
+<span id="813">813</span>
+<span id="814">814</span>
+<span id="815">815</span>
+<span id="816">816</span>
+<span id="817">817</span>
+<span id="818">818</span>
+<span id="819">819</span>
+<span id="820">820</span>
+<span id="821">821</span>
+<span id="822">822</span>
+<span id="823">823</span>
+<span id="824">824</span>
+<span id="825">825</span>
+<span id="826">826</span>
+<span id="827">827</span>
+<span id="828">828</span>
+<span id="829">829</span>
+<span id="830">830</span>
+<span id="831">831</span>
+<span id="832">832</span>
+<span id="833">833</span>
+<span id="834">834</span>
+<span id="835">835</span>
+<span id="836">836</span>
+<span id="837">837</span>
+<span id="838">838</span>
+<span id="839">839</span>
+<span id="840">840</span>
+<span id="841">841</span>
+<span id="842">842</span>
+<span id="843">843</span>
+<span id="844">844</span>
+<span id="845">845</span>
+<span id="846">846</span>
+<span id="847">847</span>
+<span id="848">848</span>
+<span id="849">849</span>
+<span id="850">850</span>
+<span id="851">851</span>
+<span id="852">852</span>
+<span id="853">853</span>
+<span id="854">854</span>
+<span id="855">855</span>
+<span id="856">856</span>
+<span id="857">857</span>
+<span id="858">858</span>
+<span id="859">859</span>
+<span id="860">860</span>
+<span id="861">861</span>
+<span id="862">862</span>
+<span id="863">863</span>
+<span id="864">864</span>
+<span id="865">865</span>
+<span id="866">866</span>
+<span id="867">867</span>
+<span id="868">868</span>
+<span id="869">869</span>
+<span id="870">870</span>
+<span id="871">871</span>
+<span id="872">872</span>
+<span id="873">873</span>
+<span id="874">874</span>
+<span id="875">875</span>
+<span id="876">876</span>
+<span id="877">877</span>
+<span id="878">878</span>
+<span id="879">879</span>
+<span id="880">880</span>
+<span id="881">881</span>
+<span id="882">882</span>
+<span id="883">883</span>
+<span id="884">884</span>
+<span id="885">885</span>
+<span id="886">886</span>
+<span id="887">887</span>
+<span id="888">888</span>
+<span id="889">889</span>
+<span id="890">890</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;
+</span><span class="attribute">#![allow(clippy::too_many_arguments)]
+</span><span class="kw">use </span><span class="kw">crate</span>::config::APIConfig;
+<span class="kw">use </span><span class="kw">crate</span>::error::ApiError;
+<span class="kw">use crate</span>::{Endpoints, Public, RpcServer, StopHandle, API};
+<span class="kw">use </span>jsonrpc_core::BoxFuture;
+<span class="kw">use </span>massa_consensus_exports::{ConsensusCommandSender, ConsensusConfig};
+<span class="kw">use </span>massa_execution_exports::{
+    ExecutionController, ExecutionStackElement, ReadOnlyExecutionRequest, ReadOnlyExecutionTarget,
 };
-<span class="kw">use</span> <span class="ident">massa_graph</span>::{<span class="ident">DiscardReason</span>, <span class="ident">ExportBlockStatus</span>};
-<span class="kw">use</span> <span class="ident">massa_models::api::SCELedgerInfo</span>;
-<span class="kw">use</span> <span class="ident">massa_models::execution::ReadOnlyResult</span>;
-<span class="kw">use</span> <span class="ident">massa_models::SignedOperation</span>;
+<span class="kw">use </span>massa_graph::DiscardReason;
+<span class="kw">use </span>massa_models::api::{
+    BlockGraphStatus, DatastoreEntryInput, DatastoreEntryOutput, OperationInput,
+    ReadOnlyBytecodeExecution, ReadOnlyCall, SlotAmount,
+};
+<span class="kw">use </span>massa_models::execution::ReadOnlyResult;
+<span class="kw">use </span>massa_models::operation::OperationDeserializer;
+<span class="kw">use </span>massa_models::wrapped::WrappedDeserializer;
+<span class="kw">use </span>massa_models::{
+    block::Block, endorsement::WrappedEndorsement, error::ModelsError, operation::WrappedOperation,
+    timeslots,
+};
+<span class="kw">use </span>massa_pos_exports::SelectorController;
+<span class="kw">use </span>massa_protocol_exports::ProtocolCommandSender;
+<span class="kw">use </span>massa_serialization::{DeserializeError, Deserializer};
 
-<span class="kw">use</span> <span class="ident">massa_models</span>::{
-    <span class="ident">api</span>::{
-        <span class="ident">APISettings</span>, <span class="ident">AddressInfo</span>, <span class="ident">BlockInfo</span>, <span class="ident">BlockInfoContent</span>, <span class="ident">BlockSummary</span>, <span class="ident">EndorsementInfo</span>,
-        <span class="ident">EventFilter</span>, <span class="ident">IndexedSlot</span>, <span class="ident">NodeStatus</span>, <span class="ident">OperationInfo</span>, <span class="ident">ReadOnlyExecution</span>, <span class="ident">TimeInterval</span>,
+<span class="kw">use </span>itertools::{izip, Itertools};
+<span class="kw">use </span>massa_models::{
+    address::Address,
+    api::{
+        AddressInfo, BlockInfo, BlockInfoContent, BlockSummary, EndorsementInfo, EventFilter,
+        NodeStatus, OperationInfo, TimeInterval,
     },
-    <span class="ident">clique::Clique</span>,
-    <span class="ident">composite::PubkeySig</span>,
-    <span class="ident">execution::ExecuteReadOnlyResponse</span>,
-    <span class="ident">node::NodeId</span>,
-    <span class="ident">output_event::SCOutputEvent</span>,
-    <span class="ident">prehash</span>::{<span class="ident">BuildMap</span>, <span class="ident">Map</span>, <span class="ident">Set</span>},
-    <span class="ident">timeslots</span>::{<span class="ident">get_latest_block_slot_at_timestamp</span>, <span class="ident">time_range_to_slot_range</span>},
-    <span class="ident">Address</span>, <span class="ident">BlockId</span>, <span class="ident">CompactConfig</span>, <span class="ident">EndorsementId</span>, <span class="ident">OperationId</span>, <span class="ident">Slot</span>, <span class="ident">Version</span>,
+    block::BlockId,
+    clique::Clique,
+    composite::PubkeySig,
+    config::CompactConfig,
+    endorsement::EndorsementId,
+    execution::ExecuteReadOnlyResponse,
+    node::NodeId,
+    operation::OperationId,
+    output_event::SCOutputEvent,
+    prehash::{PreHashMap, PreHashSet},
+    slot::Slot,
+    timeslots::{get_latest_block_slot_at_timestamp, time_range_to_slot_range},
+    version::Version,
 };
-<span class="kw">use</span> <span class="ident">massa_network_exports</span>::{<span class="ident">NetworkCommandSender</span>, <span class="ident">NetworkSettings</span>};
-<span class="kw">use</span> <span class="ident">massa_pool::PoolCommandSender</span>;
-<span class="kw">use</span> <span class="ident">massa_signature</span>::{<span class="ident">derive_public_key</span>, <span class="ident">generate_random_private_key</span>, <span class="ident">PrivateKey</span>};
-<span class="kw">use</span> <span class="ident">massa_time::MassaTime</span>;
-<span class="kw">use</span> <span class="ident">std::net</span>::{<span class="ident">IpAddr</span>, <span class="ident">SocketAddr</span>};
+<span class="kw">use </span>massa_network_exports::{NetworkCommandSender, NetworkConfig};
+<span class="kw">use </span>massa_pool_exports::PoolController;
+<span class="kw">use </span>massa_signature::KeyPair;
+<span class="kw">use </span>massa_storage::Storage;
+<span class="kw">use </span>massa_time::MassaTime;
+<span class="kw">use </span>std::net::{IpAddr, SocketAddr};
 
-<span class="kw">impl</span> <span class="ident">API</span><span class="op">&lt;</span><span class="ident">Public</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(
-        <span class="ident">consensus_command_sender</span>: <span class="ident">ConsensusCommandSender</span>,
-        <span class="ident">execution_controller</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">ExecutionController</span><span class="op">&gt;</span>,
-        <span class="ident">api_settings</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">APISettings</span>,
-        <span class="ident">consensus_settings</span>: <span class="ident">ConsensusConfig</span>,
-        <span class="ident">pool_command_sender</span>: <span class="ident">PoolCommandSender</span>,
-        <span class="ident">network_settings</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">NetworkSettings</span>,
-        <span class="ident">version</span>: <span class="ident">Version</span>,
-        <span class="ident">network_command_sender</span>: <span class="ident">NetworkCommandSender</span>,
-        <span class="ident">compensation_millis</span>: <span class="ident">i64</span>,
-        <span class="ident">node_id</span>: <span class="ident">NodeId</span>,
-    ) -&gt; <span class="self">Self</span> {
-        <span class="ident">API</span>(<span class="ident">Public</span> {
-            <span class="ident">consensus_command_sender</span>,
-            <span class="ident">consensus_config</span>: <span class="ident">consensus_settings</span>,
-            <span class="ident">api_settings</span>,
-            <span class="ident">pool_command_sender</span>,
-            <span class="ident">network_settings</span>,
-            <span class="ident">version</span>,
-            <span class="ident">network_command_sender</span>,
-            <span class="ident">compensation_millis</span>,
-            <span class="ident">node_id</span>,
-            <span class="ident">execution_controller</span>,
+<span class="kw">impl </span>API&lt;Public&gt; {
+    <span class="doccomment">/// generate a new public API
+    </span><span class="kw">pub fn </span>new(
+        consensus_command_sender: ConsensusCommandSender,
+        execution_controller: Box&lt;<span class="kw">dyn </span>ExecutionController&gt;,
+        api_settings: APIConfig,
+        selector_controller: Box&lt;<span class="kw">dyn </span>SelectorController&gt;,
+        consensus_settings: ConsensusConfig,
+        pool_command_sender: Box&lt;<span class="kw">dyn </span>PoolController&gt;,
+        protocol_command_sender: ProtocolCommandSender,
+        network_settings: NetworkConfig,
+        version: Version,
+        network_command_sender: NetworkCommandSender,
+        compensation_millis: i64,
+        node_id: NodeId,
+        storage: Storage,
+    ) -&gt; <span class="self">Self </span>{
+        API(Public {
+            consensus_command_sender,
+            consensus_config: consensus_settings,
+            api_settings,
+            pool_command_sender,
+            network_settings,
+            version,
+            network_command_sender,
+            protocol_command_sender,
+            compensation_millis,
+            node_id,
+            execution_controller,
+            selector_controller,
+            storage,
         })
     }
 }
 
-<span class="kw">impl</span> <span class="ident">RpcServer</span> <span class="kw">for</span> <span class="ident">API</span><span class="op">&lt;</span><span class="ident">Public</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">serve</span>(<span class="self">self</span>, <span class="ident">url</span>: <span class="kw-2">&amp;</span><span class="ident">SocketAddr</span>) -&gt; <span class="ident">StopHandle</span> {
-        <span class="ident"><span class="kw">crate</span>::serve</span>(<span class="self">self</span>, <span class="ident">url</span>)
+<span class="kw">impl </span>RpcServer <span class="kw">for </span>API&lt;Public&gt; {
+    <span class="kw">fn </span>serve(<span class="self">self</span>, url: <span class="kw-2">&amp;</span>SocketAddr) -&gt; StopHandle {
+        <span class="kw">crate</span>::serve(<span class="self">self</span>, url)
     }
 }
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-<span class="kw">impl</span> <span class="ident">Endpoints</span> <span class="kw">for</span> <span class="ident">API</span><span class="op">&lt;</span><span class="ident">Public</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">stop_node</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident"><span class="kw">crate</span>::wrong_api</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>()
+<span class="attribute">#[doc(hidden)]
+</span><span class="kw">impl </span>Endpoints <span class="kw">for </span>API&lt;Public&gt; {
+    <span class="kw">fn </span>stop_node(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
     }
 
-    <span class="kw">fn</span> <span class="ident">node_sign_message</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PubkeySig</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident"><span class="kw">crate</span>::wrong_api</span>::<span class="op">&lt;</span><span class="ident">PubkeySig</span><span class="op">&gt;</span>()
+    <span class="kw">fn </span>node_sign_message(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;u8&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;PubkeySig, ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;PubkeySig&gt;()
     }
 
-    <span class="kw">fn</span> <span class="ident">add_staking_private_keys</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">PrivateKey</span><span class="op">&gt;</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident"><span class="kw">crate</span>::wrong_api</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>()
+    <span class="kw">fn </span>add_staking_secret_keys(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;KeyPair&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
     }
 
-    <span class="kw">fn</span> <span class="ident">execute_read_only_request</span>(
+    <span class="kw">fn </span>execute_read_only_bytecode(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">reqs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ReadOnlyExecution</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExecuteReadOnlyResponse</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">reqs</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">api_settings</span>.<span class="ident">max_arguments</span> <span class="kw">as</span> <span class="ident">usize</span> {
-            <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span>
-                <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> <span class="prelude-val">Err</span>(<span class="ident">ApiError::TooManyArguments</span>(<span class="string">&quot;too many arguments&quot;</span>.<span class="ident">into</span>()));
-            <span class="kw">return</span> <span class="ident">Box::pin</span>(<span class="ident">closure</span>());
+        reqs: Vec&lt;ReadOnlyBytecodeExecution&gt;,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;ExecuteReadOnlyResponse&gt;, ApiError&gt;&gt; {
+        <span class="kw">if </span>reqs.len() <span class="kw">as </span>u64 &gt; <span class="self">self</span>.<span class="number">0</span>.api_settings.max_arguments {
+            <span class="kw">let </span>closure =
+                <span class="kw">async move </span>|| <span class="prelude-val">Err</span>(ApiError::TooManyArguments(<span class="string">&quot;too many arguments&quot;</span>.into()));
+            <span class="kw">return </span>Box::pin(closure());
         }
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExecuteReadOnlyResponse</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::with_capacity</span>(<span class="ident">reqs</span>.<span class="ident">len</span>());
-        <span class="kw">for</span> <span class="ident">ReadOnlyExecution</span> {
-            <span class="ident">max_gas</span>,
-            <span class="ident">address</span>,
-            <span class="ident">simulated_gas_price</span>,
-            <span class="ident">bytecode</span>,
-        } <span class="kw">in</span> <span class="ident">reqs</span>
+        <span class="kw">let </span><span class="kw-2">mut </span>res: Vec&lt;ExecuteReadOnlyResponse&gt; = Vec::with_capacity(reqs.len());
+        <span class="kw">for </span>ReadOnlyBytecodeExecution {
+            max_gas,
+            address,
+            simulated_gas_price,
+            bytecode,
+        } <span class="kw">in </span>reqs
         {
-            <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="ident">address</span>.<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> {
-                <span class="comment">// if no addr provided, use a random one</span>
-                <span class="ident">Address::from_public_key</span>(<span class="kw-2">&amp;</span><span class="ident">derive_public_key</span>(<span class="kw-2">&amp;</span><span class="ident">generate_random_private_key</span>()))
+            <span class="kw">let </span>address = address.unwrap_or_else(|| {
+                <span class="comment">// if no addr provided, use a random one
+                </span>Address::from_public_key(<span class="kw-2">&amp;</span>KeyPair::generate().get_public_key())
             });
 
-            <span class="comment">// TODO:</span>
-            <span class="comment">// * set a maximum gas value for read-only executions to prevent attacks</span>
-            <span class="comment">// * stop mapping request and result, reuse execution&#39;s structures</span>
-            <span class="comment">// * remove async stuff</span>
+            <span class="comment">// TODO:
+            // * set a maximum gas value for read-only executions to prevent attacks
+            // * stop mapping request and result, reuse execution&#39;s structures
+            // * remove async stuff
 
-            <span class="comment">// translate request</span>
-            <span class="kw">let</span> <span class="ident">req</span> <span class="op">=</span> <span class="ident">ReadOnlyExecutionRequest</span> {
-                <span class="ident">max_gas</span>,
-                <span class="ident">simulated_gas_price</span>,
-                <span class="ident">bytecode</span>,
-                <span class="ident">call_stack</span>: <span class="macro">vec!</span>[<span class="ident">ExecutionStackElement</span> {
-                    <span class="ident">address</span>,
-                    <span class="ident">coins</span>: <span class="ident">Default::default</span>(),
-                    <span class="ident">owned_addresses</span>: <span class="macro">vec!</span>[<span class="ident">address</span>],
+            // translate request
+            </span><span class="kw">let </span>req = ReadOnlyExecutionRequest {
+                max_gas,
+                simulated_gas_price,
+                target: ReadOnlyExecutionTarget::BytecodeExecution(bytecode),
+                call_stack: <span class="macro">vec!</span>[ExecutionStackElement {
+                    address,
+                    coins: Default::default(),
+                    owned_addresses: <span class="macro">vec!</span>[address],
                 }],
             };
 
-            <span class="comment">// run</span>
-            <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">execution_controller</span>.<span class="ident">execute_readonly_request</span>(<span class="ident">req</span>);
+            <span class="comment">// run
+            </span><span class="kw">let </span>result = <span class="self">self</span>.<span class="number">0</span>.execution_controller.execute_readonly_request(req);
 
-            <span class="comment">// map result</span>
-            <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="ident">ExecuteReadOnlyResponse</span> {
-                <span class="ident">executed_at</span>: <span class="ident">result</span>.<span class="ident">as_ref</span>().<span class="ident">map_or_else</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">Slot::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="op">|</span><span class="ident">v</span><span class="op">|</span> <span class="ident">v</span>.<span class="ident">slot</span>),
-                <span class="ident">result</span>: <span class="ident">result</span>.<span class="ident">as_ref</span>().<span class="ident">map_or_else</span>(
-                    <span class="op">|</span><span class="ident">err</span><span class="op">|</span> <span class="ident">ReadOnlyResult::Error</span>(<span class="macro">format!</span>(<span class="string">&quot;readonly call failed: {}&quot;</span>, <span class="ident">err</span>)),
-                    <span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ReadOnlyResult::Ok</span>,
+            <span class="comment">// map result
+            </span><span class="kw">let </span>result = ExecuteReadOnlyResponse {
+                executed_at: result.as_ref().map_or_else(|<span class="kw">_</span>| Slot::new(<span class="number">0</span>, <span class="number">0</span>), |v| v.slot),
+                result: result.as_ref().map_or_else(
+                    |err| ReadOnlyResult::Error(<span class="macro">format!</span>(<span class="string">&quot;readonly call failed: {}&quot;</span>, err)),
+                    |<span class="kw">_</span>| ReadOnlyResult::Ok,
                 ),
-                <span class="ident">output_events</span>: <span class="ident">result</span>.<span class="ident">map_or_else</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">Default::default</span>(), <span class="op">|</span><span class="ident">v</span><span class="op">|</span> <span class="ident">v</span>.<span class="ident">events</span>.<span class="ident">export</span>()),
+                output_events: result.map_or_else(|<span class="kw">_</span>| Default::default(), |<span class="kw-2">mut </span>v| v.events.take()),
             };
 
-            <span class="ident">res</span>.<span class="ident">push</span>(<span class="ident">result</span>);
+            res.push(result);
         }
 
-        <span class="comment">// return result</span>
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> <span class="prelude-val">Ok</span>(<span class="ident">res</span>);
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
+        <span class="comment">// return result
+        </span><span class="kw">let </span>closure = <span class="kw">async move </span>|| <span class="prelude-val">Ok</span>(res);
+        Box::pin(closure())
     }
 
-    <span class="kw">fn</span> <span class="ident">remove_staking_addresses</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Address</span><span class="op">&gt;</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident"><span class="kw">crate</span>::wrong_api</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>()
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_staking_addresses</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Set</span><span class="op">&lt;</span><span class="ident">Address</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident"><span class="kw">crate</span>::wrong_api</span>::<span class="op">&lt;</span><span class="ident">Set</span><span class="op">&lt;</span><span class="ident">Address</span><span class="op">&gt;</span><span class="op">&gt;</span>()
-    }
-
-    <span class="kw">fn</span> <span class="ident">ban</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">IpAddr</span><span class="op">&gt;</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident"><span class="kw">crate</span>::wrong_api</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>()
-    }
-
-    <span class="kw">fn</span> <span class="ident">unban</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">IpAddr</span><span class="op">&gt;</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="ident"><span class="kw">crate</span>::wrong_api</span>::<span class="op">&lt;</span>()<span class="op">&gt;</span>()
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_status</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NodeStatus</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">consensus_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">network_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">network_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">network_config</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">network_settings</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">version</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">version</span>;
-        <span class="kw">let</span> <span class="ident">consensus_settings</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_config</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">compensation_millis</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">compensation_millis</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pool_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">pool_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">node_id</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">node_id</span>;
-        <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">CompactConfig::default</span>();
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">now</span> <span class="op">=</span> <span class="ident">MassaTime::compensated_now</span>(<span class="ident">compensation_millis</span>)<span class="question-mark">?</span>;
-            <span class="kw">let</span> <span class="ident">last_slot</span> <span class="op">=</span> <span class="ident">get_latest_block_slot_at_timestamp</span>(
-                <span class="ident">consensus_settings</span>.<span class="ident">thread_count</span>,
-                <span class="ident">consensus_settings</span>.<span class="ident">t0</span>,
-                <span class="ident">consensus_settings</span>.<span class="ident">genesis_timestamp</span>,
-                <span class="ident">now</span>,
-            )<span class="question-mark">?</span>;
-
-            <span class="kw">let</span> (<span class="ident">consensus_stats</span>, <span class="ident">network_stats</span>, <span class="ident">pool_stats</span>, <span class="ident">peers</span>) <span class="op">=</span> <span class="macro">tokio::join!</span>(
-                <span class="ident">consensus_command_sender</span>.<span class="ident">get_stats</span>(),
-                <span class="ident">network_command_sender</span>.<span class="ident">get_network_stats</span>(),
-                <span class="ident">pool_command_sender</span>.<span class="ident">get_pool_stats</span>(),
-                <span class="ident">network_command_sender</span>.<span class="ident">get_peers</span>()
-            );
-            <span class="prelude-val">Ok</span>(<span class="ident">NodeStatus</span> {
-                <span class="ident">node_id</span>,
-                <span class="ident">node_ip</span>: <span class="ident">network_config</span>.<span class="ident">routable_ip</span>,
-                <span class="ident">version</span>,
-                <span class="ident">current_time</span>: <span class="ident">now</span>,
-                <span class="ident">connected_nodes</span>: <span class="ident">peers</span><span class="question-mark">?</span>
-                    .<span class="ident">peers</span>
-                    .<span class="ident">iter</span>()
-                    .<span class="ident">flat_map</span>(<span class="op">|</span>(<span class="ident">ip</span>, <span class="ident">peer</span>)<span class="op">|</span> <span class="ident">peer</span>.<span class="ident">active_nodes</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="kw">move</span> <span class="op">|</span>(<span class="ident">id</span>, <span class="kw">_</span>)<span class="op">|</span> (<span class="kw-2">*</span><span class="ident">id</span>, <span class="kw-2">*</span><span class="ident">ip</span>)))
-                    .<span class="ident">collect</span>(),
-                <span class="ident">last_slot</span>,
-                <span class="ident">next_slot</span>: <span class="ident">last_slot</span>
-                    .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Slot::new</span>(<span class="number">0</span>, <span class="number">0</span>))
-                    .<span class="ident">get_next_slot</span>(<span class="ident">consensus_settings</span>.<span class="ident">thread_count</span>)<span class="question-mark">?</span>,
-                <span class="ident">consensus_stats</span>: <span class="ident">consensus_stats</span><span class="question-mark">?</span>,
-                <span class="ident">network_stats</span>: <span class="ident">network_stats</span><span class="question-mark">?</span>,
-                <span class="ident">pool_stats</span>: <span class="ident">pool_stats</span><span class="question-mark">?</span>,
-
-                <span class="ident">config</span>,
-                <span class="ident">current_cycle</span>: <span class="ident">last_slot</span>
-                    .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Slot::new</span>(<span class="number">0</span>, <span class="number">0</span>))
-                    .<span class="ident">get_cycle</span>(<span class="ident">consensus_settings</span>.<span class="ident">periods_per_cycle</span>),
-            })
-        };
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_cliques</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Clique</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">consensus_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> <span class="prelude-val">Ok</span>(<span class="ident">consensus_command_sender</span>.<span class="ident">get_cliques</span>().<span class="kw">await</span><span class="question-mark">?</span>);
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_stakers</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Map</span><span class="op">&lt;</span><span class="ident">Address</span>, <span class="ident">u64</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">consensus_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> <span class="prelude-val">Ok</span>(<span class="ident">consensus_command_sender</span>.<span class="ident">get_active_stakers</span>().<span class="kw">await</span><span class="question-mark">?</span>);
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_operations</span>(
+    <span class="kw">fn </span>execute_read_only_call(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">ops</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">OperationId</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">OperationInfo</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">api_cfg</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">api_settings</span>;
-        <span class="kw">let</span> <span class="ident">consensus_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pool_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">pool_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="kw">if</span> <span class="ident">ops</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span> <span class="op">&gt;</span> <span class="ident">api_cfg</span>.<span class="ident">max_arguments</span> {
-                <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ApiError::TooManyArguments</span>(<span class="string">&quot;too many arguments&quot;</span>.<span class="ident">into</span>()));
-            }
+        reqs: Vec&lt;ReadOnlyCall&gt;,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;ExecuteReadOnlyResponse&gt;, ApiError&gt;&gt; {
+        <span class="kw">if </span>reqs.len() <span class="kw">as </span>u64 &gt; <span class="self">self</span>.<span class="number">0</span>.api_settings.max_arguments {
+            <span class="kw">let </span>closure =
+                <span class="kw">async move </span>|| <span class="prelude-val">Err</span>(ApiError::TooManyArguments(<span class="string">&quot;too many arguments&quot;</span>.into()));
+            <span class="kw">return </span>Box::pin(closure());
+        }
 
-            <span class="kw">let</span> <span class="ident">operation_ids</span>: <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">OperationId</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ops</span>.<span class="ident">iter</span>().<span class="ident">cloned</span>().<span class="ident">collect</span>();
-
-            <span class="comment">// simultaneously ask pool and consensus</span>
-            <span class="kw">let</span> (<span class="ident">pool_res</span>, <span class="ident">consensus_res</span>) <span class="op">=</span> <span class="macro">tokio::join!</span>(
-                <span class="ident">pool_command_sender</span>.<span class="ident">get_operations</span>(<span class="ident">operation_ids</span>.<span class="ident">clone</span>()),
-                <span class="ident">consensus_command_sender</span>.<span class="ident">get_operations</span>(<span class="ident">operation_ids</span>)
-            );
-            <span class="kw">let</span> (<span class="ident">pool_res</span>, <span class="ident">consensus_res</span>) <span class="op">=</span> (<span class="ident">pool_res</span><span class="question-mark">?</span>, <span class="ident">consensus_res</span><span class="question-mark">?</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">OperationId</span>, <span class="ident">OperationInfo</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Map::with_capacity_and_hasher</span>(
-                <span class="ident">pool_res</span>.<span class="ident">len</span>() <span class="op">+</span> <span class="ident">consensus_res</span>.<span class="ident">len</span>(),
-                <span class="ident">BuildMap::default</span>(),
-            );
-
-            <span class="comment">// add pool info</span>
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">pool_res</span>.<span class="ident">into_iter</span>().<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">id</span>, <span class="ident">operation</span>)<span class="op">|</span> {
-                (
-                    <span class="ident">id</span>,
-                    <span class="ident">OperationInfo</span> {
-                        <span class="ident">operation</span>,
-                        <span class="ident">in_pool</span>: <span class="bool-val">true</span>,
-                        <span class="ident">in_blocks</span>: <span class="ident">Vec::new</span>(),
-                        <span class="ident">id</span>,
-                        <span class="ident">is_final</span>: <span class="bool-val">false</span>,
-                    },
-                )
-            }));
-
-            <span class="comment">// add consensus info</span>
-            <span class="ident">consensus_res</span>.<span class="ident">into_iter</span>().<span class="ident">for_each</span>(<span class="op">|</span>(<span class="ident">op_id</span>, <span class="ident">search_new</span>)<span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">search_new</span> <span class="op">=</span> <span class="ident">OperationInfo</span> {
-                    <span class="ident">id</span>: <span class="ident">op_id</span>,
-                    <span class="ident">in_pool</span>: <span class="ident">search_new</span>.<span class="ident">in_pool</span>,
-                    <span class="ident">in_blocks</span>: <span class="ident">search_new</span>.<span class="ident">in_blocks</span>.<span class="ident">keys</span>().<span class="ident">copied</span>().<span class="ident">collect</span>(),
-                    <span class="ident">is_final</span>: <span class="ident">search_new</span>
-                        .<span class="ident">in_blocks</span>
-                        .<span class="ident">iter</span>()
-                        .<span class="ident">any</span>(<span class="op">|</span>(<span class="kw">_</span>, (<span class="kw">_</span>, <span class="ident">is_final</span>))<span class="op">|</span> <span class="kw-2">*</span><span class="ident">is_final</span>),
-                    <span class="ident">operation</span>: <span class="ident">search_new</span>.<span class="ident">op</span>,
-                };
-                <span class="ident">res</span>.<span class="ident">entry</span>(<span class="ident">op_id</span>)
-                    .<span class="ident">and_modify</span>(<span class="op">|</span><span class="ident">search_old</span><span class="op">|</span> <span class="ident">search_old</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span><span class="ident">search_new</span>))
-                    .<span class="ident">or_insert</span>(<span class="ident">search_new</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>res: Vec&lt;ExecuteReadOnlyResponse&gt; = Vec::with_capacity(reqs.len());
+        <span class="kw">for </span>ReadOnlyCall {
+            max_gas,
+            simulated_gas_price,
+            target_address,
+            target_function,
+            parameter,
+            caller_address,
+        } <span class="kw">in </span>reqs
+        {
+            <span class="kw">let </span>caller_address = caller_address.unwrap_or_else(|| {
+                <span class="comment">// if no addr provided, use a random one
+                </span>Address::from_public_key(<span class="kw-2">&amp;</span>KeyPair::generate().get_public_key())
             });
 
-            <span class="comment">// return values in the right order</span>
-            <span class="prelude-val">Ok</span>(<span class="ident">ops</span>
-                .<span class="ident">into_iter</span>()
-                .<span class="ident">filter_map</span>(<span class="op">|</span><span class="ident">op_id</span><span class="op">|</span> <span class="ident">res</span>.<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">op_id</span>))
-                .<span class="ident">collect</span>())
-        };
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
-    }
+            <span class="comment">// TODO:
+            // * set a maximum gas value for read-only executions to prevent attacks
+            // * stop mapping request and result, reuse execution&#39;s structures
+            // * remove async stuff
 
-    <span class="kw">fn</span> <span class="ident">get_endorsements</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">eds</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">EndorsementId</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">EndorsementInfo</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">consensus_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">pool_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">pool_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">mapped</span>: <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">EndorsementId</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">eds</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">consensus_command_sender</span>
-                .<span class="ident">get_endorsements_by_id</span>(<span class="ident">mapped</span>.<span class="ident">clone</span>())
-                .<span class="kw">await</span><span class="question-mark">?</span>;
-            <span class="kw">for</span> (<span class="ident">id</span>, <span class="ident">endorsement</span>) <span class="kw">in</span> <span class="ident">pool_command_sender</span>.<span class="ident">get_endorsements_by_id</span>(<span class="ident">mapped</span>).<span class="kw">await</span><span class="question-mark">?</span> {
-                <span class="ident">res</span>.<span class="ident">entry</span>(<span class="ident">id</span>)
-                    .<span class="ident">and_modify</span>(<span class="op">|</span><span class="ident">EndorsementInfo</span> { <span class="ident">in_pool</span>, .. }<span class="op">|</span> <span class="kw-2">*</span><span class="ident">in_pool</span> <span class="op">=</span> <span class="bool-val">true</span>)
-                    .<span class="ident">or_insert</span>(<span class="ident">EndorsementInfo</span> {
-                        <span class="ident">id</span>,
-                        <span class="ident">in_pool</span>: <span class="bool-val">true</span>,
-                        <span class="ident">in_blocks</span>: <span class="macro">vec!</span>[],
-                        <span class="ident">is_final</span>: <span class="bool-val">false</span>,
-                        <span class="ident">endorsement</span>,
-                    });
-            }
-            <span class="prelude-val">Ok</span>(<span class="ident">res</span>.<span class="ident">values</span>().<span class="ident">cloned</span>().<span class="ident">collect</span>())
-        };
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
-    }
+            // translate request
+            </span><span class="kw">let </span>req = ReadOnlyExecutionRequest {
+                max_gas,
+                simulated_gas_price,
+                target: ReadOnlyExecutionTarget::FunctionCall {
+                    target_func: target_function,
+                    target_addr: target_address,
+                    parameter,
+                },
+                call_stack: <span class="macro">vec!</span>[
+                    ExecutionStackElement {
+                        address: caller_address,
+                        coins: Default::default(),
+                        owned_addresses: <span class="macro">vec!</span>[caller_address],
+                    },
+                    ExecutionStackElement {
+                        address: target_address,
+                        coins: Default::default(),
+                        owned_addresses: <span class="macro">vec!</span>[target_address],
+                    },
+                ],
+            };
 
-    <span class="doccomment">/// gets a block. Returns None if not found</span>
-    <span class="doccomment">/// only active blocks are returned</span>
-    <span class="kw">fn</span> <span class="ident">get_block</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">id</span>: <span class="ident">BlockId</span>) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">BlockInfo</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">consensus_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">cliques</span> <span class="op">=</span> <span class="ident">consensus_command_sender</span>.<span class="ident">get_cliques</span>().<span class="kw">await</span><span class="question-mark">?</span>;
-            <span class="kw">let</span> <span class="ident">blockclique</span> <span class="op">=</span> <span class="ident">cliques</span>
-                .<span class="ident">iter</span>()
-                .<span class="ident">find</span>(<span class="op">|</span><span class="ident">clique</span><span class="op">|</span> <span class="ident">clique</span>.<span class="ident">is_blockclique</span>)
-                .<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">ApiError::InconsistencyError</span>(<span class="string">&quot;Missing block clique&quot;</span>.<span class="ident">to_string</span>()))<span class="question-mark">?</span>;
+            <span class="comment">// run
+            </span><span class="kw">let </span>result = <span class="self">self</span>.<span class="number">0</span>.execution_controller.execute_readonly_request(req);
 
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">block</span>, <span class="ident">is_final</span>)) <span class="op">=</span>
-                <span class="kw">match</span> <span class="ident">consensus_command_sender</span>.<span class="ident">get_block_status</span>(<span class="ident">id</span>).<span class="kw">await</span><span class="question-mark">?</span> {
-                    <span class="prelude-val">Some</span>(<span class="ident">ExportBlockStatus::Active</span>(<span class="ident">block</span>)) =&gt; <span class="prelude-val">Some</span>((<span class="ident">block</span>, <span class="bool-val">false</span>)),
-                    <span class="prelude-val">Some</span>(<span class="ident">ExportBlockStatus::Incoming</span>) =&gt; <span class="prelude-val">None</span>,
-                    <span class="prelude-val">Some</span>(<span class="ident">ExportBlockStatus::WaitingForSlot</span>) =&gt; <span class="prelude-val">None</span>,
-                    <span class="prelude-val">Some</span>(<span class="ident">ExportBlockStatus::WaitingForDependencies</span>) =&gt; <span class="prelude-val">None</span>,
-                    <span class="prelude-val">Some</span>(<span class="ident">ExportBlockStatus::Discarded</span>(<span class="kw">_</span>)) =&gt; <span class="prelude-val">None</span>, <span class="comment">// TODO: get block if stale</span>
-                    <span class="prelude-val">Some</span>(<span class="ident">ExportBlockStatus::Final</span>(<span class="ident">block</span>)) =&gt; <span class="prelude-val">Some</span>((<span class="ident">block</span>, <span class="bool-val">true</span>)),
-                    <span class="prelude-val">None</span> =&gt; <span class="prelude-val">None</span>,
-                }
-            {
-                <span class="prelude-val">Ok</span>(<span class="ident">BlockInfo</span> {
-                    <span class="ident">id</span>,
-                    <span class="ident">content</span>: <span class="prelude-val">Some</span>(<span class="ident">BlockInfoContent</span> {
-                        <span class="ident">is_final</span>,
-                        <span class="ident">is_stale</span>: <span class="bool-val">false</span>,
-                        <span class="ident">is_in_blockclique</span>: <span class="ident">blockclique</span>.<span class="ident">block_ids</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">id</span>),
-                        <span class="ident">block</span>,
-                    }),
-                })
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Ok</span>(<span class="ident">BlockInfo</span> { <span class="ident">id</span>, <span class="ident">content</span>: <span class="prelude-val">None</span> })
-            }
-        };
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
-    }
-
-    <span class="doccomment">/// gets an interval of the block graph from consensus, with time filtering</span>
-    <span class="doccomment">/// time filtering is done consensus-side to prevent communication overhead</span>
-    <span class="kw">fn</span> <span class="ident">get_graph_interval</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">time</span>: <span class="ident">TimeInterval</span>,
-    ) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">BlockSummary</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">consensus_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">consensus_settings</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_config</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="comment">// filter blocks from graph_export</span>
-            <span class="kw">let</span> (<span class="ident">start_slot</span>, <span class="ident">end_slot</span>) <span class="op">=</span> <span class="ident">time_range_to_slot_range</span>(
-                <span class="ident">consensus_settings</span>.<span class="ident">thread_count</span>,
-                <span class="ident">consensus_settings</span>.<span class="ident">t0</span>,
-                <span class="ident">consensus_settings</span>.<span class="ident">genesis_timestamp</span>,
-                <span class="ident">time</span>.<span class="ident">start</span>,
-                <span class="ident">time</span>.<span class="ident">end</span>,
-            )<span class="question-mark">?</span>;
-            <span class="kw">let</span> <span class="ident">graph</span> <span class="op">=</span> <span class="ident">consensus_command_sender</span>
-                .<span class="ident">get_block_graph_status</span>(<span class="ident">start_slot</span>, <span class="ident">end_slot</span>)
-                .<span class="kw">await</span><span class="question-mark">?</span>;
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">Vec::with_capacity</span>(<span class="ident">graph</span>.<span class="ident">active_blocks</span>.<span class="ident">len</span>());
-            <span class="kw">let</span> <span class="ident">blockclique</span> <span class="op">=</span> <span class="ident">graph</span>
-                .<span class="ident">max_cliques</span>
-                .<span class="ident">iter</span>()
-                .<span class="ident">find</span>(<span class="op">|</span><span class="ident">clique</span><span class="op">|</span> <span class="ident">clique</span>.<span class="ident">is_blockclique</span>)
-                .<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">ApiError::InconsistencyError</span>(<span class="string">&quot;missing blockclique&quot;</span>.<span class="ident">to_string</span>()))<span class="question-mark">?</span>;
-            <span class="kw">for</span> (<span class="ident">id</span>, <span class="ident">exported_block</span>) <span class="kw">in</span> <span class="ident">graph</span>.<span class="ident">active_blocks</span>.<span class="ident">into_iter</span>() {
-                <span class="ident">res</span>.<span class="ident">push</span>(<span class="ident">BlockSummary</span> {
-                    <span class="ident">id</span>,
-                    <span class="ident">is_final</span>: <span class="ident">exported_block</span>.<span class="ident">is_final</span>,
-                    <span class="ident">is_stale</span>: <span class="bool-val">false</span>,
-                    <span class="ident">is_in_blockclique</span>: <span class="ident">blockclique</span>.<span class="ident">block_ids</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">id</span>),
-                    <span class="ident">slot</span>: <span class="ident">exported_block</span>.<span class="ident">header</span>.<span class="ident">content</span>.<span class="ident">slot</span>,
-                    <span class="ident">creator</span>: <span class="ident">Address::from_public_key</span>(<span class="kw-2">&amp;</span><span class="ident">exported_block</span>.<span class="ident">header</span>.<span class="ident">content</span>.<span class="ident">creator</span>),
-                    <span class="ident">parents</span>: <span class="ident">exported_block</span>.<span class="ident">header</span>.<span class="ident">content</span>.<span class="ident">parents</span>,
-                });
-            }
-            <span class="kw">for</span> (<span class="ident">id</span>, (<span class="ident">reason</span>, <span class="ident">header</span>)) <span class="kw">in</span> <span class="ident">graph</span>.<span class="ident">discarded_blocks</span>.<span class="ident">into_iter</span>() {
-                <span class="kw">if</span> <span class="ident">reason</span> <span class="op">==</span> <span class="ident">DiscardReason::Stale</span> {
-                    <span class="ident">res</span>.<span class="ident">push</span>(<span class="ident">BlockSummary</span> {
-                        <span class="ident">id</span>,
-                        <span class="ident">is_final</span>: <span class="bool-val">false</span>,
-                        <span class="ident">is_stale</span>: <span class="bool-val">true</span>,
-                        <span class="ident">is_in_blockclique</span>: <span class="bool-val">false</span>,
-                        <span class="ident">slot</span>: <span class="ident">header</span>.<span class="ident">content</span>.<span class="ident">slot</span>,
-                        <span class="ident">creator</span>: <span class="ident">Address::from_public_key</span>(<span class="kw-2">&amp;</span><span class="ident">header</span>.<span class="ident">content</span>.<span class="ident">creator</span>),
-                        <span class="ident">parents</span>: <span class="ident">header</span>.<span class="ident">content</span>.<span class="ident">parents</span>,
-                    });
-                }
-            }
-            <span class="prelude-val">Ok</span>(<span class="ident">res</span>)
-        };
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
-    }
-
-    <span class="kw">fn</span> <span class="ident">get_addresses</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">addresses</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Address</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">AddressInfo</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">cmd_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">cfg</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">consensus_config</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">api_cfg</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">api_settings</span>;
-        <span class="kw">let</span> <span class="ident">pool_command_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">pool_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">execution_controller</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">execution_controller</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">compensation_millis</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">compensation_millis</span>;
-
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">Vec::with_capacity</span>(<span class="ident">addresses</span>.<span class="ident">len</span>());
-
-            <span class="comment">// check for address length</span>
-            <span class="kw">if</span> <span class="ident">addresses</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span> <span class="op">&gt;</span> <span class="ident">api_cfg</span>.<span class="ident">max_arguments</span> {
-                <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ApiError::TooManyArguments</span>(<span class="string">&quot;too many arguments&quot;</span>.<span class="ident">into</span>()));
-            }
-            <span class="comment">// next draws info</span>
-            <span class="kw">let</span> <span class="ident">now</span> <span class="op">=</span> <span class="ident">MassaTime::compensated_now</span>(<span class="ident">compensation_millis</span>)<span class="question-mark">?</span>;
-            <span class="kw">let</span> <span class="ident">current_slot</span> <span class="op">=</span> <span class="ident">get_latest_block_slot_at_timestamp</span>(
-                <span class="ident">cfg</span>.<span class="ident">thread_count</span>,
-                <span class="ident">cfg</span>.<span class="ident">t0</span>,
-                <span class="ident">cfg</span>.<span class="ident">genesis_timestamp</span>,
-                <span class="ident">now</span>,
-            )<span class="question-mark">?</span>
-            .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Slot::new</span>(<span class="number">0</span>, <span class="number">0</span>));
-            <span class="kw">let</span> <span class="ident">next_draws</span> <span class="op">=</span> <span class="ident">cmd_sender</span>.<span class="ident">get_selection_draws</span>(
-                <span class="ident">current_slot</span>,
-                <span class="ident">Slot::new</span>(
-                    <span class="ident">current_slot</span>.<span class="ident">period</span> <span class="op">+</span> <span class="ident">api_cfg</span>.<span class="ident">draw_lookahead_period_count</span>,
-                    <span class="ident">current_slot</span>.<span class="ident">thread</span>,
+            <span class="comment">// map result
+            </span><span class="kw">let </span>result = ExecuteReadOnlyResponse {
+                executed_at: result.as_ref().map_or_else(|<span class="kw">_</span>| Slot::new(<span class="number">0</span>, <span class="number">0</span>), |v| v.slot),
+                result: result.as_ref().map_or_else(
+                    |err| ReadOnlyResult::Error(<span class="macro">format!</span>(<span class="string">&quot;readonly call failed: {}&quot;</span>, err)),
+                    |<span class="kw">_</span>| ReadOnlyResult::Ok,
                 ),
+                output_events: result.map_or_else(|<span class="kw">_</span>| Default::default(), |<span class="kw-2">mut </span>v| v.events.take()),
+            };
+
+            res.push(result);
+        }
+
+        <span class="comment">// return result
+        </span><span class="kw">let </span>closure = <span class="kw">async move </span>|| <span class="prelude-val">Ok</span>(res);
+        Box::pin(closure())
+    }
+
+    <span class="kw">fn </span>remove_staking_addresses(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;Address&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
+    }
+
+    <span class="kw">fn </span>get_staking_addresses(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;PreHashSet&lt;Address&gt;, ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;PreHashSet&lt;Address&gt;&gt;()
+    }
+
+    <span class="kw">fn </span>node_ban_by_ip(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;IpAddr&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
+    }
+
+    <span class="kw">fn </span>node_ban_by_id(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;NodeId&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
+    }
+
+    <span class="kw">fn </span>node_unban_by_ip(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;IpAddr&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
+    }
+
+    <span class="kw">fn </span>node_unban_by_id(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;NodeId&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
+    }
+
+    <span class="kw">fn </span>get_status(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;NodeStatus, ApiError&gt;&gt; {
+        <span class="kw">let </span>execution_controller = <span class="self">self</span>.<span class="number">0</span>.execution_controller.clone();
+        <span class="kw">let </span>consensus_command_sender = <span class="self">self</span>.<span class="number">0</span>.consensus_command_sender.clone();
+        <span class="kw">let </span>network_command_sender = <span class="self">self</span>.<span class="number">0</span>.network_command_sender.clone();
+        <span class="kw">let </span>network_config = <span class="self">self</span>.<span class="number">0</span>.network_settings.clone();
+        <span class="kw">let </span>version = <span class="self">self</span>.<span class="number">0</span>.version;
+        <span class="kw">let </span>consensus_settings = <span class="self">self</span>.<span class="number">0</span>.consensus_config.clone();
+        <span class="kw">let </span>compensation_millis = <span class="self">self</span>.<span class="number">0</span>.compensation_millis;
+        <span class="kw">let </span>pool_command_sender = <span class="self">self</span>.<span class="number">0</span>.pool_command_sender.clone();
+        <span class="kw">let </span>node_id = <span class="self">self</span>.<span class="number">0</span>.node_id;
+        <span class="kw">let </span>config = CompactConfig::default();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="kw">let </span>now = MassaTime::now(compensation_millis)<span class="question-mark">?</span>;
+            <span class="kw">let </span>last_slot = get_latest_block_slot_at_timestamp(
+                consensus_settings.thread_count,
+                consensus_settings.t0,
+                consensus_settings.genesis_timestamp,
+                now,
+            )<span class="question-mark">?</span>;
+
+            <span class="kw">let </span>execution_stats = execution_controller.get_stats();
+
+            <span class="kw">let </span>(consensus_stats, network_stats, peers) = <span class="macro">tokio::join!</span>(
+                consensus_command_sender.get_stats(),
+                network_command_sender.get_network_stats(),
+                network_command_sender.get_peers()
             );
 
-            <span class="comment">// roll and balance info</span>
-            <span class="kw">let</span> <span class="ident">states</span> <span class="op">=</span> <span class="ident">cmd_sender</span>.<span class="ident">get_addresses_info</span>(<span class="ident">addresses</span>.<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">collect</span>());
+            <span class="kw">let </span>pool_stats = (
+                pool_command_sender.get_operation_count(),
+                pool_command_sender.get_endorsement_count(),
+            );
 
-            <span class="comment">// wait for both simultaneously</span>
-            <span class="kw">let</span> (<span class="ident">next_draws</span>, <span class="ident">states</span>) <span class="op">=</span> <span class="macro">tokio::join!</span>(<span class="ident">next_draws</span>, <span class="ident">states</span>);
-            <span class="kw">let</span> (<span class="ident">next_draws</span>, <span class="kw-2">mut</span> <span class="ident">states</span>) <span class="op">=</span> (<span class="ident">next_draws</span><span class="question-mark">?</span>, <span class="ident">states</span><span class="question-mark">?</span>);
+            <span class="prelude-val">Ok</span>(NodeStatus {
+                node_id,
+                node_ip: network_config.routable_ip,
+                version,
+                current_time: now,
+                connected_nodes: peers<span class="question-mark">?
+                    </span>.peers
+                    .iter()
+                    .flat_map(|(ip, peer)| {
+                        peer.active_nodes
+                            .iter()
+                            .map(<span class="kw">move </span>|(id, is_outgoing)| (<span class="kw-2">*</span>id, (<span class="kw-2">*</span>ip, <span class="kw-2">*</span>is_outgoing)))
+                    })
+                    .collect(),
+                last_slot,
+                next_slot: last_slot
+                    .unwrap_or_else(|| Slot::new(<span class="number">0</span>, <span class="number">0</span>))
+                    .get_next_slot(consensus_settings.thread_count)<span class="question-mark">?</span>,
+                execution_stats,
+                consensus_stats: consensus_stats<span class="question-mark">?</span>,
+                network_stats: network_stats<span class="question-mark">?</span>,
+                pool_stats,
+                config,
+                current_cycle: last_slot
+                    .unwrap_or_else(|| Slot::new(<span class="number">0</span>, <span class="number">0</span>))
+                    .get_cycle(consensus_settings.periods_per_cycle),
+            })
+        };
+        Box::pin(closure())
+    }
 
-            <span class="comment">// operations block and endorsement info</span>
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">operations</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">Address</span>, <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">OperationId</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Map::with_capacity_and_hasher</span>(<span class="ident">addresses</span>.<span class="ident">len</span>(), <span class="ident">BuildMap::default</span>());
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">blocks</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">Address</span>, <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">BlockId</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Map::with_capacity_and_hasher</span>(<span class="ident">addresses</span>.<span class="ident">len</span>(), <span class="ident">BuildMap::default</span>());
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">endorsements</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">Address</span>, <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">EndorsementId</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Map::with_capacity_and_hasher</span>(<span class="ident">addresses</span>.<span class="ident">len</span>(), <span class="ident">BuildMap::default</span>());
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">final_sce_ledger_info</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">Address</span>, <span class="ident">SCELedgerInfo</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Map::with_capacity_and_hasher</span>(<span class="ident">addresses</span>.<span class="ident">len</span>(), <span class="ident">BuildMap::default</span>());
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">candidate_sce_ledger_info</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">Address</span>, <span class="ident">SCELedgerInfo</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Map::with_capacity_and_hasher</span>(<span class="ident">addresses</span>.<span class="ident">len</span>(), <span class="ident">BuildMap::default</span>());
+    <span class="kw">fn </span>get_cliques(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;Clique&gt;, ApiError&gt;&gt; {
+        <span class="kw">let </span>consensus_command_sender = <span class="self">self</span>.<span class="number">0</span>.consensus_command_sender.clone();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| <span class="prelude-val">Ok</span>(consensus_command_sender.get_cliques().<span class="kw">await</span><span class="question-mark">?</span>);
+        Box::pin(closure())
+    }
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">concurrent_getters</span> <span class="op">=</span> <span class="ident">FuturesUnordered::new</span>();
-            <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="ident">address</span> <span class="kw">in</span> <span class="ident">addresses</span>.<span class="ident">iter</span>() {
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pool_cmd_snd</span> <span class="op">=</span> <span class="ident">pool_command_sender</span>.<span class="ident">clone</span>();
-                <span class="kw">let</span> <span class="ident">cmd_snd</span> <span class="op">=</span> <span class="ident">cmd_sender</span>.<span class="ident">clone</span>();
-                <span class="kw">let</span> <span class="ident">exec_snd</span> <span class="op">=</span> <span class="ident">execution_controller</span>.<span class="ident">clone</span>();
-                <span class="ident">concurrent_getters</span>.<span class="ident">push</span>(<span class="kw">async</span> <span class="kw">move</span> {
-                    <span class="kw">let</span> <span class="ident">blocks</span> <span class="op">=</span> <span class="ident">cmd_snd</span>
-                        .<span class="ident">get_block_ids_by_creator</span>(<span class="ident">address</span>)
-                        .<span class="kw">await</span><span class="question-mark">?</span>
-                        .<span class="ident">into_keys</span>()
-                        .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Set</span><span class="op">&lt;</span><span class="ident">BlockId</span><span class="op">&gt;</span><span class="op">&gt;</span>();
+    <span class="kw">fn </span>get_stakers(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;(Address, u64)&gt;, ApiError&gt;&gt; {
+        <span class="kw">let </span>execution_controller = <span class="self">self</span>.<span class="number">0</span>.execution_controller.clone();
+        <span class="kw">let </span>cfg = <span class="self">self</span>.<span class="number">0</span>.consensus_config.clone();
+        <span class="kw">let </span>compensation_millis = <span class="self">self</span>.<span class="number">0</span>.compensation_millis;
 
-                    <span class="kw">let</span> <span class="ident">get_pool_ops</span> <span class="op">=</span> <span class="ident">pool_cmd_snd</span>.<span class="ident">get_operations_involving_address</span>(<span class="ident">address</span>);
-                    <span class="kw">let</span> <span class="ident">get_consensus_ops</span> <span class="op">=</span> <span class="ident">cmd_snd</span>.<span class="ident">get_operations_involving_address</span>(<span class="ident">address</span>);
-                    <span class="kw">let</span> (<span class="ident">get_pool_ops</span>, <span class="ident">get_consensus_ops</span>) <span class="op">=</span>
-                        <span class="macro">tokio::join!</span>(<span class="ident">get_pool_ops</span>, <span class="ident">get_consensus_ops</span>);
-                    <span class="kw">let</span> <span class="ident">gathered</span>: <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">OperationId</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">get_pool_ops</span><span class="question-mark">?</span>
-                        .<span class="ident">into_keys</span>()
-                        .<span class="ident">chain</span>(<span class="ident">get_consensus_ops</span><span class="question-mark">?</span>.<span class="ident">into_keys</span>())
-                        .<span class="ident">collect</span>();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="kw">let </span>curr_cycle = get_latest_block_slot_at_timestamp(
+                cfg.thread_count,
+                cfg.t0,
+                cfg.genesis_timestamp,
+                MassaTime::now(compensation_millis)<span class="question-mark">?</span>,
+            )<span class="question-mark">?
+            </span>.unwrap_or_else(|| Slot::new(<span class="number">0</span>, <span class="number">0</span>))
+            .get_cycle(cfg.periods_per_cycle);
+            <span class="kw">let </span><span class="kw-2">mut </span>staker_vec = execution_controller
+                .get_cycle_active_rolls(curr_cycle)
+                .into_iter()
+                .collect::&lt;Vec&lt;(Address, u64)&gt;&gt;();
+            staker_vec.sort_by_key(|(<span class="kw">_</span>, rolls)| <span class="kw-2">*</span>rolls);
+            <span class="prelude-val">Ok</span>(staker_vec)
+        };
+        Box::pin(closure())
+    }
 
-                    <span class="kw">let</span> <span class="ident">get_pool_eds</span> <span class="op">=</span> <span class="ident">pool_cmd_snd</span>.<span class="ident">get_endorsements_by_address</span>(<span class="ident">address</span>);
-                    <span class="kw">let</span> <span class="ident">get_consensus_eds</span> <span class="op">=</span> <span class="ident">cmd_snd</span>.<span class="ident">get_endorsements_by_address</span>(<span class="ident">address</span>);
-                    <span class="kw">let</span> (<span class="ident">get_pool_eds</span>, <span class="ident">get_consensus_eds</span>) <span class="op">=</span>
-                        <span class="macro">tokio::join!</span>(<span class="ident">get_pool_eds</span>, <span class="ident">get_consensus_eds</span>);
-                    <span class="kw">let</span> <span class="ident">gathered_ed</span>: <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">EndorsementId</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">get_pool_eds</span><span class="question-mark">?</span>
-                        .<span class="ident">into_keys</span>()
-                        .<span class="ident">chain</span>(<span class="ident">get_consensus_eds</span><span class="question-mark">?</span>.<span class="ident">into_keys</span>())
-                        .<span class="ident">collect</span>();
-
-                    <span class="kw">let</span> (<span class="ident">final_sce</span>, <span class="ident">candidate_sce</span>) <span class="op">=</span>
-                        <span class="kw">match</span> <span class="ident">exec_snd</span>.<span class="ident">get_final_and_active_ledger_entry</span>(<span class="kw-2">&amp;</span><span class="ident">address</span>) {
-                            (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; (<span class="ident">SCELedgerInfo::default</span>(), <span class="ident">SCELedgerInfo::default</span>()),
-                            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">candidate</span>)) =&gt; (
-                                <span class="ident">SCELedgerInfo::default</span>(),
-                                <span class="ident">SCELedgerInfo</span> {
-                                    <span class="ident">balance</span>: <span class="ident">candidate</span>.<span class="ident">parallel_balance</span>,
-                                    <span class="ident">module</span>: <span class="ident">candidate</span>.<span class="ident">bytecode</span>,
-                                    <span class="ident">datastore</span>: <span class="ident">candidate</span>.<span class="ident">datastore</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>(),
-                                },
-                            ),
-                            (<span class="prelude-val">Some</span>(<span class="ident">final_entry</span>), <span class="prelude-val">None</span>) =&gt; (
-                                <span class="ident">SCELedgerInfo</span> {
-                                    <span class="ident">balance</span>: <span class="ident">final_entry</span>.<span class="ident">parallel_balance</span>,
-                                    <span class="ident">module</span>: <span class="ident">final_entry</span>.<span class="ident">bytecode</span>,
-                                    <span class="ident">datastore</span>: <span class="ident">final_entry</span>.<span class="ident">datastore</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>(),
-                                },
-                                <span class="ident">SCELedgerInfo::default</span>(),
-                            ),
-                            (<span class="prelude-val">Some</span>(<span class="ident">final_entry</span>), <span class="prelude-val">Some</span>(<span class="ident">candidate</span>)) =&gt; (
-                                <span class="ident">SCELedgerInfo</span> {
-                                    <span class="ident">balance</span>: <span class="ident">final_entry</span>.<span class="ident">parallel_balance</span>,
-                                    <span class="ident">module</span>: <span class="ident">final_entry</span>.<span class="ident">bytecode</span>,
-                                    <span class="ident">datastore</span>: <span class="ident">final_entry</span>.<span class="ident">datastore</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>(),
-                                },
-                                <span class="ident">SCELedgerInfo</span> {
-                                    <span class="ident">balance</span>: <span class="ident">candidate</span>.<span class="ident">parallel_balance</span>,
-                                    <span class="ident">module</span>: <span class="ident">candidate</span>.<span class="ident">bytecode</span>,
-                                    <span class="ident">datastore</span>: <span class="ident">candidate</span>.<span class="ident">datastore</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>(),
-                                },
-                            ),
-                        };
-
-                    <span class="prelude-ty">Result</span>::<span class="op">&lt;</span>
+    <span class="kw">fn </span>get_operations(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        ops: Vec&lt;OperationId&gt;,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;OperationInfo&gt;, ApiError&gt;&gt; {
+        <span class="comment">// get the operations and the list of blocks that contain them from storage
+        </span><span class="kw">let </span>storage_info: Vec&lt;(WrappedOperation, PreHashSet&lt;BlockId&gt;)&gt; = {
+            <span class="kw">let </span>read_blocks = <span class="self">self</span>.<span class="number">0</span>.storage.read_blocks();
+            <span class="kw">let </span>read_ops = <span class="self">self</span>.<span class="number">0</span>.storage.read_operations();
+            ops.iter()
+                .filter_map(|id| {
+                    read_ops.get(id).cloned().map(|op| {
                         (
-                            <span class="ident">Address</span>,
-                            <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">BlockId</span><span class="op">&gt;</span>,
-                            <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">OperationId</span><span class="op">&gt;</span>,
-                            <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">EndorsementId</span><span class="op">&gt;</span>,
-                            <span class="ident">SCELedgerInfo</span>,
-                            <span class="ident">SCELedgerInfo</span>,
-                        ),
-                        <span class="ident">ApiError</span>,
-                    <span class="op">&gt;</span><span class="ident">::Ok</span>((
-                        <span class="ident">address</span>,
-                        <span class="ident">blocks</span>,
-                        <span class="ident">gathered</span>,
-                        <span class="ident">gathered_ed</span>,
-                        <span class="ident">final_sce</span>,
-                        <span class="ident">candidate_sce</span>,
-                    ))
+                            op,
+                            read_blocks
+                                .get_blocks_by_operation(id)
+                                .cloned()
+                                .unwrap_or_default(),
+                        )
+                    })
+                })
+                .collect()
+        };
+
+        <span class="comment">// keep only the ops found in storage
+        </span><span class="kw">let </span>ops: Vec&lt;OperationId&gt; = storage_info.iter().map(|(op, <span class="kw">_</span>)| op.id).collect();
+
+        <span class="comment">// ask pool whether it carries the operations
+        </span><span class="kw">let </span>in_pool = <span class="self">self</span>.<span class="number">0</span>.pool_command_sender.contains_operations(<span class="kw-2">&amp;</span>ops);
+
+        <span class="kw">let </span>api_cfg = <span class="self">self</span>.<span class="number">0</span>.api_settings;
+        <span class="kw">let </span>consensus_command_sender = <span class="self">self</span>.<span class="number">0</span>.consensus_command_sender.clone();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="kw">if </span>ops.len() <span class="kw">as </span>u64 &gt; api_cfg.max_arguments {
+                <span class="kw">return </span><span class="prelude-val">Err</span>(ApiError::TooManyArguments(<span class="string">&quot;too many arguments&quot;</span>.into()));
+            }
+
+            <span class="comment">// check finality by cross-referencing Consensus and looking for final blocks that contain the op
+            </span><span class="kw">let </span>is_final: Vec&lt;bool&gt; = {
+                <span class="kw">let </span>involved_blocks: Vec&lt;BlockId&gt; = storage_info
+                    .iter()
+                    .flat_map(|(_op, bs)| bs.iter())
+                    .unique()
+                    .cloned()
+                    .collect();
+                <span class="kw">let </span>involved_block_statuses = consensus_command_sender
+                    .get_block_statuses(<span class="kw-2">&amp;</span>involved_blocks)
+                    .<span class="kw">await</span><span class="question-mark">?</span>;
+                <span class="kw">let </span>block_statuses: PreHashMap&lt;BlockId, BlockGraphStatus&gt; = involved_blocks
+                    .into_iter()
+                    .zip(involved_block_statuses.into_iter())
+                    .collect();
+                storage_info
+                    .iter()
+                    .map(|(_op, bs)| {
+                        bs.iter()
+                            .any(|b| block_statuses.get(b) == <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>BlockGraphStatus::Final))
+                    })
+                    .collect()
+            };
+
+            <span class="comment">// gather all values into a vector of OperationInfo instances
+            </span><span class="kw">let </span><span class="kw-2">mut </span>res: Vec&lt;OperationInfo&gt; = Vec::with_capacity(ops.len());
+            <span class="kw">let </span>zipped_iterator = <span class="macro">izip!</span>(
+                ops.into_iter(),
+                storage_info.into_iter(),
+                in_pool.into_iter(),
+                is_final.into_iter()
+            );
+            <span class="kw">for </span>(id, (operation, in_blocks), in_pool, is_final) <span class="kw">in </span>zipped_iterator {
+                res.push(OperationInfo {
+                    id,
+                    operation,
+                    in_pool,
+                    is_final,
+                    in_blocks: in_blocks.into_iter().collect(),
                 });
             }
-            <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">res</span>) <span class="op">=</span> <span class="ident">concurrent_getters</span>.<span class="ident">next</span>().<span class="kw">await</span> {
-                <span class="kw">let</span> (<span class="ident">a</span>, <span class="ident">bl_set</span>, <span class="ident">op_set</span>, <span class="ident">ed_set</span>, <span class="ident">final_sce</span>, <span class="ident">candidate_sce</span>) <span class="op">=</span> <span class="ident">res</span><span class="question-mark">?</span>;
-                <span class="ident">operations</span>.<span class="ident">insert</span>(<span class="ident">a</span>, <span class="ident">op_set</span>);
-                <span class="ident">blocks</span>.<span class="ident">insert</span>(<span class="ident">a</span>, <span class="ident">bl_set</span>);
-                <span class="ident">endorsements</span>.<span class="ident">insert</span>(<span class="ident">a</span>, <span class="ident">ed_set</span>);
-                <span class="ident">final_sce_ledger_info</span>.<span class="ident">insert</span>(<span class="ident">a</span>, <span class="ident">final_sce</span>);
-                <span class="ident">candidate_sce_ledger_info</span>.<span class="ident">insert</span>(<span class="ident">a</span>, <span class="ident">candidate_sce</span>);
-            }
 
-            <span class="comment">// compile everything per address</span>
-            <span class="kw">for</span> <span class="ident">address</span> <span class="kw">in</span> <span class="ident">addresses</span>.<span class="ident">into_iter</span>() {
-                <span class="kw">let</span> <span class="ident">state</span> <span class="op">=</span> <span class="ident">states</span>.<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">address</span>).<span class="ident">ok_or</span>(<span class="ident">ApiError::NotFound</span>)<span class="question-mark">?</span>;
-                <span class="ident">res</span>.<span class="ident">push</span>(<span class="ident">AddressInfo</span> {
-                    <span class="ident">address</span>,
-                    <span class="ident">thread</span>: <span class="ident">address</span>.<span class="ident">get_thread</span>(<span class="ident">cfg</span>.<span class="ident">thread_count</span>),
-                    <span class="ident">ledger_info</span>: <span class="ident">state</span>.<span class="ident">ledger_info</span>,
-                    <span class="ident">rolls</span>: <span class="ident">state</span>.<span class="ident">rolls</span>,
-                    <span class="ident">block_draws</span>: <span class="ident">next_draws</span>
-                        .<span class="ident">iter</span>()
-                        .<span class="ident">filter</span>(<span class="op">|</span>(<span class="kw">_</span>, (<span class="ident">ad</span>, <span class="kw">_</span>))<span class="op">|</span> <span class="kw-2">*</span><span class="ident">ad</span> <span class="op">==</span> <span class="ident">address</span>)
-                        .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">slot</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="kw-2">*</span><span class="ident">slot</span>)
-                        .<span class="ident">collect</span>(),
-                    <span class="ident">endorsement_draws</span>: <span class="ident">next_draws</span>
-                        .<span class="ident">iter</span>()
-                        .<span class="ident">flat_map</span>(<span class="op">|</span>(<span class="ident">slot</span>, (<span class="kw">_</span>, <span class="ident">addrs</span>))<span class="op">|</span> {
-                            <span class="ident">addrs</span>.<span class="ident">iter</span>().<span class="ident">enumerate</span>().<span class="ident">filter_map</span>(<span class="op">|</span>(<span class="ident">index</span>, <span class="ident">ad</span>)<span class="op">|</span> {
-                                <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">ad</span> <span class="op">==</span> <span class="ident">address</span> {
-                                    <span class="prelude-val">Some</span>(<span class="ident">IndexedSlot</span> { <span class="ident">slot</span>: <span class="kw-2">*</span><span class="ident">slot</span>, <span class="ident">index</span> })
-                                } <span class="kw">else</span> {
-                                    <span class="prelude-val">None</span>
-                                }
-                            })
-                        })
-                        .<span class="ident">collect</span>(),
-                    <span class="ident">blocks_created</span>: <span class="ident">blocks</span>.<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">address</span>).<span class="ident">ok_or</span>(<span class="ident">ApiError::NotFound</span>)<span class="question-mark">?</span>,
-                    <span class="ident">involved_in_endorsements</span>: <span class="ident">endorsements</span>
-                        .<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">address</span>)
-                        .<span class="ident">ok_or</span>(<span class="ident">ApiError::NotFound</span>)<span class="question-mark">?</span>,
-                    <span class="ident">involved_in_operations</span>: <span class="ident">operations</span>
-                        .<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">address</span>)
-                        .<span class="ident">ok_or</span>(<span class="ident">ApiError::NotFound</span>)<span class="question-mark">?</span>,
-                    <span class="ident">production_stats</span>: <span class="ident">state</span>.<span class="ident">production_stats</span>,
-                    <span class="ident">final_sce_ledger_info</span>: <span class="ident">final_sce_ledger_info</span>
-                        .<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">address</span>)
-                        .<span class="ident">ok_or</span>(<span class="ident">ApiError::NotFound</span>)<span class="question-mark">?</span>,
-                    <span class="ident">candidate_sce_ledger_info</span>: <span class="ident">candidate_sce_ledger_info</span>
-                        .<span class="ident">remove</span>(<span class="kw-2">&amp;</span><span class="ident">address</span>)
-                        .<span class="ident">ok_or</span>(<span class="ident">ApiError::NotFound</span>)<span class="question-mark">?</span>,
+            <span class="comment">// return values in the right order
+            </span><span class="prelude-val">Ok</span>(res)
+        };
+        Box::pin(closure())
+    }
+
+    <span class="kw">fn </span>get_endorsements(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        eds: Vec&lt;EndorsementId&gt;,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;EndorsementInfo&gt;, ApiError&gt;&gt; {
+        <span class="comment">// get the endorsements and the list of blocks that contain them from storage
+        </span><span class="kw">let </span>storage_info: Vec&lt;(WrappedEndorsement, PreHashSet&lt;BlockId&gt;)&gt; = {
+            <span class="kw">let </span>read_blocks = <span class="self">self</span>.<span class="number">0</span>.storage.read_blocks();
+            <span class="kw">let </span>read_endos = <span class="self">self</span>.<span class="number">0</span>.storage.read_endorsements();
+            eds.iter()
+                .filter_map(|id| {
+                    read_endos.get(id).cloned().map(|ed| {
+                        (
+                            ed,
+                            read_blocks
+                                .get_blocks_by_endorsement(id)
+                                .cloned()
+                                .unwrap_or_default(),
+                        )
+                    })
                 })
-            }
-            <span class="prelude-val">Ok</span>(<span class="ident">res</span>)
+                .collect()
         };
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
+
+        <span class="comment">// keep only the ops found in storage
+        </span><span class="kw">let </span>eds: Vec&lt;EndorsementId&gt; = storage_info.iter().map(|(ed, <span class="kw">_</span>)| ed.id).collect();
+
+        <span class="comment">// ask pool whether it carries the operations
+        </span><span class="kw">let </span>in_pool = <span class="self">self</span>.<span class="number">0</span>.pool_command_sender.contains_endorsements(<span class="kw-2">&amp;</span>eds);
+
+        <span class="kw">let </span>consensus_command_sender = <span class="self">self</span>.<span class="number">0</span>.consensus_command_sender.clone();
+        <span class="kw">let </span>api_cfg = <span class="self">self</span>.<span class="number">0</span>.api_settings;
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="kw">if </span>eds.len() <span class="kw">as </span>u64 &gt; api_cfg.max_arguments {
+                <span class="kw">return </span><span class="prelude-val">Err</span>(ApiError::TooManyArguments(<span class="string">&quot;too many arguments&quot;</span>.into()));
+            }
+
+            <span class="comment">// check finality by cross-referencing Consensus and looking for final blocks that contain the endorsement
+            </span><span class="kw">let </span>is_final: Vec&lt;bool&gt; = {
+                <span class="kw">let </span>involved_blocks: Vec&lt;BlockId&gt; = storage_info
+                    .iter()
+                    .flat_map(|(_ed, bs)| bs.iter())
+                    .unique()
+                    .cloned()
+                    .collect();
+                <span class="kw">let </span>involved_block_statuses = consensus_command_sender
+                    .get_block_statuses(<span class="kw-2">&amp;</span>involved_blocks)
+                    .<span class="kw">await</span><span class="question-mark">?</span>;
+                <span class="kw">let </span>block_statuses: PreHashMap&lt;BlockId, BlockGraphStatus&gt; = involved_blocks
+                    .into_iter()
+                    .zip(involved_block_statuses.into_iter())
+                    .collect();
+                storage_info
+                    .iter()
+                    .map(|(_ed, bs)| {
+                        bs.iter()
+                            .any(|b| block_statuses.get(b) == <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span>BlockGraphStatus::Final))
+                    })
+                    .collect()
+            };
+
+            <span class="comment">// gather all values into a vector of EndorsementInfo instances
+            </span><span class="kw">let </span><span class="kw-2">mut </span>res: Vec&lt;EndorsementInfo&gt; = Vec::with_capacity(eds.len());
+            <span class="kw">let </span>zipped_iterator = <span class="macro">izip!</span>(
+                eds.into_iter(),
+                storage_info.into_iter(),
+                in_pool.into_iter(),
+                is_final.into_iter()
+            );
+            <span class="kw">for </span>(id, (endorsement, in_blocks), in_pool, is_final) <span class="kw">in </span>zipped_iterator {
+                res.push(EndorsementInfo {
+                    id,
+                    endorsement,
+                    in_pool,
+                    is_final,
+                    in_blocks: in_blocks.into_iter().collect(),
+                });
+            }
+
+            <span class="comment">// return values in the right order
+            </span><span class="prelude-val">Ok</span>(res)
+        };
+        Box::pin(closure())
     }
 
-    <span class="kw">fn</span> <span class="ident">send_operations</span>(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">ops</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">SignedOperation</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">OperationId</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cmd_sender</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">pool_command_sender</span>.<span class="ident">clone</span>();
-        <span class="kw">let</span> <span class="ident">api_cfg</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">api_settings</span>;
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="kw">if</span> <span class="ident">ops</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span> <span class="op">&gt;</span> <span class="ident">api_cfg</span>.<span class="ident">max_arguments</span> {
-                <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ApiError::TooManyArguments</span>(<span class="string">&quot;too many arguments&quot;</span>.<span class="ident">into</span>()));
-            }
-            <span class="kw">let</span> <span class="ident">to_send</span> <span class="op">=</span> <span class="ident">ops</span>
-                .<span class="ident">into_iter</span>()
-                .<span class="ident">map</span>(<span class="op">|</span><span class="ident">op</span><span class="op">|</span> <span class="prelude-val">Ok</span>((<span class="ident">op</span>.<span class="ident">verify_integrity</span>()<span class="question-mark">?</span>, <span class="ident">op</span>)))
-                .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Map</span><span class="op">&lt;</span><span class="ident">OperationId</span>, <span class="kw">_</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span>()<span class="question-mark">?</span>;
-            <span class="kw">let</span> <span class="ident">ids</span> <span class="op">=</span> <span class="ident">to_send</span>.<span class="ident">keys</span>().<span class="ident">copied</span>().<span class="ident">collect</span>();
-            <span class="ident">cmd_sender</span>.<span class="ident">add_operations</span>(<span class="ident">to_send</span>).<span class="kw">await</span><span class="question-mark">?</span>;
-            <span class="prelude-val">Ok</span>(<span class="ident">ids</span>)
+    <span class="doccomment">/// gets a block. Returns None if not found
+    /// only active blocks are returned
+    </span><span class="kw">fn </span>get_block(<span class="kw-2">&amp;</span><span class="self">self</span>, id: BlockId) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;BlockInfo, ApiError&gt;&gt; {
+        <span class="kw">let </span>consensus_command_sender = <span class="self">self</span>.<span class="number">0</span>.consensus_command_sender.clone();
+        <span class="kw">let </span>storage = <span class="self">self</span>.<span class="number">0</span>.storage.clone_without_refs();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="kw">let </span>block = <span class="kw">match </span>storage.read_blocks().get(<span class="kw-2">&amp;</span>id).cloned() {
+                <span class="prelude-val">Some</span>(b) =&gt; b.content,
+                <span class="prelude-val">None </span>=&gt; {
+                    <span class="kw">return </span><span class="prelude-val">Ok</span>(BlockInfo { id, content: <span class="prelude-val">None </span>});
+                }
+            };
+
+            <span class="kw">let </span>graph_status = consensus_command_sender
+                .get_block_statuses(<span class="kw-2">&amp;</span>[id])
+                .<span class="kw">await</span><span class="question-mark">?
+                </span>.into_iter()
+                .next()
+                .expect(<span class="string">&quot;expected get_block_statuses to return one element&quot;</span>);
+
+            <span class="kw">let </span>is_final = graph_status == BlockGraphStatus::Final;
+            <span class="kw">let </span>is_in_blockclique = graph_status == BlockGraphStatus::ActiveInBlockclique;
+            <span class="kw">let </span>is_candidate = graph_status == BlockGraphStatus::ActiveInBlockclique
+                || graph_status == BlockGraphStatus::ActiveInAlternativeCliques;
+            <span class="kw">let </span>is_discarded = graph_status == BlockGraphStatus::Discarded;
+
+            <span class="prelude-val">Ok</span>(BlockInfo {
+                id,
+                content: <span class="prelude-val">Some</span>(BlockInfoContent {
+                    is_final,
+                    is_in_blockclique,
+                    is_candidate,
+                    is_discarded,
+                    block,
+                }),
+            })
         };
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
+        Box::pin(closure())
     }
 
-    <span class="doccomment">/// Get events optionnally filtered by:</span>
-    <span class="doccomment">/// * start slot</span>
-    <span class="doccomment">/// * end slot</span>
-    <span class="doccomment">/// * emitter address</span>
-    <span class="doccomment">/// * original caller address</span>
-    <span class="doccomment">/// * operation id</span>
-    <span class="kw">fn</span> <span class="ident">get_filtered_sc_output_event</span>(
+    <span class="kw">fn </span>get_blockclique_block_by_slot(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">EventFilter</span> {
-            <span class="ident">start</span>,
-            <span class="ident">end</span>,
-            <span class="ident">emitter_address</span>,
-            <span class="ident">original_caller_address</span>,
-            <span class="ident">original_operation_id</span>,
-        }: <span class="ident">EventFilter</span>,
-    ) -&gt; <span class="ident">BoxFuture</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">SCOutputEvent</span><span class="op">&gt;</span>, <span class="ident">ApiError</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="comment">// get events</span>
-        <span class="kw">let</span> <span class="ident">events</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">execution_controller</span>.<span class="ident">get_filtered_sc_output_event</span>(
-            <span class="ident">start</span>,
-            <span class="ident">end</span>,
-            <span class="ident">emitter_address</span>,
-            <span class="ident">original_caller_address</span>,
-            <span class="ident">original_operation_id</span>,
+        slot: Slot,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Block&gt;, ApiError&gt;&gt; {
+        <span class="kw">let </span>consensus_command_sender = <span class="self">self</span>.<span class="number">0</span>.consensus_command_sender.clone();
+        <span class="kw">let </span>storage = <span class="self">self</span>.<span class="number">0</span>.storage.clone_without_refs();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="kw">let </span>block_id = <span class="kw">match </span>consensus_command_sender.get_blockclique_block_at_slot(slot)<span class="question-mark">? </span>{
+                <span class="prelude-val">Some</span>(id) =&gt; id,
+                <span class="prelude-val">None </span>=&gt; <span class="kw">return </span><span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>),
+            };
+            <span class="kw">let </span>res = storage
+                .read_blocks()
+                .get(<span class="kw-2">&amp;</span>block_id)
+                .map(|b| b.content.clone());
+            <span class="prelude-val">Ok</span>(res)
+        };
+        Box::pin(closure())
+    }
+
+    <span class="doccomment">/// gets an interval of the block graph from consensus, with time filtering
+    /// time filtering is done consensus-side to prevent communication overhead
+    </span><span class="kw">fn </span>get_graph_interval(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        time: TimeInterval,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;BlockSummary&gt;, ApiError&gt;&gt; {
+        <span class="kw">let </span>consensus_command_sender = <span class="self">self</span>.<span class="number">0</span>.consensus_command_sender.clone();
+        <span class="kw">let </span>consensus_settings = <span class="self">self</span>.<span class="number">0</span>.consensus_config.clone();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="comment">// filter blocks from graph_export
+            </span><span class="kw">let </span>(start_slot, end_slot) = time_range_to_slot_range(
+                consensus_settings.thread_count,
+                consensus_settings.t0,
+                consensus_settings.genesis_timestamp,
+                time.start,
+                time.end,
+            )<span class="question-mark">?</span>;
+            <span class="kw">let </span>graph = consensus_command_sender
+                .get_block_graph_status(start_slot, end_slot)
+                .<span class="kw">await</span><span class="question-mark">?</span>;
+            <span class="kw">let </span><span class="kw-2">mut </span>res = Vec::with_capacity(graph.active_blocks.len());
+            <span class="kw">let </span>blockclique = graph
+                .max_cliques
+                .iter()
+                .find(|clique| clique.is_blockclique)
+                .ok_or_else(|| ApiError::InconsistencyError(<span class="string">&quot;missing blockclique&quot;</span>.to_string()))<span class="question-mark">?</span>;
+            <span class="kw">for </span>(id, exported_block) <span class="kw">in </span>graph.active_blocks.into_iter() {
+                res.push(BlockSummary {
+                    id,
+                    is_final: exported_block.is_final,
+                    is_stale: <span class="bool-val">false</span>,
+                    is_in_blockclique: blockclique.block_ids.contains(<span class="kw-2">&amp;</span>id),
+                    slot: exported_block.header.content.slot,
+                    creator: exported_block.header.creator_address,
+                    parents: exported_block.header.content.parents,
+                });
+            }
+            <span class="kw">for </span>(id, (reason, (slot, creator, parents))) <span class="kw">in </span>graph.discarded_blocks.into_iter() {
+                <span class="kw">if </span>reason == DiscardReason::Stale {
+                    res.push(BlockSummary {
+                        id,
+                        is_final: <span class="bool-val">false</span>,
+                        is_stale: <span class="bool-val">true</span>,
+                        is_in_blockclique: <span class="bool-val">false</span>,
+                        slot,
+                        creator,
+                        parents,
+                    });
+                }
+            }
+            <span class="prelude-val">Ok</span>(res)
+        };
+        Box::pin(closure())
+    }
+
+    <span class="kw">fn </span>get_datastore_entries(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        entries: Vec&lt;DatastoreEntryInput&gt;,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;DatastoreEntryOutput&gt;, ApiError&gt;&gt; {
+        <span class="kw">let </span>execution_controller = <span class="self">self</span>.<span class="number">0</span>.execution_controller.clone();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="prelude-val">Ok</span>(execution_controller
+                .get_final_and_active_data_entry(
+                    entries
+                        .into_iter()
+                        .map(|input| (input.address, input.key))
+                        .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(),
+                )
+                .into_iter()
+                .map(|output| DatastoreEntryOutput {
+                    final_value: output.<span class="number">0</span>,
+                    candidate_value: output.<span class="number">1</span>,
+                })
+                .collect())
+        };
+        Box::pin(closure())
+    }
+
+    <span class="kw">fn </span>get_addresses(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        addresses: Vec&lt;Address&gt;,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;AddressInfo&gt;, ApiError&gt;&gt; {
+        <span class="comment">// get info from storage about which blocks the addresses have created
+        </span><span class="kw">let </span>created_blocks: Vec&lt;PreHashSet&lt;BlockId&gt;&gt; = {
+            <span class="kw">let </span>lck = <span class="self">self</span>.<span class="number">0</span>.storage.read_blocks();
+            addresses
+                .iter()
+                .map(|address| {
+                    lck.get_blocks_created_by(address)
+                        .cloned()
+                        .unwrap_or_default()
+                })
+                .collect()
+        };
+
+        <span class="comment">// get info from storage about which operations the addresses have created
+        </span><span class="kw">let </span>created_operations: Vec&lt;PreHashSet&lt;OperationId&gt;&gt; = {
+            <span class="kw">let </span>lck = <span class="self">self</span>.<span class="number">0</span>.storage.read_operations();
+            addresses
+                .iter()
+                .map(|address| {
+                    lck.get_operations_created_by(address)
+                        .cloned()
+                        .unwrap_or_default()
+                })
+                .collect()
+        };
+
+        <span class="comment">// get info from storage about which endorsements the addresses have created
+        </span><span class="kw">let </span>created_endorsements: Vec&lt;PreHashSet&lt;EndorsementId&gt;&gt; = {
+            <span class="kw">let </span>lck = <span class="self">self</span>.<span class="number">0</span>.storage.read_endorsements();
+            addresses
+                .iter()
+                .map(|address| {
+                    lck.get_endorsements_created_by(address)
+                        .cloned()
+                        .unwrap_or_default()
+                })
+                .collect()
+        };
+
+        <span class="comment">// get execution info
+        </span><span class="kw">let </span>execution_infos = <span class="self">self</span>.<span class="number">0</span>.execution_controller.get_addresses_infos(<span class="kw-2">&amp;</span>addresses);
+
+        <span class="comment">// get future draws from selector
+        </span><span class="kw">let </span>selection_draws = {
+            <span class="kw">let </span>cur_slot = timeslots::get_current_latest_block_slot(
+                <span class="self">self</span>.<span class="number">0</span>.consensus_config.thread_count,
+                <span class="self">self</span>.<span class="number">0</span>.consensus_config.t0,
+                <span class="self">self</span>.<span class="number">0</span>.consensus_config.genesis_timestamp,
+                <span class="self">self</span>.<span class="number">0</span>.compensation_millis,
+            )
+            .expect(<span class="string">&quot;could not get latest current slot&quot;</span>)
+            .unwrap_or_else(|| Slot::new(<span class="number">0</span>, <span class="number">0</span>));
+            <span class="kw">let </span>slot_end = Slot::new(
+                cur_slot
+                    .period
+                    .saturating_add(<span class="self">self</span>.<span class="number">0</span>.api_settings.draw_lookahead_period_count),
+                cur_slot.thread,
+            );
+            addresses
+                .iter()
+                .map(|addr| {
+                    <span class="self">self</span>.<span class="number">0
+                        </span>.selector_controller
+                        .get_address_selections(addr, cur_slot, slot_end)
+                        .unwrap_or_default()
+                })
+                .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;()
+        };
+
+        <span class="comment">// compile results
+        </span><span class="kw">let </span><span class="kw-2">mut </span>res = Vec::with_capacity(addresses.len());
+        <span class="kw">let </span>iterator = <span class="macro">izip!</span>(
+            addresses.into_iter(),
+            created_blocks.into_iter(),
+            created_operations.into_iter(),
+            created_endorsements.into_iter(),
+            execution_infos.into_iter(),
+            selection_draws.into_iter(),
         );
+        <span class="kw">for </span>(
+            address,
+            created_blocks,
+            created_operations,
+            created_endorsements,
+            execution_infos,
+            (next_block_draws, next_endorsement_draws),
+        ) <span class="kw">in </span>iterator
+        {
+            res.push(AddressInfo {
+                <span class="comment">// general address info
+                </span>address,
+                thread: address.get_thread(<span class="self">self</span>.<span class="number">0</span>.consensus_config.thread_count),
 
-        <span class="comment">// TODO get rid of the async part</span>
-        <span class="kw">let</span> <span class="ident">closure</span> <span class="op">=</span> <span class="kw">async</span> <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> <span class="prelude-val">Ok</span>(<span class="ident">events</span>);
-        <span class="ident">Box::pin</span>(<span class="ident">closure</span>())
+                <span class="comment">// final execution info
+                </span>final_parallel_balance: execution_infos.final_parallel_balance,
+                final_sequential_balance: execution_infos.final_sequential_balance,
+                final_roll_count: execution_infos.final_roll_count,
+                final_datastore_keys: execution_infos
+                    .final_datastore_keys
+                    .into_iter()
+                    .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(),
+
+                <span class="comment">// candidate execution info
+                </span>candidate_parallel_balance: execution_infos.candidate_parallel_balance,
+                candidate_sequential_balance: execution_infos.candidate_sequential_balance,
+                candidate_roll_count: execution_infos.candidate_roll_count,
+                candidate_datastore_keys: execution_infos
+                    .candidate_datastore_keys
+                    .into_iter()
+                    .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(),
+
+                <span class="comment">// deferred credits
+                </span>deferred_credits: execution_infos
+                    .future_deferred_credits
+                    .into_iter()
+                    .map(|(slot, amount)| SlotAmount { slot, amount })
+                    .collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(),
+
+                <span class="comment">// selector info
+                </span>next_block_draws,
+                next_endorsement_draws,
+
+                <span class="comment">// created objects
+                </span>created_blocks: created_blocks.into_iter().collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(),
+                created_endorsements: created_endorsements.into_iter().collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(),
+                created_operations: created_operations.into_iter().collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(),
+
+                <span class="comment">// cycle infos
+                </span>cycle_infos: execution_infos.cycle_infos,
+            });
+        }
+
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| <span class="prelude-val">Ok</span>(res);
+        Box::pin(closure())
+    }
+
+    <span class="kw">fn </span>send_operations(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        ops: Vec&lt;OperationInput&gt;,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;OperationId&gt;, ApiError&gt;&gt; {
+        <span class="kw">let </span><span class="kw-2">mut </span>cmd_sender = <span class="self">self</span>.<span class="number">0</span>.pool_command_sender.clone();
+        <span class="kw">let </span><span class="kw-2">mut </span>protocol_sender = <span class="self">self</span>.<span class="number">0</span>.protocol_command_sender.clone();
+        <span class="kw">let </span>api_cfg = <span class="self">self</span>.<span class="number">0</span>.api_settings;
+        <span class="kw">let </span><span class="kw-2">mut </span>to_send = <span class="self">self</span>.<span class="number">0</span>.storage.clone_without_refs();
+        <span class="kw">let </span>closure = <span class="kw">async move </span>|| {
+            <span class="kw">if </span>ops.len() <span class="kw">as </span>u64 &gt; api_cfg.max_arguments {
+                <span class="kw">return </span><span class="prelude-val">Err</span>(ApiError::TooManyArguments(<span class="string">&quot;too many arguments&quot;</span>.into()));
+            }
+            <span class="kw">let </span>operation_deserializer = WrappedDeserializer::new(OperationDeserializer::new(
+                api_cfg.max_datastore_value_length,
+                api_cfg.max_function_name_length,
+                api_cfg.max_parameter_size,
+            ));
+            <span class="kw">let </span>verified_ops = ops
+                .into_iter()
+                .map(|op_input| {
+                    <span class="kw">let </span><span class="kw-2">mut </span>op_serialized = Vec::new();
+                    op_serialized.extend(op_input.signature.to_bytes());
+                    op_serialized.extend(op_input.creator_public_key.to_bytes());
+                    op_serialized.extend(op_input.serialized_content);
+                    <span class="kw">let </span>(rest, op): (<span class="kw-2">&amp;</span>[u8], WrappedOperation) = operation_deserializer
+                        .deserialize::&lt;DeserializeError&gt;(<span class="kw-2">&amp;</span>op_serialized)
+                        .map_err(|err| {
+                            ApiError::ModelsError(ModelsError::DeserializeError(err.to_string()))
+                        })<span class="question-mark">?</span>;
+                    <span class="kw">if </span>rest.is_empty() {
+                        <span class="prelude-val">Ok</span>(op)
+                    } <span class="kw">else </span>{
+                        <span class="prelude-val">Err</span>(ApiError::ModelsError(ModelsError::DeserializeError(
+                            <span class="string">&quot;There is data left after operation deserialization&quot;</span>.to_owned(),
+                        )))
+                    }
+                })
+                .map(|op| <span class="kw">match </span>op {
+                    <span class="prelude-val">Ok</span>(operation) =&gt; {
+                        operation.verify_signature()<span class="question-mark">?</span>;
+                        <span class="prelude-val">Ok</span>(operation)
+                    }
+                    <span class="prelude-val">Err</span>(e) =&gt; <span class="prelude-val">Err</span>(e),
+                })
+                .collect::&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;WrappedOperation&gt;, ApiError&gt;&gt;()<span class="question-mark">?</span>;
+            to_send.store_operations(verified_ops.clone());
+            <span class="kw">let </span>ids: Vec&lt;OperationId&gt; = verified_ops.iter().map(|op| op.id).collect();
+            cmd_sender.add_operations(to_send.clone());
+            protocol_sender.propagate_operations(to_send).<span class="kw">await</span><span class="question-mark">?</span>;
+            <span class="prelude-val">Ok</span>(ids)
+        };
+        Box::pin(closure())
+    }
+
+    <span class="doccomment">/// Get events optionally filtered by:
+    /// * start slot
+    /// * end slot
+    /// * emitter address
+    /// * original caller address
+    /// * operation id
+    </span><span class="kw">fn </span>get_filtered_sc_output_event(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        filter: EventFilter,
+    ) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;SCOutputEvent&gt;, ApiError&gt;&gt; {
+        <span class="kw">let </span>events = <span class="self">self
+            </span>.<span class="number">0
+            </span>.execution_controller
+            .get_filtered_sc_output_event(filter);
+
+        <span class="comment">// TODO: get rid of the async part
+        </span><span class="kw">let </span>closure = <span class="kw">async move </span>|| <span class="prelude-val">Ok</span>(events);
+        Box::pin(closure())
+    }
+
+    <span class="kw">fn </span>node_whitelist(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;IpAddr&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
+    }
+
+    <span class="kw">fn </span>node_remove_from_whitelist(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: Vec&lt;IpAddr&gt;) -&gt; BoxFuture&lt;<span class="prelude-ty">Result</span>&lt;(), ApiError&gt;&gt; {
+        <span class="kw">crate</span>::wrong_api::&lt;()&gt;()
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_api" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (285fa7ecd 2022-03-14)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_api" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (17cbdfd07 2022-09-13)" ></div></body></html>

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Client",""],["RpcClient",""]]});
+window.SIDEBAR_ITEMS = {"struct":[["Client","Client"],["RpcClient","TODO ask @yvan-sraka"]]};

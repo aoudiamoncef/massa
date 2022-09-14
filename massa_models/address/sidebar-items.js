@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Address",""],["AddressCycleProductionStats",""],["AddressState",""],["Addresses",""]]});
+window.SIDEBAR_ITEMS = {"constant":[["ADDRESS_SIZE_BYTES","Size of a serialized address, in bytes"]],"struct":[["Address","Derived from a public key"],["AddressDeserializer","Deserializer for `Address`"],["ExecutionAddressCycleInfo","Info for a given address on a given cycle"]]};

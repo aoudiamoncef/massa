@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["ProofOfStakeError",""]],"type":[["POSResult",""]]});

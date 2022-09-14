@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["generate_default_roll_counts_file","generate a default named temporary JSON initial rolls file, asuming two threads."],["generate_ledger_file","generate a named temporary JSON ledger file"],["generate_roll_counts_file","generate a named temporary JSON initial rolls file"],["generate_staking_keys_file",""]]});

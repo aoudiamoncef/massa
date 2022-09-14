@@ -1,9 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-models/src/error.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>error.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_models/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-models/src/error.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>error.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_models/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -46,49 +41,96 @@
 <span id="41">41</span>
 <span id="42">42</span>
 <span id="43">43</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
+<span id="61">61</span>
+<span id="62">62</span>
+<span id="63">63</span>
+<span id="64">64</span>
+<span id="65">65</span>
+<span id="66">66</span>
+<span id="67">67</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;
 
-<span class="kw">use</span> <span class="ident">displaydoc::Display</span>;
-<span class="kw">use</span> <span class="ident">thiserror::Error</span>;
+</span><span class="kw">use </span>displaydoc::Display;
+<span class="kw">use </span>massa_serialization::SerializeError;
+<span class="kw">use </span>thiserror::Error;
+<span class="doccomment">/// models error
+</span><span class="kw">pub type </span>ModelsResult&lt;T, E = ModelsError&gt; = core::result::Result&lt;T, E&gt;;
 
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ModelsResult</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">E</span> <span class="op">=</span> <span class="ident">ModelsError</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">core::result::Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">E</span><span class="op">&gt;</span>;
+<span class="doccomment">/// models error
+</span><span class="attribute">#[non_exhaustive]
+#[derive(Display, Error, Debug, Clone)]
+</span><span class="kw">pub enum </span>ModelsError {
+    <span class="doccomment">/// hashing error
+    </span>HashError,
+    <span class="doccomment">/// Serialization error: {0}
+    </span>SerializeError(String),
+    <span class="doccomment">/// Serialization error: {0}
+    </span>SerializationError(<span class="attribute">#[from] </span>SerializeError),
+    <span class="doccomment">/// Deserialization error: {0}
+    </span>DeserializeError(String),
+    <span class="doccomment">/// buffer error: {0}
+    </span>BufferError(String),
+    <span class="doccomment">/// `MassaHash` error: {0}
+    </span>MassaHashError(<span class="attribute">#[from] </span>massa_hash::MassaHashError),
+    <span class="doccomment">/// massa_signature error: {0}
+    </span>MassaSignatureError(<span class="attribute">#[from] </span>massa_signature::MassaSignatureError),
+    <span class="doccomment">/// thread overflow error
+    </span>ThreadOverflowError,
+    <span class="doccomment">/// period overflow error
+    </span>PeriodOverflowError,
+    <span class="doccomment">/// amount parse error
+    </span>AmountParseError(String),
+    <span class="doccomment">/// address parsing error
+    </span>AddressParseError,
+    <span class="doccomment">/// checked operation error
+    </span>CheckedOperationError(String),
+    <span class="doccomment">/// invalid version identifier: {0}
+    </span>InvalidVersionError(String),
+    <span class="doccomment">/// invalid ledger change: {0}
+    </span>InvalidLedgerChange(String),
+    <span class="doccomment">/// Time overflow error
+    </span>TimeOverflowError,
+    <span class="doccomment">/// Time error {0}
+    </span>TimeError(<span class="attribute">#[from] </span>massa_time::TimeError),
+    <span class="doccomment">/// invalid roll update: {0}
+    </span>InvalidRollUpdate(String),
+    <span class="doccomment">/// Ledger changes, Amount overflow
+    </span>AmountOverflowError,
+    <span class="doccomment">/// Wrong prefix for hash: expected {0}, got {1}
+    </span>WrongPrefix(String, String),
+    <span class="doccomment">/// Wrong operation id size deduced on join
+    </span>OperationPrefixJoinError,
+    <span class="doccomment">/// Error raised {0}
+    </span>ErrorRaised(String),
+}
 
-<span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Display</span>, <span class="ident">Error</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">ModelsError</span> {
-    <span class="doccomment">/// hashing error</span>
-    <span class="ident">HashError</span>,
-    <span class="doccomment">/// Serialization error: {0}</span>
-    <span class="ident">SerializeError</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// Deserialization error: {0}</span>
-    <span class="ident">DeserializeError</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// buffer error: {0}</span>
-    <span class="ident">BufferError</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// massa_hash error: {0}</span>
-    <span class="ident">MassaHashError</span>(<span class="attribute">#[<span class="ident">from</span>]</span> <span class="ident">massa_hash::MassaHashError</span>),
-    <span class="doccomment">/// thread overflow error</span>
-    <span class="ident">ThreadOverflowError</span>,
-    <span class="doccomment">/// period overflow error</span>
-    <span class="ident">PeriodOverflowError</span>,
-    <span class="doccomment">/// amount parse error</span>
-    <span class="ident">AmountParseError</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// checked operation error</span>
-    <span class="ident">CheckedOperationError</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// invalid version identifier: {0}</span>
-    <span class="ident">InavalidVersionError</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// invalid ledger change: {0}</span>
-    <span class="ident">InvalidLedgerChange</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// Time overflow error</span>
-    <span class="ident">TimeOverflowError</span>,
-    <span class="doccomment">/// Time error {0}</span>
-    <span class="ident">TimeError</span>(<span class="attribute">#[<span class="ident">from</span>]</span> <span class="ident">massa_time::TimeError</span>),
-    <span class="doccomment">/// invalid roll update: {0}</span>
-    <span class="ident">InvalidRollUpdate</span>(<span class="ident">String</span>),
-    <span class="doccomment">/// Ledger changes, Amount overflow</span>
-    <span class="ident">AmountOverflowError</span>,
-    <span class="doccomment">/// Wrong prefix for hash: expected {0}, got {1}</span>
-    <span class="ident">WrongPrefix</span>(<span class="ident">String</span>, <span class="ident">String</span>),
+<span class="kw">impl </span>From&lt;nom::Err&lt;nom::error::Error&lt;<span class="kw-2">&amp;</span>[u8]&gt;&gt;&gt; <span class="kw">for </span>ModelsError {
+    <span class="kw">fn </span>from(err: nom::Err&lt;nom::error::Error&lt;<span class="kw-2">&amp;</span>[u8]&gt;&gt;) -&gt; <span class="self">Self </span>{
+        ModelsError::DeserializeError(err.to_string())
+    }
+}
+
+<span class="kw">impl </span>From&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str&gt; <span class="kw">for </span>ModelsError {
+    <span class="kw">fn </span>from(err: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str) -&gt; <span class="self">Self </span>{
+        ModelsError::ErrorRaised(err.to_string())
+    }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_models" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (285fa7ecd 2022-03-14)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_models" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (17cbdfd07 2022-09-13)" ></div></body></html>

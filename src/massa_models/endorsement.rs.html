@@ -1,9 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-models/src/endorsement.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>endorsement.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_models/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-models/src/endorsement.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>endorsement.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../massa_models/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_models/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -246,249 +241,278 @@
 <span id="241">241</span>
 <span id="242">242</span>
 <span id="243">243</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::constants</span>::{<span class="ident">BLOCK_ID_SIZE_BYTES</span>, <span class="ident">ENDORSEMENT_ID_SIZE_BYTES</span>};
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::prehash::PreHashed</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::signed</span>::{<span class="ident">Id</span>, <span class="ident">Signable</span>, <span class="ident">Signed</span>};
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">serialization</span>::{
-        <span class="ident">array_from_slice</span>, <span class="ident">DeserializeCompact</span>, <span class="ident">DeserializeVarInt</span>, <span class="ident">SerializeCompact</span>, <span class="ident">SerializeVarInt</span>,
-    },
-    <span class="ident">with_serialization_context</span>, <span class="ident">BlockId</span>, <span class="ident">ModelsError</span>, <span class="ident">Slot</span>,
+</span><span class="kw">use </span><span class="kw">crate</span>::prehash::PreHashed;
+<span class="kw">use </span><span class="kw">crate</span>::slot::{Slot, SlotDeserializer, SlotSerializer};
+<span class="kw">use </span><span class="kw">crate</span>::wrapped::{Id, Wrapped, WrappedContent};
+<span class="kw">use crate</span>::{block::BlockId, error::ModelsError};
+<span class="kw">use </span>massa_hash::{Hash, HashDeserializer};
+<span class="kw">use </span>massa_serialization::{
+    Deserializer, SerializeError, Serializer, U32VarIntDeserializer, U32VarIntSerializer,
 };
-<span class="kw">use</span> <span class="ident">massa_hash::hash::Hash</span>;
-<span class="kw">use</span> <span class="ident">massa_signature</span>::{<span class="ident">PublicKey</span>, <span class="ident">PUBLIC_KEY_SIZE_BYTES</span>};
-<span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Serialize</span>};
-<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fmt::Display</span>, <span class="ident">str::FromStr</span>};
+<span class="kw">use </span>nom::error::context;
+<span class="kw">use </span>nom::sequence::tuple;
+<span class="kw">use </span>nom::Parser;
+<span class="kw">use </span>nom::{
+    error::{ContextError, ParseError},
+    IResult,
+};
+<span class="kw">use </span>serde::{Deserialize, Serialize};
+<span class="kw">use </span>std::ops::Bound::{Excluded, Included};
+<span class="kw">use </span>std::{fmt::Display, str::FromStr};
 
-<span class="kw">const</span> <span class="ident">ENDORSEMENT_ID_STRING_PREFIX</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;END&quot;</span>;
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">EndorsementId</span>(<span class="ident">Hash</span>);
+<span class="doccomment">/// Endorsement ID size in bytes
+</span><span class="kw">pub const </span>ENDORSEMENT_ID_SIZE_BYTES: usize = massa_hash::HASH_SIZE_BYTES;
 
-<span class="kw">impl</span> <span class="ident">PreHashed</span> <span class="kw">for</span> <span class="ident">EndorsementId</span> {}
-<span class="kw">impl</span> <span class="ident">Id</span> <span class="kw">for</span> <span class="ident">EndorsementId</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">hash</span>: <span class="ident">Hash</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">EndorsementId</span>(<span class="ident">hash</span>)
+<span class="doccomment">/// endorsement id
+</span><span class="attribute">#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+</span><span class="kw">pub struct </span>EndorsementId(Hash);
+
+<span class="kw">impl </span>PreHashed <span class="kw">for </span>EndorsementId {}
+
+<span class="kw">impl </span>Id <span class="kw">for </span>EndorsementId {
+    <span class="kw">fn </span>new(hash: Hash) -&gt; <span class="self">Self </span>{
+        EndorsementId(hash)
+    }
+
+    <span class="kw">fn </span>get_hash(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>Hash {
+        <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0
+    </span>}
+}
+
+<span class="kw">impl </span>std::fmt::Display <span class="kw">for </span>EndorsementId {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>std::fmt::Formatter) -&gt; std::fmt::Result {
+        <span class="macro">write!</span>(f, <span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="number">0</span>.to_bs58_check())
     }
 }
 
-<span class="kw">impl</span> <span class="ident">std::fmt::Display</span> <span class="kw">for</span> <span class="ident">EndorsementId</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">std::fmt::Formatter</span>) -&gt; <span class="ident">std::fmt::Result</span> {
-        <span class="kw">if</span> <span class="macro">cfg!</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;hash-prefix&quot;</span>) {
-            <span class="macro">write!</span>(
-                <span class="ident">f</span>,
-                <span class="string">&quot;{}-{}&quot;</span>,
-                <span class="ident">ENDORSEMENT_ID_STRING_PREFIX</span>,
-                <span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_bs58_check</span>()
-            )
-        } <span class="kw">else</span> {
-            <span class="macro">write!</span>(<span class="ident">f</span>, <span class="string">&quot;{}&quot;</span>, <span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_bs58_check</span>())
-        }
+<span class="kw">impl </span>FromStr <span class="kw">for </span>EndorsementId {
+    <span class="kw">type </span><span class="prelude-val">Err </span>= ModelsError;
+    <span class="kw">fn </span>from_str(s: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>, <span class="self">Self</span>::Err&gt; {
+        <span class="prelude-val">Ok</span>(EndorsementId(Hash::from_str(s)<span class="question-mark">?</span>))
     }
 }
 
-<span class="kw">impl</span> <span class="ident">FromStr</span> <span class="kw">for</span> <span class="ident">EndorsementId</span> {
-    <span class="kw">type</span> <span class="prelude-val">Err</span> <span class="op">=</span> <span class="ident">ModelsError</span>;
-    <span class="kw">fn</span> <span class="ident">from_str</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="ident"><span class="self">Self</span>::Err</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="macro">cfg!</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;hash-prefix&quot;</span>) {
-            <span class="kw">let</span> <span class="ident">v</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">s</span>.<span class="ident">split</span>(<span class="string">&#39;-&#39;</span>).<span class="ident">collect</span>();
-            <span class="kw">if</span> <span class="ident">v</span>.<span class="ident">len</span>() <span class="op">!</span><span class="op">=</span> <span class="number">2</span> {
-                <span class="comment">// assume there is no prefix</span>
-                <span class="prelude-val">Ok</span>(<span class="ident">EndorsementId</span>(<span class="ident">Hash::from_str</span>(<span class="ident">s</span>)<span class="question-mark">?</span>))
-            } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">v</span>[<span class="number">0</span>] <span class="op">!</span><span class="op">=</span> <span class="ident">ENDORSEMENT_ID_STRING_PREFIX</span> {
-                <span class="prelude-val">Err</span>(<span class="ident">ModelsError::WrongPrefix</span>(
-                    <span class="ident">ENDORSEMENT_ID_STRING_PREFIX</span>.<span class="ident">to_string</span>(),
-                    <span class="ident">v</span>[<span class="number">0</span>].<span class="ident">to_string</span>(),
-                ))
-            } <span class="kw">else</span> {
-                <span class="prelude-val">Ok</span>(<span class="ident">EndorsementId</span>(<span class="ident">Hash::from_str</span>(<span class="ident">v</span>[<span class="number">1</span>])<span class="question-mark">?</span>))
-            }
-        } <span class="kw">else</span> {
-            <span class="prelude-val">Ok</span>(<span class="ident">EndorsementId</span>(<span class="ident">Hash::from_str</span>(<span class="ident">s</span>)<span class="question-mark">?</span>))
-        }
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">EndorsementId</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_bytes</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; [<span class="ident">u8</span>; <span class="ident">ENDORSEMENT_ID_SIZE_BYTES</span>] {
-        <span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_bytes</span>()
+<span class="kw">impl </span>EndorsementId {
+    <span class="doccomment">/// endorsement id to bytes
+    </span><span class="kw">pub fn </span>to_bytes(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>[u8; ENDORSEMENT_ID_SIZE_BYTES] {
+        <span class="self">self</span>.<span class="number">0</span>.to_bytes()
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_bytes</span>(<span class="self">self</span>) -&gt; [<span class="ident">u8</span>; <span class="ident">ENDORSEMENT_ID_SIZE_BYTES</span>] {
-        <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into_bytes</span>()
+    <span class="doccomment">/// endorsement id into bytes
+    </span><span class="kw">pub fn </span>into_bytes(<span class="self">self</span>) -&gt; [u8; ENDORSEMENT_ID_SIZE_BYTES] {
+        <span class="self">self</span>.<span class="number">0</span>.into_bytes()
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_bytes</span>(
-        <span class="ident">data</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>; <span class="ident">ENDORSEMENT_ID_SIZE_BYTES</span>],
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">EndorsementId</span>, <span class="ident">ModelsError</span><span class="op">&gt;</span> {
-        <span class="prelude-val">Ok</span>(<span class="ident">EndorsementId</span>(
-            <span class="ident">Hash::from_bytes</span>(<span class="ident">data</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ModelsError::HashError</span>)<span class="question-mark">?</span>,
-        ))
+    <span class="doccomment">/// endorsement id from bytes
+    </span><span class="kw">pub fn </span>from_bytes(data: <span class="kw-2">&amp;</span>[u8; ENDORSEMENT_ID_SIZE_BYTES]) -&gt; EndorsementId {
+        EndorsementId(Hash::from_bytes(data))
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_bs58_check</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">EndorsementId</span>, <span class="ident">ModelsError</span><span class="op">&gt;</span> {
-        <span class="prelude-val">Ok</span>(<span class="ident">EndorsementId</span>(
-            <span class="ident">Hash::from_bs58_check</span>(<span class="ident">data</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ModelsError::HashError</span>)<span class="question-mark">?</span>,
+
+    <span class="doccomment">/// endorsement id from `bs58` check
+    </span><span class="kw">pub fn </span>from_bs58_check(data: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;EndorsementId, ModelsError&gt; {
+        <span class="prelude-val">Ok</span>(EndorsementId(
+            Hash::from_bs58_check(data).map_err(|<span class="kw">_</span>| ModelsError::HashError)<span class="question-mark">?</span>,
         ))
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Endorsement</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">std::fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">std::fmt::Result</span> {
+<span class="kw">impl </span>Display <span class="kw">for </span>Endorsement {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>std::fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; std::fmt::Result {
         <span class="macro">writeln!</span>(
-            <span class="ident">f</span>,
+            f,
             <span class="string">&quot;Endorsed block: {} at slot {}&quot;</span>,
-            <span class="self">self</span>.<span class="ident">endorsed_block</span>, <span class="self">self</span>.<span class="ident">slot</span>
+            <span class="self">self</span>.endorsed_block, <span class="self">self</span>.slot
         )<span class="question-mark">?</span>;
-        <span class="macro">writeln!</span>(<span class="ident">f</span>, <span class="string">&quot;Index: {}&quot;</span>, <span class="self">self</span>.<span class="ident">index</span>)<span class="question-mark">?</span>;
-        <span class="macro">writeln!</span>(
-            <span class="ident">f</span>,
-            <span class="string">&quot;Endorsement creator public key: {}&quot;</span>,
-            <span class="self">self</span>.<span class="ident">sender_public_key</span>
-        )<span class="question-mark">?</span>;
+        <span class="macro">writeln!</span>(f, <span class="string">&quot;Index: {}&quot;</span>, <span class="self">self</span>.index)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Endorsement</span> {
-    <span class="doccomment">/// Public key of the endorser.</span>
-    <span class="kw">pub</span> <span class="ident">sender_public_key</span>: <span class="ident">PublicKey</span>,
-    <span class="doccomment">/// slot of endorsed block</span>
-    <span class="kw">pub</span> <span class="ident">slot</span>: <span class="ident">Slot</span>,
-    <span class="doccomment">/// endorsement index inside the block</span>
-    <span class="kw">pub</span> <span class="ident">index</span>: <span class="ident">u32</span>,
-    <span class="doccomment">/// hash of endorsed block</span>
-    <span class="kw">pub</span> <span class="ident">endorsed_block</span>: <span class="ident">BlockId</span>,
+<span class="doccomment">/// an endorsement, as sent in the network
+</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]
+</span><span class="kw">pub struct </span>Endorsement {
+    <span class="doccomment">/// slot of endorsed block
+    </span><span class="kw">pub </span>slot: Slot,
+    <span class="doccomment">/// endorsement index inside the block
+    </span><span class="kw">pub </span>index: u32,
+    <span class="doccomment">/// hash of endorsed block
+    </span><span class="kw">pub </span>endorsed_block: BlockId,
 }
 
-<span class="kw">impl</span> <span class="ident">Signable</span><span class="op">&lt;</span><span class="ident">EndorsementId</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Endorsement</span> {}
+<span class="doccomment">/// Wrapped endorsement
+</span><span class="kw">pub type </span>WrappedEndorsement = Wrapped&lt;Endorsement, EndorsementId&gt;;
 
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SignedEndorsement</span> <span class="op">=</span> <span class="ident">Signed</span><span class="op">&lt;</span><span class="ident">Endorsement</span>, <span class="ident">EndorsementId</span><span class="op">&gt;</span>;
+<span class="kw">impl </span>WrappedContent <span class="kw">for </span>Endorsement {}
 
-<span class="doccomment">/// Checks performed:</span>
-<span class="doccomment">/// - Validity of the slot.</span>
-<span class="kw">impl</span> <span class="ident">SerializeCompact</span> <span class="kw">for</span> <span class="ident">Endorsement</span> {
-    <span class="kw">fn</span> <span class="ident">to_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>, <span class="ident">ModelsError</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
-
-        <span class="comment">// Sender public key</span>
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">sender_public_key</span>.<span class="ident">to_bytes</span>());
-
-        <span class="comment">// Slot</span>
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="self">self</span>.<span class="ident">slot</span>.<span class="ident">to_bytes_compact</span>()<span class="question-mark">?</span>);
-
-        <span class="comment">// endorsement index inside the block</span>
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="self">self</span>.<span class="ident">index</span>.<span class="ident">to_varint_bytes</span>());
-
-        <span class="comment">// id of endorsed block</span>
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">endorsed_block</span>.<span class="ident">to_bytes</span>());
-
-        <span class="prelude-val">Ok</span>(<span class="ident">res</span>)
-    }
+<span class="doccomment">/// Serializer for `Endorsement`
+</span><span class="kw">pub struct </span>EndorsementSerializer {
+    slot_serializer: SlotSerializer,
+    u32_serializer: U32VarIntSerializer,
 }
 
-<span class="doccomment">/// Checks performed:</span>
-<span class="doccomment">/// - Validity of the sender public key.</span>
-<span class="doccomment">/// - Validity of the slot.</span>
-<span class="doccomment">/// - Validity of the endorsement index.</span>
-<span class="doccomment">/// - Validity of the endorsed block id.</span>
-<span class="kw">impl</span> <span class="ident">DeserializeCompact</span> <span class="kw">for</span> <span class="ident">Endorsement</span> {
-    <span class="kw">fn</span> <span class="ident">from_bytes_compact</span>(<span class="ident">buffer</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="self">Self</span>, <span class="ident">usize</span>), <span class="ident">ModelsError</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">max_block_endorsements</span> <span class="op">=</span>
-            <span class="ident">with_serialization_context</span>(<span class="op">|</span><span class="ident">context</span><span class="op">|</span> <span class="ident">context</span>.<span class="ident">endorsement_count</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cursor</span> <span class="op">=</span> <span class="number">0usize</span>;
-
-        <span class="comment">// sender public key</span>
-        <span class="kw">let</span> <span class="ident">sender_public_key</span> <span class="op">=</span> <span class="ident">PublicKey::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">PUBLIC_KEY_SIZE_BYTES</span>;
-
-        <span class="comment">// slot</span>
-        <span class="kw">let</span> (<span class="ident">slot</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">Slot::from_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="kw">if</span> <span class="ident">slot</span>.<span class="ident">period</span> <span class="op">==</span> <span class="number">0</span> {
-            <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ModelsError::DeserializeError</span>(
-                <span class="string">&quot;the target period of an endorsement cannot be 0&quot;</span>.<span class="ident">into</span>(),
-            ));
+<span class="kw">impl </span>EndorsementSerializer {
+    <span class="doccomment">/// Creates a new `EndorsementSerializer`
+    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+        EndorsementSerializer {
+            slot_serializer: SlotSerializer::new(),
+            u32_serializer: U32VarIntSerializer::new(),
         }
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-
-        <span class="comment">// endorsement index inside the block</span>
-        <span class="kw">let</span> (<span class="ident">index</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u32::from_varint_bytes_bounded</span>(
-            <span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..],
-            <span class="ident">max_block_endorsements</span>.<span class="ident">saturating_sub</span>(<span class="number">1</span>),
-        )<span class="question-mark">?</span>;
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-
-        <span class="comment">// id of endorsed block</span>
-        <span class="kw">let</span> <span class="ident">endorsed_block</span> <span class="op">=</span> <span class="ident">BlockId::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">BLOCK_ID_SIZE_BYTES</span>;
-
-        <span class="prelude-val">Ok</span>((
-            <span class="ident">Endorsement</span> {
-                <span class="ident">sender_public_key</span>,
-                <span class="ident">slot</span>,
-                <span class="ident">index</span>,
-                <span class="ident">endorsed_block</span>,
-            },
-            <span class="ident">cursor</span>,
-        ))
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::signed::Signed</span>;
+<span class="kw">impl </span>Default <span class="kw">for </span>EndorsementSerializer {
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::new()
+    }
+}
 
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident">massa_signature</span>::{<span class="ident">derive_public_key</span>, <span class="ident">generate_random_private_key</span>};
-    <span class="kw">use</span> <span class="ident">serial_test::serial</span>;
+<span class="kw">impl </span>Serializer&lt;Endorsement&gt; <span class="kw">for </span>EndorsementSerializer {
+    <span class="doccomment">/// ## Example:
+    /// ```rust
+    /// use massa_models::{slot::Slot, block::BlockId, endorsement::{Endorsement, EndorsementSerializer}};
+    /// use massa_serialization::Serializer;
+    /// use massa_hash::Hash;
+    ///
+    /// let endorsement = Endorsement {
+    ///   slot: Slot::new(1, 2),
+    ///   index: 0,
+    ///   endorsed_block: BlockId(Hash::compute_from(&quot;test&quot;.as_bytes()))
+    /// };
+    /// let mut buffer = Vec::new();
+    /// EndorsementSerializer::new().serialize(&amp;endorsement, &amp;mut buffer).unwrap();
+    /// ```
+    </span><span class="kw">fn </span>serialize(<span class="kw-2">&amp;</span><span class="self">self</span>, value: <span class="kw-2">&amp;</span>Endorsement, buffer: <span class="kw-2">&amp;mut </span>Vec&lt;u8&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), SerializeError&gt; {
+        <span class="self">self</span>.slot_serializer.serialize(<span class="kw-2">&amp;</span>value.slot, buffer)<span class="question-mark">?</span>;
+        <span class="self">self</span>.u32_serializer.serialize(<span class="kw-2">&amp;</span>value.index, buffer)<span class="question-mark">?</span>;
+        buffer.extend(value.endorsed_block.<span class="number">0</span>.to_bytes());
+        <span class="prelude-val">Ok</span>(())
+    }
+}
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">serial</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_endorsement_serialization</span>() {
-        <span class="kw">let</span> <span class="ident">ctx</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::SerializationContext</span> {
-            <span class="ident">max_block_size</span>: <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>,
-            <span class="ident">max_operations_per_block</span>: <span class="number">1024</span>,
-            <span class="ident">thread_count</span>: <span class="number">3</span>,
-            <span class="ident">max_advertise_length</span>: <span class="number">128</span>,
-            <span class="ident">max_message_size</span>: <span class="number">3</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>,
-            <span class="ident">max_bootstrap_blocks</span>: <span class="number">100</span>,
-            <span class="ident">max_bootstrap_cliques</span>: <span class="number">100</span>,
-            <span class="ident">max_bootstrap_deps</span>: <span class="number">100</span>,
-            <span class="ident">max_bootstrap_children</span>: <span class="number">100</span>,
-            <span class="ident">max_bootstrap_pos_cycles</span>: <span class="number">1000</span>,
-            <span class="ident">max_bootstrap_pos_entries</span>: <span class="number">1000</span>,
-            <span class="ident">max_ask_blocks_per_message</span>: <span class="number">10</span>,
-            <span class="ident">max_operations_per_message</span>: <span class="number">1024</span>,
-            <span class="ident">max_endorsements_per_message</span>: <span class="number">1024</span>,
-            <span class="ident">max_bootstrap_message_size</span>: <span class="number">100000000</span>,
-            <span class="ident">endorsement_count</span>: <span class="number">8</span>,
+<span class="doccomment">/// Deserializer for `Endorsement`
+</span><span class="kw">pub struct </span>EndorsementDeserializer {
+    slot_deserializer: SlotDeserializer,
+    index_deserializer: U32VarIntDeserializer,
+    hash_deserializer: HashDeserializer,
+}
+
+<span class="kw">impl </span>EndorsementDeserializer {
+    <span class="doccomment">/// Creates a new `EndorsementDeserializer`
+    </span><span class="kw">pub const fn </span>new(thread_count: u8, endorsement_count: u32) -&gt; <span class="self">Self </span>{
+        EndorsementDeserializer {
+            slot_deserializer: SlotDeserializer::new(
+                (Included(<span class="number">0</span>), Included(u64::MAX)),
+                (Included(<span class="number">0</span>), Excluded(thread_count)),
+            ),
+            index_deserializer: U32VarIntDeserializer::new(
+                Included(<span class="number">0</span>),
+                Excluded(endorsement_count),
+            ),
+            hash_deserializer: HashDeserializer::new(),
+        }
+    }
+}
+
+<span class="kw">impl </span>Deserializer&lt;Endorsement&gt; <span class="kw">for </span>EndorsementDeserializer {
+    <span class="doccomment">/// ## Example:
+    /// ```rust
+    /// use massa_models::{slot::Slot, block::BlockId, endorsement::{Endorsement, EndorsementSerializer, EndorsementDeserializer}};
+    /// use massa_serialization::{Serializer, Deserializer, DeserializeError};
+    /// use massa_hash::Hash;
+    ///
+    /// let endorsement = Endorsement {
+    ///   slot: Slot::new(1, 2),
+    ///   index: 0,
+    ///   endorsed_block: BlockId(Hash::compute_from(&quot;test&quot;.as_bytes()))
+    /// };
+    /// let mut buffer = Vec::new();
+    /// EndorsementSerializer::new().serialize(&amp;endorsement, &amp;mut buffer).unwrap();
+    /// let (rest, deserialized) = EndorsementDeserializer::new(32, 10).deserialize::&lt;DeserializeError&gt;(&amp;buffer).unwrap();
+    /// assert_eq!(rest.len(), 0);
+    /// assert_eq!(deserialized.slot, endorsement.slot);
+    /// assert_eq!(deserialized.index, endorsement.index);
+    /// assert_eq!(deserialized.endorsed_block, endorsement.endorsed_block);
+    /// ```
+    </span><span class="kw">fn </span>deserialize&lt;<span class="lifetime">&#39;a</span>, E: ParseError&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]&gt; + ContextError&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]&gt;&gt;(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        buffer: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8],
+    ) -&gt; IResult&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8], Endorsement, E&gt; {
+        context(
+            <span class="string">&quot;Failed endorsement deserialization&quot;</span>,
+            tuple((
+                context(<span class="string">&quot;Failed slot deserialization&quot;</span>, |input| {
+                    <span class="self">self</span>.slot_deserializer.deserialize(input)
+                }),
+                context(<span class="string">&quot;Failed index deserialization&quot;</span>, |input| {
+                    <span class="self">self</span>.index_deserializer.deserialize(input)
+                }),
+                context(<span class="string">&quot;Failed endorsed_block deserialization&quot;</span>, |input| {
+                    <span class="self">self</span>.hash_deserializer.deserialize(input)
+                }),
+            )),
+        )
+        .map(|(slot, index, hash_block_id)| Endorsement {
+            slot,
+            index,
+            endorsed_block: BlockId::new(hash_block_id),
+        })
+        .parse(buffer)
+    }
+}
+
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use </span><span class="kw">crate</span>::wrapped::{WrappedDeserializer, WrappedSerializer};
+
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span>massa_serialization::DeserializeError;
+    <span class="kw">use </span>massa_signature::KeyPair;
+    <span class="kw">use </span>serial_test::serial;
+
+    <span class="attribute">#[test]
+    #[serial]
+    </span><span class="kw">fn </span>test_endorsement_serialization() {
+        <span class="kw">let </span>sender_keypair = KeyPair::generate();
+        <span class="kw">let </span>content = Endorsement {
+            slot: Slot::new(<span class="number">10</span>, <span class="number">1</span>),
+            index: <span class="number">0</span>,
+            endorsed_block: BlockId(Hash::compute_from(<span class="string">&quot;blk&quot;</span>.as_bytes())),
         };
-        <span class="ident"><span class="kw">crate</span>::init_serialization_context</span>(<span class="ident">ctx</span>);
+        <span class="kw">let </span>endorsement: WrappedEndorsement =
+            Endorsement::new_wrapped(content, EndorsementSerializer::new(), <span class="kw-2">&amp;</span>sender_keypair)
+                .unwrap();
 
-        <span class="kw">let</span> <span class="ident">sender_priv</span> <span class="op">=</span> <span class="ident">generate_random_private_key</span>();
-        <span class="kw">let</span> <span class="ident">sender_public_key</span> <span class="op">=</span> <span class="ident">derive_public_key</span>(<span class="kw-2">&amp;</span><span class="ident">sender_priv</span>);
-
-        <span class="kw">let</span> <span class="ident">content</span> <span class="op">=</span> <span class="ident">Endorsement</span> {
-            <span class="ident">sender_public_key</span>,
-            <span class="ident">slot</span>: <span class="ident">Slot::new</span>(<span class="number">10</span>, <span class="number">1</span>),
-            <span class="ident">index</span>: <span class="number">0</span>,
-            <span class="ident">endorsed_block</span>: <span class="ident">BlockId</span>(<span class="ident">Hash::compute_from</span>(<span class="string">&quot;blk&quot;</span>.<span class="ident">as_bytes</span>())),
-        };
-        <span class="kw">let</span> <span class="ident">endorsement</span> <span class="op">=</span> <span class="ident">Signed::new_signed</span>(<span class="ident">content</span>.<span class="ident">clone</span>(), <span class="kw-2">&amp;</span><span class="ident">sender_priv</span>).<span class="ident">unwrap</span>().<span class="number">1</span>;
-
-        <span class="kw">let</span> <span class="ident">ser_content</span> <span class="op">=</span> <span class="ident">content</span>.<span class="ident">to_bytes_compact</span>().<span class="ident">unwrap</span>();
-        <span class="kw">let</span> (<span class="ident">res_content</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">Endorsement::from_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="ident">ser_content</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">res_content</span>), <span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">content</span>));
-        <span class="kw">let</span> <span class="ident">ser_endorsement</span> <span class="op">=</span> <span class="ident">endorsement</span>.<span class="ident">to_bytes_compact</span>().<span class="ident">unwrap</span>();
-        <span class="kw">let</span> (<span class="ident">res_endorsement</span>, <span class="kw">_</span>) <span class="op">=</span>
-            <span class="ident">Signed</span>::<span class="op">&lt;</span><span class="ident">Endorsement</span>, <span class="ident">EndorsementId</span><span class="op">&gt;</span><span class="ident">::from_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="ident">ser_endorsement</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>ser_endorsement: Vec&lt;u8&gt; = Vec::new();
+        <span class="kw">let </span>serializer = WrappedSerializer::new();
+        serializer
+            .serialize(<span class="kw-2">&amp;</span>endorsement, <span class="kw-2">&amp;mut </span>ser_endorsement)
+            .unwrap();
+        <span class="kw">let </span>(<span class="kw">_</span>, res_endorsement): (<span class="kw-2">&amp;</span>[u8], WrappedEndorsement) =
+            WrappedDeserializer::new(EndorsementDeserializer::new(<span class="number">32</span>, <span class="number">1</span>))
+                .deserialize::&lt;DeserializeError&gt;(<span class="kw-2">&amp;</span>ser_endorsement)
+                .unwrap();
         <span class="macro">assert_eq!</span>(
-            <span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">res_endorsement</span>),
-            <span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">endorsement</span>)
+            <span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, res_endorsement),
+            <span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, endorsement)
         );
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_models" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (285fa7ecd 2022-03-14)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_models" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (17cbdfd07 2022-09-13)" ></div></body></html>

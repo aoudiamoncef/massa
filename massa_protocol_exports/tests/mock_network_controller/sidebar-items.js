@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["MockNetworkController",""]]});
+window.SIDEBAR_ITEMS = {"struct":[["MockNetworkController","mock network controller"]]};

@@ -1,9 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-graph/src/export_active_block.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>export_active_block.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_graph/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a><h2 class="location"></h2>
-    </nav>
-    <nav class="sidebar"><a class="sidebar-logo" href="../../massa_graph/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_graph/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-graph/src/export_active_block.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>export_active_block.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_graph/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../massa_graph/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_graph/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -361,374 +356,363 @@
 <span id="356">356</span>
 <span id="357">357</span>
 <span id="358">358</span>
-<span id="359">359</span>
-<span id="360">360</span>
-<span id="361">361</span>
-<span id="362">362</span>
-<span id="363">363</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::error</span>::{<span class="ident">GraphError</span>, <span class="ident">GraphResult</span> <span class="kw">as</span> <span class="prelude-ty">Result</span>};
-<span class="kw">use</span> <span class="ident">massa_models</span>::{
-    <span class="ident">active_block::ActiveBlock</span>,
-    <span class="ident">constants</span>::<span class="kw-2">*</span>,
-    <span class="ident">ledger_models</span>::{<span class="ident">LedgerChange</span>, <span class="ident">LedgerChanges</span>},
-    <span class="ident">prehash</span>::{<span class="ident">BuildMap</span>, <span class="ident">Map</span>, <span class="ident">Set</span>},
-    <span class="ident">rolls</span>::{<span class="ident">RollUpdate</span>, <span class="ident">RollUpdates</span>},
-    <span class="ident">signed::Signable</span>,
-    <span class="kw-2">*</span>,
+</pre><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::error::{GraphError, GraphResult <span class="kw">as </span><span class="prelude-ty">Result</span>};
+<span class="kw">use </span>massa_hash::HashDeserializer;
+<span class="kw">use </span>massa_models::{
+    active_block::ActiveBlock,
+    block::{Block, BlockDeserializer, BlockId, WrappedBlock},
+    operation::{Operation, OperationDeserializer, WrappedOperation},
+    prehash::{PreHashMap, PreHashSet},
+    wrapped::{WrappedDeserializer, WrappedSerializer},
 };
-<span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Serialize</span>};
+<span class="kw">use </span>massa_serialization::{
+    Deserializer, SerializeError, Serializer, U32VarIntDeserializer, U32VarIntSerializer,
+    U64VarIntDeserializer, U64VarIntSerializer,
+};
+<span class="kw">use </span>massa_storage::Storage;
+<span class="kw">use </span>nom::branch::alt;
+<span class="kw">use </span>nom::{
+    bytes::complete::tag,
+    combinator::value,
+    error::{ContextError, ParseError},
+    multi::{count, length_count},
+    sequence::{preceded, tuple},
+};
+<span class="kw">use </span>nom::{error::context, IResult, Parser};
+<span class="kw">use </span>serde::{Deserialize, Serialize};
+<span class="kw">use </span>std::ops::Bound::Included;
 
-<span class="doccomment">/// Exportable version of ActiveBlock</span>
-<span class="doccomment">/// Fields that can be easily recomputed were left out</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ExportActiveBlock</span> {
-    <span class="doccomment">/// The block itself, as it was created</span>
-    <span class="kw">pub</span> <span class="ident">block</span>: <span class="ident">Block</span>,
-    <span class="doccomment">/// one (block id, period) per thread ( if not genesis )</span>
-    <span class="kw">pub</span> <span class="ident">parents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">BlockId</span>, <span class="ident">u64</span>)<span class="op">&gt;</span>,
-    <span class="doccomment">/// one HashMap&lt;Block id, period&gt; per thread (blocks that need to be kept)</span>
-    <span class="doccomment">/// Children reference that block as a parent</span>
-    <span class="kw">pub</span> <span class="ident">children</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Map</span><span class="op">&lt;</span><span class="ident">BlockId</span>, <span class="ident">u64</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-    <span class="doccomment">/// dependencies required for validity check</span>
-    <span class="kw">pub</span> <span class="ident">dependencies</span>: <span class="ident">Set</span><span class="op">&lt;</span><span class="ident">BlockId</span><span class="op">&gt;</span>,
-    <span class="doccomment">/// ie has its fitness reached the given threshold</span>
-    <span class="kw">pub</span> <span class="ident">is_final</span>: <span class="ident">bool</span>,
-    <span class="doccomment">/// Changes caused by this block</span>
-    <span class="kw">pub</span> <span class="ident">block_ledger_changes</span>: <span class="ident">LedgerChanges</span>,
-    <span class="doccomment">/// Address -&gt; RollUpdate</span>
-    <span class="kw">pub</span> <span class="ident">roll_updates</span>: <span class="ident">RollUpdates</span>,
-    <span class="doccomment">/// list of (period, address, did_create) for all block/endorsement creation events</span>
-    <span class="kw">pub</span> <span class="ident">production_events</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">u64</span>, <span class="ident">Address</span>, <span class="ident">bool</span>)<span class="op">&gt;</span>,
+<span class="doccomment">/// Exportable version of `ActiveBlock`
+/// Fields that can be easily recomputed were left out
+</span><span class="attribute">#[derive(Debug, Clone, Serialize, Deserialize)]
+</span><span class="kw">pub struct </span>ExportActiveBlock {
+    <span class="doccomment">/// The block.
+    </span><span class="kw">pub </span>block: WrappedBlock,
+    <span class="doccomment">/// The operations.
+    </span><span class="kw">pub </span>operations: Vec&lt;WrappedOperation&gt;,
+    <span class="doccomment">/// one `(block id, period)` per thread ( if not genesis )
+    </span><span class="kw">pub </span>parents: Vec&lt;(BlockId, u64)&gt;,
+    <span class="doccomment">/// for example has its fitness reached the given threshold
+    </span><span class="kw">pub </span>is_final: bool,
 }
 
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">ActiveBlock</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ExportActiveBlock</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">a_block</span>: <span class="kw-2">&amp;</span><span class="ident">ActiveBlock</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">ExportActiveBlock</span> {
-            <span class="ident">block</span>: <span class="ident">a_block</span>.<span class="ident">block</span>.<span class="ident">clone</span>(),
-            <span class="ident">parents</span>: <span class="ident">a_block</span>.<span class="ident">parents</span>.<span class="ident">clone</span>(),
-            <span class="ident">children</span>: <span class="ident">a_block</span>.<span class="ident">children</span>.<span class="ident">clone</span>(),
-            <span class="ident">dependencies</span>: <span class="ident">a_block</span>.<span class="ident">dependencies</span>.<span class="ident">clone</span>(),
-            <span class="ident">is_final</span>: <span class="ident">a_block</span>.<span class="ident">is_final</span>,
-            <span class="ident">block_ledger_changes</span>: <span class="ident">a_block</span>.<span class="ident">block_ledger_changes</span>.<span class="ident">clone</span>(),
-            <span class="ident">roll_updates</span>: <span class="ident">a_block</span>.<span class="ident">roll_updates</span>.<span class="ident">clone</span>(),
-            <span class="ident">production_events</span>: <span class="ident">a_block</span>.<span class="ident">production_events</span>.<span class="ident">clone</span>(),
-        }
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">ExportActiveBlock</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ActiveBlock</span> {
-    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">a_block</span>: <span class="ident">ExportActiveBlock</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">ActiveBlock</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">operation_set</span> <span class="op">=</span> <span class="ident">a_block</span>
-            .<span class="ident">block</span>
-            .<span class="ident">operations</span>
-            .<span class="ident">iter</span>()
-            .<span class="ident">enumerate</span>()
-            .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">idx</span>, <span class="ident">op</span>)<span class="op">|</span> <span class="kw">match</span> <span class="ident">op</span>.<span class="ident">content</span>.<span class="ident">compute_id</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">id</span>) =&gt; <span class="prelude-val">Ok</span>((<span class="ident">id</span>, (<span class="ident">idx</span>, <span class="ident">op</span>.<span class="ident">content</span>.<span class="ident">expire_period</span>))),
-                <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; <span class="prelude-val">Err</span>(<span class="ident">e</span>),
-            })
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>()<span class="question-mark">?</span>;
-
-        <span class="kw">let</span> <span class="ident">endorsement_ids</span> <span class="op">=</span> <span class="ident">a_block</span>
-            .<span class="ident">block</span>
-            .<span class="ident">header</span>
-            .<span class="ident">content</span>
-            .<span class="ident">endorsements</span>
-            .<span class="ident">iter</span>()
-            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">endo</span><span class="op">|</span> <span class="prelude-val">Ok</span>((<span class="ident">endo</span>.<span class="ident">content</span>.<span class="ident">compute_id</span>()<span class="question-mark">?</span>, <span class="ident">endo</span>.<span class="ident">content</span>.<span class="ident">index</span>)))
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>()<span class="question-mark">?</span>;
-
-        <span class="kw">let</span> <span class="ident">addresses_to_operations</span> <span class="op">=</span> <span class="ident">a_block</span>.<span class="ident">block</span>.<span class="ident">involved_addresses</span>(<span class="kw-2">&amp;</span><span class="ident">operation_set</span>)<span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">addresses_to_endorsements</span> <span class="op">=</span>
-            <span class="ident">a_block</span>.<span class="ident">block</span>.<span class="ident">addresses_to_endorsements</span>(<span class="kw-2">&amp;</span><span class="ident">endorsement_ids</span>)<span class="question-mark">?</span>;
-        <span class="prelude-val">Ok</span>(<span class="ident">ActiveBlock</span> {
-            <span class="ident">creator_address</span>: <span class="ident">Address::from_public_key</span>(<span class="kw-2">&amp;</span><span class="ident">a_block</span>.<span class="ident">block</span>.<span class="ident">header</span>.<span class="ident">content</span>.<span class="ident">creator</span>),
-            <span class="ident">block</span>: <span class="ident">a_block</span>.<span class="ident">block</span>,
-            <span class="ident">parents</span>: <span class="ident">a_block</span>.<span class="ident">parents</span>,
-            <span class="ident">children</span>: <span class="ident">a_block</span>.<span class="ident">children</span>,
-            <span class="ident">dependencies</span>: <span class="ident">a_block</span>.<span class="ident">dependencies</span>,
-            <span class="ident">descendants</span>: <span class="ident">Default::default</span>(), <span class="comment">// will be computed once the full graph is available</span>
-            <span class="ident">is_final</span>: <span class="ident">a_block</span>.<span class="ident">is_final</span>,
-            <span class="ident">block_ledger_changes</span>: <span class="ident">a_block</span>.<span class="ident">block_ledger_changes</span>,
-            <span class="ident">operation_set</span>,
-            <span class="ident">endorsement_ids</span>,
-            <span class="ident">addresses_to_operations</span>,
-            <span class="ident">roll_updates</span>: <span class="ident">a_block</span>.<span class="ident">roll_updates</span>,
-            <span class="ident">production_events</span>: <span class="ident">a_block</span>.<span class="ident">production_events</span>,
-            <span class="ident">addresses_to_endorsements</span>,
-        })
-    }
-
-    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">GraphError</span>;
-}
-
-<span class="kw">impl</span> <span class="ident">SerializeCompact</span> <span class="kw">for</span> <span class="ident">ExportActiveBlock</span> {
-    <span class="kw">fn</span> <span class="ident">to_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>, <span class="ident">massa_models::ModelsError</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">res</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
-
-        <span class="comment">// is_final</span>
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_final</span> {
-            <span class="ident">res</span>.<span class="ident">push</span>(<span class="number">1</span>);
-        } <span class="kw">else</span> {
-            <span class="ident">res</span>.<span class="ident">push</span>(<span class="number">0</span>);
-        }
-
-        <span class="comment">// block</span>
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="self">self</span>.<span class="ident">block</span>.<span class="ident">to_bytes_compact</span>()<span class="question-mark">?</span>);
-
-        <span class="comment">// parents (note: there should be none if slot period=0)</span>
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">parents</span>.<span class="ident">is_empty</span>() {
-            <span class="ident">res</span>.<span class="ident">push</span>(<span class="number">0</span>);
-        } <span class="kw">else</span> {
-            <span class="ident">res</span>.<span class="ident">push</span>(<span class="number">1</span>);
-        }
-        <span class="kw">for</span> (<span class="ident">hash</span>, <span class="ident">period</span>) <span class="kw">in</span> <span class="self">self</span>.<span class="ident">parents</span>.<span class="ident">iter</span>() {
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span><span class="ident">hash</span>.<span class="ident">to_bytes</span>());
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">period</span>.<span class="ident">to_varint_bytes</span>());
-        }
-
-        <span class="comment">// children</span>
-        <span class="kw">let</span> <span class="ident">children_count</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">children</span>.<span class="ident">len</span>().<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
-            <span class="ident">ModelsError::SerializeError</span>(<span class="macro">format!</span>(<span class="string">&quot;too many children in ActiveBlock: {}&quot;</span>, <span class="ident">err</span>))
-        })<span class="question-mark">?</span>;
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">children_count</span>.<span class="ident">to_varint_bytes</span>());
-        <span class="kw">for</span> <span class="ident">map</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">children</span>.<span class="ident">iter</span>() {
-            <span class="kw">let</span> <span class="ident">map_count</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">map</span>.<span class="ident">len</span>().<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
-                <span class="ident">ModelsError::SerializeError</span>(<span class="macro">format!</span>(
-                    <span class="string">&quot;too many entry in children map in ActiveBlock: {}&quot;</span>,
-                    <span class="ident">err</span>
-                ))
-            })<span class="question-mark">?</span>;
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">map_count</span>.<span class="ident">to_varint_bytes</span>());
-            <span class="kw">for</span> (<span class="ident">hash</span>, <span class="ident">period</span>) <span class="kw">in</span> <span class="ident">map</span> {
-                <span class="ident">res</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span><span class="ident">hash</span>.<span class="ident">to_bytes</span>());
-                <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">period</span>.<span class="ident">to_varint_bytes</span>());
-            }
-        }
-
-        <span class="comment">// dependencies</span>
-        <span class="kw">let</span> <span class="ident">dependencies_count</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">dependencies</span>.<span class="ident">len</span>().<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
-            <span class="ident">ModelsError::SerializeError</span>(<span class="macro">format!</span>(<span class="string">&quot;too many dependencies in ActiveBlock: {}&quot;</span>, <span class="ident">err</span>))
-        })<span class="question-mark">?</span>;
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">dependencies_count</span>.<span class="ident">to_varint_bytes</span>());
-        <span class="kw">for</span> <span class="ident">dep</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">dependencies</span>.<span class="ident">iter</span>() {
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span><span class="ident">dep</span>.<span class="ident">to_bytes</span>());
-        }
-
-        <span class="comment">// block_ledger_change</span>
-        <span class="kw">let</span> <span class="ident">block_ledger_change_count</span>: <span class="ident">u32</span> <span class="op">=</span>
-            <span class="self">self</span>.<span class="ident">block_ledger_changes</span>
-                .<span class="number">0</span>
-                .<span class="ident">len</span>()
-                .<span class="ident">try_into</span>()
-                .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
-                    <span class="ident">ModelsError::SerializeError</span>(<span class="macro">format!</span>(
-                        <span class="string">&quot;too many block_ledger_change in ActiveBlock: {}&quot;</span>,
-                        <span class="ident">err</span>
-                    ))
-                })<span class="question-mark">?</span>;
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">block_ledger_change_count</span>.<span class="ident">to_varint_bytes</span>());
-        <span class="kw">for</span> (<span class="ident">addr</span>, <span class="ident">change</span>) <span class="kw">in</span> <span class="self">self</span>.<span class="ident">block_ledger_changes</span>.<span class="number">0</span>.<span class="ident">iter</span>() {
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="kw-2">&amp;</span><span class="ident">addr</span>.<span class="ident">to_bytes</span>());
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">change</span>.<span class="ident">to_bytes_compact</span>()<span class="question-mark">?</span>);
-        }
-
-        <span class="comment">// roll updates</span>
-        <span class="kw">let</span> <span class="ident">roll_updates_count</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">roll_updates</span>.<span class="number">0</span>.<span class="ident">len</span>().<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
-            <span class="ident">ModelsError::SerializeError</span>(<span class="macro">format!</span>(<span class="string">&quot;too many roll updates in ActiveBlock: {}&quot;</span>, <span class="ident">err</span>))
-        })<span class="question-mark">?</span>;
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">roll_updates_count</span>.<span class="ident">to_varint_bytes</span>());
-        <span class="kw">for</span> (<span class="ident">addr</span>, <span class="ident">roll_update</span>) <span class="kw">in</span> <span class="self">self</span>.<span class="ident">roll_updates</span>.<span class="number">0</span>.<span class="ident">iter</span>() {
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">addr</span>.<span class="ident">to_bytes</span>());
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">roll_update</span>.<span class="ident">to_bytes_compact</span>()<span class="question-mark">?</span>);
-        }
-
-        <span class="comment">// creation events</span>
-        <span class="kw">let</span> <span class="ident">production_events_count</span>: <span class="ident">u32</span> <span class="op">=</span>
-            <span class="self">self</span>.<span class="ident">production_events</span>.<span class="ident">len</span>().<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
-                <span class="ident">ModelsError::SerializeError</span>(<span class="macro">format!</span>(
-                    <span class="string">&quot;too many creation events in ActiveBlock: {}&quot;</span>,
-                    <span class="ident">err</span>
-                ))
-            })<span class="question-mark">?</span>;
-        <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">production_events_count</span>.<span class="ident">to_varint_bytes</span>());
-        <span class="kw">for</span> (<span class="ident">period</span>, <span class="ident">addr</span>, <span class="ident">has_created</span>) <span class="kw">in</span> <span class="self">self</span>.<span class="ident">production_events</span>.<span class="ident">iter</span>() {
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">period</span>.<span class="ident">to_varint_bytes</span>());
-            <span class="ident">res</span>.<span class="ident">extend</span>(<span class="ident">addr</span>.<span class="ident">to_bytes</span>());
-            <span class="ident">res</span>.<span class="ident">push</span>(<span class="kw">if</span> <span class="kw-2">*</span><span class="ident">has_created</span> { <span class="number">1u8</span> } <span class="kw">else</span> { <span class="number">0u8</span> });
-        }
-
-        <span class="prelude-val">Ok</span>(<span class="ident">res</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">DeserializeCompact</span> <span class="kw">for</span> <span class="ident">ExportActiveBlock</span> {
-    <span class="kw">fn</span> <span class="ident">from_bytes_compact</span>(<span class="ident">buffer</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="self">Self</span>, <span class="ident">usize</span>), <span class="ident">massa_models::ModelsError</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cursor</span> <span class="op">=</span> <span class="number">0usize</span>;
-        <span class="kw">let</span> (<span class="ident">parent_count</span>, <span class="ident">max_bootstrap_children</span>, <span class="ident">max_bootstrap_deps</span>, <span class="ident">max_bootstrap_pos_entries</span>) <span class="op">=</span>
-            <span class="ident">with_serialization_context</span>(<span class="op">|</span><span class="ident">context</span><span class="op">|</span> {
-                (
-                    <span class="ident">context</span>.<span class="ident">thread_count</span>,
-                    <span class="ident">context</span>.<span class="ident">max_bootstrap_children</span>,
-                    <span class="ident">context</span>.<span class="ident">max_bootstrap_deps</span>,
-                    <span class="ident">context</span>.<span class="ident">max_bootstrap_pos_entries</span>,
-                )
-            });
-
-        <span class="comment">// is_final</span>
-        <span class="kw">let</span> <span class="ident">is_final_u8</span> <span class="op">=</span> <span class="ident">u8_from_slice</span>(<span class="ident">buffer</span>)<span class="question-mark">?</span>;
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-        <span class="kw">let</span> <span class="ident">is_final</span> <span class="op">=</span> <span class="ident">is_final_u8</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span>;
-
-        <span class="comment">// block</span>
-        <span class="kw">let</span> (<span class="ident">block</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">Block::from_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-
-        <span class="comment">// parents</span>
-        <span class="kw">let</span> <span class="ident">has_parents</span> <span class="op">=</span> <span class="ident">u8_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-        <span class="kw">let</span> <span class="ident">parents</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">has_parents</span> <span class="op">==</span> <span class="number">1</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">BlockId</span>, <span class="ident">u64</span>)<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::with_capacity</span>(<span class="ident">parent_count</span> <span class="kw">as</span> <span class="ident">usize</span>);
-            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">parent_count</span> {
-                <span class="kw">let</span> <span class="ident">parent_h</span> <span class="op">=</span> <span class="ident">BlockId::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-                <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">BLOCK_ID_SIZE_BYTES</span>;
-                <span class="kw">let</span> (<span class="ident">period</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u64::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-                <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-
-                <span class="ident">parents</span>.<span class="ident">push</span>((<span class="ident">parent_h</span>, <span class="ident">period</span>));
-            }
-            <span class="ident">parents</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">has_parents</span> <span class="op">==</span> <span class="number">0</span> {
-            <span class="ident">Vec::new</span>()
-        } <span class="kw">else</span> {
-            <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ModelsError::SerializeError</span>(
-                <span class="string">&quot;ActiveBlock from_bytes_compact bad has parents flags.&quot;</span>.<span class="ident">into</span>(),
-            ));
+<span class="kw">impl </span>ExportActiveBlock {
+    <span class="doccomment">/// conversion from active block to export active block
+    </span><span class="kw">pub fn </span>from_active_block(a_block: <span class="kw-2">&amp;</span>ActiveBlock, storage: <span class="kw-2">&amp;</span>Storage) -&gt; <span class="self">Self </span>{
+        <span class="comment">// get block
+        </span><span class="kw">let </span>block = storage
+            .read_blocks()
+            .get(<span class="kw-2">&amp;</span>a_block.block_id)
+            .expect(<span class="string">&quot;active block missing in storage&quot;</span>)
+            .clone();
+        <span class="comment">// get ops
+        </span><span class="kw">let </span>operations = {
+            <span class="kw">let </span>read_ops = storage.read_operations();
+            block
+                .content
+                .operations
+                .iter()
+                .map(|op_id| {
+                    read_ops
+                        .get(op_id)
+                        .expect(<span class="string">&quot;active block operation missing in storage&quot;</span>)
+                        .clone()
+                })
+                .collect()
         };
 
-        <span class="comment">// children</span>
-        <span class="kw">let</span> (<span class="ident">children_count</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u32::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">parent_count_u32</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">parent_count</span>.<span class="ident">into</span>();
-        <span class="kw">if</span> <span class="ident">children_count</span> <span class="op">&gt;</span> <span class="ident">parent_count_u32</span> {
-            <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ModelsError::DeserializeError</span>(
-                <span class="string">&quot;too many threads with children to deserialize&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="comment">// TODO if we deciede that endorsements are separate, also gather endorsements here
+
+        </span>ExportActiveBlock {
+            operations,
+            parents: a_block.parents.clone(),
+            is_final: a_block.is_final,
+            block,
+        }
+    }
+
+    <span class="doccomment">/// consuming conversion from ExportActiveBlock to ActiveBlock
+    </span><span class="kw">pub fn </span>to_active_block(
+        <span class="self">self</span>,
+        ref_storage: <span class="kw-2">&amp;</span>Storage,
+        thread_count: u8,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(ActiveBlock, Storage), GraphError&gt; {
+        <span class="comment">// create resulting storage
+        </span><span class="kw">let </span><span class="kw-2">mut </span>storage = ref_storage.clone_without_refs();
+
+        <span class="comment">// add operations to storage and claim refs
+        </span>storage.store_operations(<span class="self">self</span>.operations);
+
+        <span class="comment">// check that the block operations match the stored ones
+        </span><span class="kw">if </span>storage.get_op_refs()
+            != <span class="kw-2">&amp;</span><span class="self">self
+                </span>.block
+                .content
+                .operations
+                .iter()
+                .cloned()
+                .collect::&lt;PreHashSet&lt;<span class="kw">_</span>&gt;&gt;()
+        {
+            <span class="kw">return </span><span class="prelude-val">Err</span>(GraphError::MissingOperation(
+                <span class="string">&quot;operation list mismatch on active block conversion&quot;</span>.into(),
             ));
         }
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">children</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Map</span><span class="op">&lt;</span><span class="ident">BlockId</span>, <span class="ident">u64</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec::with_capacity</span>(<span class="ident">children_count</span> <span class="kw">as</span> <span class="ident">usize</span>);
-        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..(<span class="ident">children_count</span> <span class="kw">as</span> <span class="ident">usize</span>) {
-            <span class="kw">let</span> (<span class="ident">map_count</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u32::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-            <span class="kw">if</span> <span class="ident">map_count</span> <span class="op">&gt;</span> <span class="ident">max_bootstrap_children</span> {
-                <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ModelsError::DeserializeError</span>(
-                    <span class="string">&quot;too many children to deserialize&quot;</span>.<span class="ident">to_string</span>(),
-                ));
-            }
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">map</span>: <span class="ident">Map</span><span class="op">&lt;</span><span class="ident">BlockId</span>, <span class="ident">u64</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Map::with_capacity_and_hasher</span>(<span class="ident">map_count</span> <span class="kw">as</span> <span class="ident">usize</span>, <span class="ident">BuildMap::default</span>());
-            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..(<span class="ident">map_count</span> <span class="kw">as</span> <span class="ident">usize</span>) {
-                <span class="kw">let</span> <span class="ident">hash</span> <span class="op">=</span> <span class="ident">BlockId::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-                <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">BLOCK_ID_SIZE_BYTES</span>;
-                <span class="kw">let</span> (<span class="ident">period</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u64::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-                <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-                <span class="ident">map</span>.<span class="ident">insert</span>(<span class="ident">hash</span>, <span class="ident">period</span>);
-            }
-            <span class="ident">children</span>.<span class="ident">push</span>(<span class="ident">map</span>);
+
+        <span class="comment">// add endorsements to storage and claim refs
+        // TODO change if we decide that endorsements are stored separately
+        </span>storage.store_endorsements(<span class="self">self</span>.block.content.header.content.endorsements.clone());
+
+        <span class="comment">// Note: the block&#39;s parents are not claimed in the block&#39;s storage here but on graph inclusion
+
+        // create ActiveBlock
+        </span><span class="kw">let </span>active_block = ActiveBlock {
+            creator_address: <span class="self">self</span>.block.creator_address,
+            block_id: <span class="self">self</span>.block.id,
+            parents: <span class="self">self</span>.parents.clone(),
+            children: <span class="macro">vec!</span>[PreHashMap::default(); thread_count <span class="kw">as </span>usize], <span class="comment">// will be computed once the full graph is available
+            </span>descendants: Default::default(), <span class="comment">// will be computed once the full graph is available
+            </span>is_final: <span class="self">self</span>.is_final,
+            slot: <span class="self">self</span>.block.content.header.content.slot,
+            fitness: <span class="self">self</span>.block.get_fitness(),
+        };
+
+        <span class="comment">// add block to storage and claim ref
+        </span>storage.store_block(<span class="self">self</span>.block);
+
+        <span class="prelude-val">Ok</span>((active_block, storage))
+    }
+}
+
+<span class="doccomment">/// Basic serializer of `ExportActiveBlock`
+</span><span class="attribute">#[derive(Default)]
+</span><span class="kw">pub struct </span>ExportActiveBlockSerializer {
+    wrapped_serializer: WrappedSerializer,
+    period_serializer: U64VarIntSerializer,
+    operation_count_serializer: U32VarIntSerializer,
+}
+
+<span class="kw">impl </span>ExportActiveBlockSerializer {
+    <span class="doccomment">/// Create a new `ExportActiveBlockSerializer`
+    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+        ExportActiveBlockSerializer {
+            wrapped_serializer: WrappedSerializer::new(),
+            period_serializer: U64VarIntSerializer::new(),
+            operation_count_serializer: U32VarIntSerializer::new(),
+        }
+    }
+}
+
+<span class="kw">impl </span>Serializer&lt;ExportActiveBlock&gt; <span class="kw">for </span>ExportActiveBlockSerializer {
+    <span class="kw">fn </span>serialize(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        value: <span class="kw-2">&amp;</span>ExportActiveBlock,
+        buffer: <span class="kw-2">&amp;mut </span>Vec&lt;u8&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), SerializeError&gt; {
+        <span class="comment">// block
+        </span><span class="self">self</span>.wrapped_serializer.serialize(<span class="kw-2">&amp;</span>value.block, buffer)<span class="question-mark">?</span>;
+
+        <span class="comment">// operations
+        </span><span class="self">self</span>.operation_count_serializer.serialize(
+            <span class="kw-2">&amp;</span>value
+                .operations
+                .len()
+                .try_into()
+                .map_err(|<span class="kw">_</span>| SerializeError::NumberTooBig(<span class="string">&quot;Too many operations&quot;</span>.to_string()))<span class="question-mark">?</span>,
+            buffer,
+        )<span class="question-mark">?</span>;
+        <span class="kw">for </span>op <span class="kw">in </span><span class="kw-2">&amp;</span>value.operations {
+            <span class="self">self</span>.wrapped_serializer.serialize(op, buffer)<span class="question-mark">?</span>;
         }
 
-        <span class="comment">// dependencies</span>
-        <span class="kw">let</span> (<span class="ident">dependencies_count</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u32::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="kw">if</span> <span class="ident">dependencies_count</span> <span class="op">&gt;</span> <span class="ident">max_bootstrap_deps</span> {
-            <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ModelsError::DeserializeError</span>(
-                <span class="string">&quot;too many dependencies to deserialize&quot;</span>.<span class="ident">to_string</span>(),
-            ));
-        }
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">dependencies</span> <span class="op">=</span> <span class="ident">Set</span>::<span class="op">&lt;</span><span class="ident">BlockId</span><span class="op">&gt;</span><span class="ident">::with_capacity_and_hasher</span>(
-            <span class="ident">dependencies_count</span> <span class="kw">as</span> <span class="ident">usize</span>,
-            <span class="ident">BuildMap::default</span>(),
-        );
-        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..(<span class="ident">dependencies_count</span> <span class="kw">as</span> <span class="ident">usize</span>) {
-            <span class="kw">let</span> <span class="ident">dep</span> <span class="op">=</span> <span class="ident">BlockId::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">BLOCK_ID_SIZE_BYTES</span>;
-            <span class="ident">dependencies</span>.<span class="ident">insert</span>(<span class="ident">dep</span>);
+        <span class="comment">// parents with periods
+        // note: there should be no parents for genesis blocks
+        </span>buffer.push(<span class="kw">if </span>value.parents.is_empty() { <span class="number">0u8 </span>} <span class="kw">else </span>{ <span class="number">1u8 </span>});
+        <span class="kw">for </span>(hash, period) <span class="kw">in </span>value.parents.iter() {
+            buffer.extend(hash.<span class="number">0</span>.to_bytes());
+            <span class="self">self</span>.period_serializer.serialize(period, buffer)<span class="question-mark">?</span>;
         }
 
-        <span class="comment">// block_ledger_changes</span>
-        <span class="kw">let</span> (<span class="ident">block_ledger_change_count</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u32::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="comment">// TODO: count check ... see #1200</span>
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">block_ledger_changes</span> <span class="op">=</span> <span class="ident">LedgerChanges</span>(<span class="ident">Map::with_capacity_and_hasher</span>(
-            <span class="ident">block_ledger_change_count</span> <span class="kw">as</span> <span class="ident">usize</span>,
-            <span class="ident">BuildMap::default</span>(),
-        ));
-        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">block_ledger_change_count</span> {
-            <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="ident">Address::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">ADDRESS_SIZE_BYTES</span>;
-            <span class="kw">let</span> (<span class="ident">change</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">LedgerChange::from_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-            <span class="ident">block_ledger_changes</span>.<span class="number">0</span>.<span class="ident">insert</span>(<span class="ident">address</span>, <span class="ident">change</span>);
-        }
+        <span class="comment">// finality
+        </span>buffer.push(<span class="kw">if </span>value.is_final { <span class="number">1u8 </span>} <span class="kw">else </span>{ <span class="number">0u8 </span>});
 
-        <span class="comment">// roll_updates</span>
-        <span class="kw">let</span> (<span class="ident">roll_updates_count</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u32::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="kw">if</span> <span class="ident">roll_updates_count</span> <span class="op">&gt;</span> <span class="ident">max_bootstrap_pos_entries</span> {
-            <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ModelsError::DeserializeError</span>(
-                <span class="string">&quot;too many roll updates to deserialize&quot;</span>.<span class="ident">to_string</span>(),
-            ));
-        }
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">roll_updates</span> <span class="op">=</span> <span class="ident">RollUpdates</span>(<span class="ident">Map::with_capacity_and_hasher</span>(
-            <span class="ident">roll_updates_count</span> <span class="kw">as</span> <span class="ident">usize</span>,
-            <span class="ident">BuildMap::default</span>(),
-        ));
-        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">roll_updates_count</span> {
-            <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="ident">Address::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">ADDRESS_SIZE_BYTES</span>;
-            <span class="kw">let</span> (<span class="ident">roll_update</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">RollUpdate::from_bytes_compact</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-            <span class="ident">roll_updates</span>.<span class="number">0</span>.<span class="ident">insert</span>(<span class="ident">address</span>, <span class="ident">roll_update</span>);
-        }
+        <span class="prelude-val">Ok</span>(())
+    }
+}
 
-        <span class="comment">// production_events</span>
-        <span class="kw">let</span> (<span class="ident">production_events_count</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u32::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-        <span class="comment">// TODO: count check ... see #1200</span>
-        <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">production_events</span>: <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">u64</span>, <span class="ident">Address</span>, <span class="ident">bool</span>)<span class="op">&gt;</span> <span class="op">=</span>
-            <span class="ident">Vec::with_capacity</span>(<span class="ident">production_events_count</span> <span class="kw">as</span> <span class="ident">usize</span>);
-        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">production_events_count</span> {
-            <span class="kw">let</span> (<span class="ident">period</span>, <span class="ident">delta</span>) <span class="op">=</span> <span class="ident">u64::from_varint_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>;
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">delta</span>;
-            <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="ident">Address::from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">array_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span>)<span class="question-mark">?</span>;
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="ident">ADDRESS_SIZE_BYTES</span>;
-            <span class="kw">let</span> <span class="ident">has_created</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">u8_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[<span class="ident">cursor</span>..])<span class="question-mark">?</span> {
-                <span class="number">0u8</span> =&gt; <span class="bool-val">false</span>,
-                <span class="number">1u8</span> =&gt; <span class="bool-val">true</span>,
-                <span class="kw">_</span> =&gt; {
-                    <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ModelsError::SerializeError</span>(
-                        <span class="string">&quot;could not deserialize active_block.production_events.has_created&quot;</span>.<span class="ident">into</span>(),
-                    ))
-                }
-            };
-            <span class="ident">cursor</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-            <span class="ident">production_events</span>.<span class="ident">push</span>((<span class="ident">period</span>, <span class="ident">address</span>, <span class="ident">has_created</span>));
-        }
+<span class="doccomment">/// Basic deserializer of `ExportActiveBlock`
+</span><span class="kw">pub struct </span>ExportActiveBlockDeserializer {
+    wrapped_block_deserializer: WrappedDeserializer&lt;Block, BlockDeserializer&gt;,
+    wrapped_operation_deserializer: WrappedDeserializer&lt;Operation, OperationDeserializer&gt;,
+    hash_deserializer: HashDeserializer,
+    period_deserializer: U64VarIntDeserializer,
+    operation_count_serializer: U32VarIntDeserializer,
+    thread_count: u8,
+}
 
-        <span class="prelude-val">Ok</span>((
-            <span class="ident">ExportActiveBlock</span> {
-                <span class="ident">is_final</span>,
-                <span class="ident">block</span>,
-                <span class="ident">parents</span>,
-                <span class="ident">children</span>,
-                <span class="ident">dependencies</span>,
-                <span class="ident">block_ledger_changes</span>,
-                <span class="ident">roll_updates</span>,
-                <span class="ident">production_events</span>,
-            },
-            <span class="ident">cursor</span>,
-        ))
+<span class="kw">impl </span>ExportActiveBlockDeserializer {
+    <span class="doccomment">/// Create a new `ExportActiveBlockDeserializer`
+    </span><span class="attribute">#[allow(clippy::too_many_arguments)]
+    </span><span class="kw">pub fn </span>new(
+        thread_count: u8,
+        endorsement_count: u32,
+        max_operations_per_block: u32,
+        max_datastore_value_length: u64,
+        max_function_name_length: u16,
+        max_parameters_size: u32,
+    ) -&gt; <span class="self">Self </span>{
+        ExportActiveBlockDeserializer {
+            wrapped_block_deserializer: WrappedDeserializer::new(BlockDeserializer::new(
+                thread_count,
+                max_operations_per_block,
+                endorsement_count,
+            )),
+            wrapped_operation_deserializer: WrappedDeserializer::new(OperationDeserializer::new(
+                max_datastore_value_length,
+                max_function_name_length,
+                max_parameters_size,
+            )),
+            operation_count_serializer: U32VarIntDeserializer::new(
+                Included(<span class="number">0</span>),
+                Included(max_operations_per_block),
+            ),
+            hash_deserializer: HashDeserializer::new(),
+            period_deserializer: U64VarIntDeserializer::new(Included(<span class="number">0</span>), Included(u64::MAX)),
+            thread_count,
+        }
+    }
+}
+
+<span class="kw">impl </span>Deserializer&lt;ExportActiveBlock&gt; <span class="kw">for </span>ExportActiveBlockDeserializer {
+    <span class="doccomment">/// ## Example:
+    /// ```rust
+    /// use massa_graph::export_active_block::{ExportActiveBlock, ExportActiveBlockDeserializer, ExportActiveBlockSerializer};
+    /// use massa_models::{ledger_models::LedgerChanges, config::THREAD_COUNT, rolls::RollUpdates, block::{BlockId, Block, BlockSerializer, BlockHeader, BlockHeaderSerializer}, prehash::PreHashSet, endorsement::{Endorsement, EndorsementSerializer}, slot::Slot, wrapped::WrappedContent};
+    /// use massa_hash::Hash;
+    /// use std::collections::HashSet;
+    /// use massa_signature::KeyPair;
+    /// use massa_serialization::{Serializer, Deserializer, DeserializeError};
+    ///
+    /// let keypair = KeyPair::generate();
+    /// let parents = (0..THREAD_COUNT)
+    ///     .map(|i| BlockId(Hash::compute_from(&amp;[i])))
+    ///     .collect();
+    ///
+    /// // create block header
+    /// let orig_header = BlockHeader::new_wrapped(
+    ///     BlockHeader {
+    ///         slot: Slot::new(1, 1),
+    ///         parents,
+    ///         operation_merkle_root: Hash::compute_from(&quot;mno&quot;.as_bytes()),
+    ///         endorsements: vec![
+    ///             Endorsement::new_wrapped(
+    ///                 Endorsement {
+    ///                     slot: Slot::new(1, 1),
+    ///                     index: 1,
+    ///                     endorsed_block: BlockId(Hash::compute_from(&quot;blk1&quot;.as_bytes())),
+    ///                 },
+    ///                 EndorsementSerializer::new(),
+    ///                 &amp;keypair,
+    ///             )
+    ///             .unwrap(),
+    ///             Endorsement::new_wrapped(
+    ///                 Endorsement {
+    ///                     slot: Slot::new(4, 0),
+    ///                     index: 3,
+    ///                     endorsed_block: BlockId(Hash::compute_from(&quot;blk2&quot;.as_bytes())),
+    ///                 },
+    ///                 EndorsementSerializer::new(),
+    ///                 &amp;keypair,
+    ///             )
+    ///             .unwrap(),
+    ///         ],
+    ///     },
+    ///     BlockHeaderSerializer::new(),
+    ///     &amp;keypair,
+    /// )
+    /// .unwrap();
+    ///
+    /// // create block
+    /// let orig_block = Block {
+    ///     header: orig_header,
+    ///     operations: Vec::new(),
+    /// };
+    ///
+    /// let full_block = Block::new_wrapped(orig_block, BlockSerializer::new(), &amp;keypair).unwrap();
+    /// let export_active_block = ExportActiveBlock {
+    ///    block: full_block.clone(),
+    ///    parents: vec![],
+    ///    operations: vec![],
+    ///    is_final: false,
+    /// };
+    ///
+    /// let mut serialized = Vec::new();
+    /// ExportActiveBlockSerializer::new().serialize(&amp;export_active_block, &amp;mut serialized).unwrap();
+    /// let (rest, export_deserialized) = ExportActiveBlockDeserializer::new(32, 9, 1000, 1000, 1000, 1000, ).deserialize::&lt;DeserializeError&gt;(&amp;serialized).unwrap();
+    /// assert_eq!(export_deserialized.block.id, export_active_block.block.id);
+    /// assert_eq!(export_deserialized.block.serialized_data, export_active_block.block.serialized_data);
+    /// assert_eq!(rest.len(), 0);
+    /// ```
+    </span><span class="kw">fn </span>deserialize&lt;<span class="lifetime">&#39;a</span>, E: ParseError&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]&gt; + ContextError&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]&gt;&gt;(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        buffer: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8],
+    ) -&gt; IResult&lt;<span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8], ExportActiveBlock, E&gt; {
+        context(
+            <span class="string">&quot;Failed ExportActiveBlock deserialization&quot;</span>,
+            tuple((
+                <span class="comment">// block
+                </span>context(<span class="string">&quot;Failed block deserialization&quot;</span>, |input| {
+                    <span class="self">self</span>.wrapped_block_deserializer.deserialize(input)
+                }),
+                <span class="comment">// operations
+                </span>context(
+                    <span class="string">&quot;Failed operations deserialization&quot;</span>,
+                    length_count(
+                        context(<span class="string">&quot;Failed operation count deserialization&quot;</span>, |input| {
+                            <span class="self">self</span>.operation_count_serializer.deserialize(input)
+                        }),
+                        context(<span class="string">&quot;Failed operation deserialization&quot;</span>, |input| {
+                            <span class="self">self</span>.wrapped_operation_deserializer.deserialize(input)
+                        }),
+                    ),
+                ),
+                <span class="comment">// parents
+                </span>context(
+                    <span class="string">&quot;Failed parents deserialization&quot;</span>,
+                    alt((
+                        value(Vec::new(), tag(<span class="kw-2">&amp;</span>[<span class="number">0</span>])),
+                        preceded(
+                            tag(<span class="kw-2">&amp;</span>[<span class="number">1</span>]),
+                            count(
+                                tuple((
+                                    context(<span class="string">&quot;Failed block_id deserialization&quot;</span>, |input| {
+                                        <span class="self">self</span>.hash_deserializer
+                                            .deserialize(input)
+                                            .map(|(rest, hash)| (rest, BlockId(hash)))
+                                    }),
+                                    context(<span class="string">&quot;Failed period deserialization&quot;</span>, |input| {
+                                        <span class="self">self</span>.period_deserializer.deserialize(input)
+                                    }),
+                                )),
+                                <span class="self">self</span>.thread_count <span class="kw">as </span>usize,
+                            ),
+                        ),
+                    )),
+                ),
+                <span class="comment">// finality
+                </span>context(
+                    <span class="string">&quot;Failed is_final deserialization&quot;</span>,
+                    alt((value(<span class="bool-val">true</span>, tag(<span class="kw-2">&amp;</span>[<span class="number">1</span>])), value(<span class="bool-val">false</span>, tag(<span class="kw-2">&amp;</span>[<span class="number">0</span>])))),
+                ),
+            )),
+        )
+        .map(|(block, operations, parents, is_final)| ExportActiveBlock {
+            block,
+            operations,
+            parents,
+            is_final,
+        })
+        .parse(buffer)
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_graph" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (285fa7ecd 2022-03-14)" ></div>
-</body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_graph" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (17cbdfd07 2022-09-13)" ></div></body></html>

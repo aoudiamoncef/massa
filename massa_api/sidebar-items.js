@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["API",""],["Private",""],["Public",""],["StopHandle",""]],"trait":[["Endpoints",""],["RpcServer",""]]});
+window.SIDEBAR_ITEMS = {"struct":[["API","The API wrapper"],["APIConfig","API settings. the API settings"],["Private","Private API content"],["Public","Public API component"],["StopHandle","Used to be able to stop the API"]],"trait":[["Endpoints","Exposed API endpoints"],["RpcServer","Used to manage the API"]]};
