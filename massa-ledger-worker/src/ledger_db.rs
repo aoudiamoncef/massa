@@ -15,8 +15,7 @@ use massa_serialization::{Deserializer, Serializer, U64VarIntSerializer};
 use nom::multi::many0;
 use nom::sequence::tuple;
 use rocksdb::{
-    ColumnFamily, ColumnFamilyDescriptor, Direction, IteratorMode, Options, ReadOptions,
-    WriteBatch, DB,
+    ColumnFamily, ColumnFamilyDescriptor, Direction, IteratorMode, Options, ReadOptions, WriteBatchWithTransaction, TransactionDB, TransactionDBOptions
 };
 use std::ops::Bound;
 use std::path::PathBuf;
@@ -55,7 +54,7 @@ pub enum LedgerSubEntry {
 ///
 /// Contains a `RocksDB` DB instance
 pub(crate) struct LedgerDB {
-    db: DB,
+    db: TransactionDB,
     thread_count: u8,
     amount_serializer: AmountSerializer,
     slot_serializer: SlotSerializer,
@@ -68,7 +67,7 @@ pub(crate) struct LedgerDB {
 
 impl Debug for LedgerDB {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{:#?}", self.db)
+        write!(f, "RocksDB {{ path: {:?} }}", self.db.path())
     }
 }
 
@@ -98,7 +97,7 @@ fn test_end_prefix() {
 /// Batch containing write operations to perform on disk and cache for the ledger hash computing
 pub struct LedgerBatch {
     // Rocksdb write batch
-    write_batch: WriteBatch,
+    write_batch: WriteBatchWithTransaction<true>,
     // Ledger hash state in the current batch
     ledger_hash: Hash,
     // Added entry hashes in the current batch
@@ -108,7 +107,7 @@ pub struct LedgerBatch {
 impl LedgerBatch {
     pub fn new(ledger_hash: Hash) -> Self {
         Self {
-            write_batch: WriteBatch::default(),
+            write_batch: WriteBatchWithTransaction::<true>::default(),
             ledger_hash,
             aeh_list: BTreeMap::new(),
         }
@@ -130,13 +129,15 @@ impl LedgerDB {
         db_opts.create_if_missing(true);
         db_opts.create_missing_column_families(true);
 
-        let db = DB::open_cf_descriptors(
+        let db = TransactionDB::open_cf_descriptors(
             &db_opts,
+            &TransactionDBOptions::default(),
             path,
             vec![
                 ColumnFamilyDescriptor::new(LEDGER_CF, Options::default()),
                 ColumnFamilyDescriptor::new(METADATA_CF, Options::default()),
             ],
+        
         )
         .expect(OPEN_ERROR);
 
