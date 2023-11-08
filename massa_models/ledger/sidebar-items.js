@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["LedgerChange","LedgerChangeDeserializer","LedgerChangeSerializer","LedgerChanges","LedgerChangesDeserializer","LedgerChangesSerializer","LedgerData","LedgerDataDeserializer","LedgerDataSerializer"]};

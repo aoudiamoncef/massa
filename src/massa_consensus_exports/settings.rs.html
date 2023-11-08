@@ -1,438 +1,111 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-consensus-exports/src/settings.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>settings.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../massa_consensus_exports/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../massa_consensus_exports/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../massa_consensus_exports/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
-<span id="2">2</span>
-<span id="3">3</span>
-<span id="4">4</span>
-<span id="5">5</span>
-<span id="6">6</span>
-<span id="7">7</span>
-<span id="8">8</span>
-<span id="9">9</span>
-<span id="10">10</span>
-<span id="11">11</span>
-<span id="12">12</span>
-<span id="13">13</span>
-<span id="14">14</span>
-<span id="15">15</span>
-<span id="16">16</span>
-<span id="17">17</span>
-<span id="18">18</span>
-<span id="19">19</span>
-<span id="20">20</span>
-<span id="21">21</span>
-<span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
-<span id="25">25</span>
-<span id="26">26</span>
-<span id="27">27</span>
-<span id="28">28</span>
-<span id="29">29</span>
-<span id="30">30</span>
-<span id="31">31</span>
-<span id="32">32</span>
-<span id="33">33</span>
-<span id="34">34</span>
-<span id="35">35</span>
-<span id="36">36</span>
-<span id="37">37</span>
-<span id="38">38</span>
-<span id="39">39</span>
-<span id="40">40</span>
-<span id="41">41</span>
-<span id="42">42</span>
-<span id="43">43</span>
-<span id="44">44</span>
-<span id="45">45</span>
-<span id="46">46</span>
-<span id="47">47</span>
-<span id="48">48</span>
-<span id="49">49</span>
-<span id="50">50</span>
-<span id="51">51</span>
-<span id="52">52</span>
-<span id="53">53</span>
-<span id="54">54</span>
-<span id="55">55</span>
-<span id="56">56</span>
-<span id="57">57</span>
-<span id="58">58</span>
-<span id="59">59</span>
-<span id="60">60</span>
-<span id="61">61</span>
-<span id="62">62</span>
-<span id="63">63</span>
-<span id="64">64</span>
-<span id="65">65</span>
-<span id="66">66</span>
-<span id="67">67</span>
-<span id="68">68</span>
-<span id="69">69</span>
-<span id="70">70</span>
-<span id="71">71</span>
-<span id="72">72</span>
-<span id="73">73</span>
-<span id="74">74</span>
-<span id="75">75</span>
-<span id="76">76</span>
-<span id="77">77</span>
-<span id="78">78</span>
-<span id="79">79</span>
-<span id="80">80</span>
-<span id="81">81</span>
-<span id="82">82</span>
-<span id="83">83</span>
-<span id="84">84</span>
-<span id="85">85</span>
-<span id="86">86</span>
-<span id="87">87</span>
-<span id="88">88</span>
-<span id="89">89</span>
-<span id="90">90</span>
-<span id="91">91</span>
-<span id="92">92</span>
-<span id="93">93</span>
-<span id="94">94</span>
-<span id="95">95</span>
-<span id="96">96</span>
-<span id="97">97</span>
-<span id="98">98</span>
-<span id="99">99</span>
-<span id="100">100</span>
-<span id="101">101</span>
-<span id="102">102</span>
-<span id="103">103</span>
-<span id="104">104</span>
-<span id="105">105</span>
-<span id="106">106</span>
-<span id="107">107</span>
-<span id="108">108</span>
-<span id="109">109</span>
-<span id="110">110</span>
-<span id="111">111</span>
-<span id="112">112</span>
-<span id="113">113</span>
-<span id="114">114</span>
-<span id="115">115</span>
-<span id="116">116</span>
-<span id="117">117</span>
-<span id="118">118</span>
-<span id="119">119</span>
-<span id="120">120</span>
-<span id="121">121</span>
-<span id="122">122</span>
-<span id="123">123</span>
-<span id="124">124</span>
-<span id="125">125</span>
-<span id="126">126</span>
-<span id="127">127</span>
-<span id="128">128</span>
-<span id="129">129</span>
-<span id="130">130</span>
-<span id="131">131</span>
-<span id="132">132</span>
-<span id="133">133</span>
-<span id="134">134</span>
-<span id="135">135</span>
-<span id="136">136</span>
-<span id="137">137</span>
-<span id="138">138</span>
-<span id="139">139</span>
-<span id="140">140</span>
-<span id="141">141</span>
-<span id="142">142</span>
-<span id="143">143</span>
-<span id="144">144</span>
-<span id="145">145</span>
-<span id="146">146</span>
-<span id="147">147</span>
-<span id="148">148</span>
-<span id="149">149</span>
-<span id="150">150</span>
-<span id="151">151</span>
-<span id="152">152</span>
-<span id="153">153</span>
-<span id="154">154</span>
-<span id="155">155</span>
-<span id="156">156</span>
-<span id="157">157</span>
-<span id="158">158</span>
-<span id="159">159</span>
-<span id="160">160</span>
-<span id="161">161</span>
-<span id="162">162</span>
-<span id="163">163</span>
-<span id="164">164</span>
-<span id="165">165</span>
-<span id="166">166</span>
-<span id="167">167</span>
-<span id="168">168</span>
-<span id="169">169</span>
-<span id="170">170</span>
-<span id="171">171</span>
-<span id="172">172</span>
-<span id="173">173</span>
-<span id="174">174</span>
-<span id="175">175</span>
-<span id="176">176</span>
-<span id="177">177</span>
-<span id="178">178</span>
-<span id="179">179</span>
-<span id="180">180</span>
-<span id="181">181</span>
-<span id="182">182</span>
-<span id="183">183</span>
-<span id="184">184</span>
-<span id="185">185</span>
-<span id="186">186</span>
-<span id="187">187</span>
-<span id="188">188</span>
-<span id="189">189</span>
-<span id="190">190</span>
-<span id="191">191</span>
-<span id="192">192</span>
-<span id="193">193</span>
-<span id="194">194</span>
-<span id="195">195</span>
-<span id="196">196</span>
-<span id="197">197</span>
-<span id="198">198</span>
-<span id="199">199</span>
-<span id="200">200</span>
-<span id="201">201</span>
-<span id="202">202</span>
-<span id="203">203</span>
-<span id="204">204</span>
-<span id="205">205</span>
-<span id="206">206</span>
-<span id="207">207</span>
-<span id="208">208</span>
-<span id="209">209</span>
-<span id="210">210</span>
-<span id="211">211</span>
-<span id="212">212</span>
-<span id="213">213</span>
-<span id="214">214</span>
-<span id="215">215</span>
-<span id="216">216</span>
-<span id="217">217</span>
-<span id="218">218</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright (c) 2022 MASSA LABS &lt;info@massa.net&gt;
-</span><span class="attribute">#![allow(clippy::assertions_on_constants)]
-</span><span class="doccomment">//! Definition &amp; Implementation of the consensus settings
-//! -----------------------------------------------------
-//!
-//! # Configurations
-//!
-//! * `setting`: read from user settings file
-//! * `config`: merge of settings and hard-coded configuration that shouldn&#39;t be
-//!           modified by user.
-//!
-//! This file is allowed to use a lot of constants from `massa-models` as all
-//! other files named `settings.rs` or `config.rs`.
-//!
-//! The `ConsensusSettings` is the most basic and complete configuration in the
-//! node. You can get almost every configuration from that one.
-//!
-//! `From&lt;ConsensusSettings&gt; impl *`:
-//! - `ConsensusConfig`: Create a configuration merging user settings and hard-coded values
-//!                      (see `/massa-models/node_configuration/*`)
-//!
-//! `From&lt;&amp;ConsensusConfig&gt; impl *`:
-//! - `GraphConfig`
-//! - `LedgerConfig`
-//! - `ProofOfStakeConfig`
-//!
-//! &gt; Development note: We clone the values on getting a configuration from another.
-//!
-//! # Usage of constants
-//!
-//! The default configuration is loaded from the `massa-models` crate. You shouldn&#39;t
-//! write an hard-coded value in the following file but create a new value in
-//! `default.rs` and the testing default equivalent value in `default_testing.rs`. See
-//! `/node_configuration/mod.rs` documentation in `massa-models` sources for more
-//! information.
-//!
-//! # Channels
-//!
-//! The following file contains the definition of the Channels structures used in
-//! the current module.
-//!
-//! # Testing feature
-//!
-//! In unit test your allowed to use the `testing` feature flag that will
-//! use the default values from `/node_configuration/default_testing.rs` in the
-//! `massa-models` crate sources.
-</span><span class="kw">use </span>massa_execution_exports::ExecutionController;
-<span class="kw">use </span>massa_graph::settings::GraphConfig;
-<span class="kw">use </span>massa_pool_exports::PoolController;
-<span class="kw">use </span>massa_pos_exports::SelectorController;
-<span class="kw">use </span>massa_protocol_exports::{ProtocolCommandSender, ProtocolEventReceiver};
-<span class="kw">use </span>massa_signature::KeyPair;
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-consensus-exports/src/settings.rs`."><title>settings.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="massa_consensus_exports" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.1 (d5c2e9c34 2023-09-13)" data-channel="1.72.1" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="../../static.files/source-script-106908c7a7964ba4.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../massa_consensus_exports/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<a href="#2" id="2">2</a>
+<a href="#3" id="3">3</a>
+<a href="#4" id="4">4</a>
+<a href="#5" id="5">5</a>
+<a href="#6" id="6">6</a>
+<a href="#7" id="7">7</a>
+<a href="#8" id="8">8</a>
+<a href="#9" id="9">9</a>
+<a href="#10" id="10">10</a>
+<a href="#11" id="11">11</a>
+<a href="#12" id="12">12</a>
+<a href="#13" id="13">13</a>
+<a href="#14" id="14">14</a>
+<a href="#15" id="15">15</a>
+<a href="#16" id="16">16</a>
+<a href="#17" id="17">17</a>
+<a href="#18" id="18">18</a>
+<a href="#19" id="19">19</a>
+<a href="#20" id="20">20</a>
+<a href="#21" id="21">21</a>
+<a href="#22" id="22">22</a>
+<a href="#23" id="23">23</a>
+<a href="#24" id="24">24</a>
+<a href="#25" id="25">25</a>
+<a href="#26" id="26">26</a>
+<a href="#27" id="27">27</a>
+<a href="#28" id="28">28</a>
+<a href="#29" id="29">29</a>
+<a href="#30" id="30">30</a>
+<a href="#31" id="31">31</a>
+<a href="#32" id="32">32</a>
+<a href="#33" id="33">33</a>
+<a href="#34" id="34">34</a>
+<a href="#35" id="35">35</a>
+<a href="#36" id="36">36</a>
+<a href="#37" id="37">37</a>
+<a href="#38" id="38">38</a>
+<a href="#39" id="39">39</a>
+<a href="#40" id="40">40</a>
+<a href="#41" id="41">41</a>
+<a href="#42" id="42">42</a>
+<a href="#43" id="43">43</a>
+<a href="#44" id="44">44</a>
+<a href="#45" id="45">45</a>
+<a href="#46" id="46">46</a>
+<a href="#47" id="47">47</a>
+<a href="#48" id="48">48</a>
+<a href="#49" id="49">49</a>
+<a href="#50" id="50">50</a>
+<a href="#51" id="51">51</a>
+<a href="#52" id="52">52</a>
+<a href="#53" id="53">53</a>
+<a href="#54" id="54">54</a>
+<a href="#55" id="55">55</a>
+</pre></div><pre class="rust"><code><span class="kw">use </span>massa_signature::KeyPair;
 <span class="kw">use </span>massa_time::MassaTime;
-<span class="kw">use </span>tokio::sync::mpsc;
+<span class="kw">use </span>serde::{Deserialize, Serialize};
 
-<span class="kw">use crate</span>::{
-    commands::{ConsensusCommand, ConsensusManagementCommand},
-    events::ConsensusEvent,
-};
-
-<span class="doccomment">/// Consensus full configuration (static + user defined)
-</span><span class="attribute">#[derive(Debug, Clone)]
+<span class="attr">#[derive(Debug, Clone, Deserialize, Serialize)]
 </span><span class="kw">pub struct </span>ConsensusConfig {
-    <span class="doccomment">/// Time in milliseconds when the blockclique started.
+    <span class="doccomment">/// Genesis timestamp
     </span><span class="kw">pub </span>genesis_timestamp: MassaTime,
-    <span class="doccomment">/// TESTNET: time when the blockclique is ended.
-    </span><span class="kw">pub </span>end_timestamp: <span class="prelude-ty">Option</span>&lt;MassaTime&gt;,
+    <span class="doccomment">/// Delta time between two period
+    </span><span class="kw">pub </span>t0: MassaTime,
     <span class="doccomment">/// Number of threads
     </span><span class="kw">pub </span>thread_count: u8,
-    <span class="doccomment">/// Time between the periods in the same thread.
-    </span><span class="kw">pub </span>t0: MassaTime,
-    <span class="doccomment">/// `KeyPair` to sign genesis blocks.
+    <span class="doccomment">/// Keypair to sign genesis blocks.
     </span><span class="kw">pub </span>genesis_key: KeyPair,
     <span class="doccomment">/// Maximum number of blocks allowed in discarded blocks.
     </span><span class="kw">pub </span>max_discarded_blocks: usize,
-    <span class="doccomment">/// If a block is `future_block_processing_max_periods` periods in the future, it is just discarded.
-    </span><span class="kw">pub </span>future_block_processing_max_periods: u64,
     <span class="doccomment">/// Maximum number of blocks allowed in `FutureIncomingBlocks`.
     </span><span class="kw">pub </span>max_future_processing_blocks: usize,
     <span class="doccomment">/// Maximum number of blocks allowed in `DependencyWaitingBlocks`.
     </span><span class="kw">pub </span>max_dependency_blocks: usize,
+    <span class="doccomment">/// old blocks are pruned every `block_db_prune_interval`
+    </span><span class="kw">pub </span>block_db_prune_interval: MassaTime,
+    <span class="doccomment">/// Max gas per block for the execution configuration
+    </span><span class="kw">pub </span>max_gas_per_block: u64,
     <span class="doccomment">/// Threshold for fitness.
     </span><span class="kw">pub </span>delta_f0: u64,
     <span class="doccomment">/// Maximum operation validity period count
     </span><span class="kw">pub </span>operation_validity_periods: u64,
     <span class="doccomment">/// cycle duration in periods
     </span><span class="kw">pub </span>periods_per_cycle: u64,
-    <span class="doccomment">/// stats time span
-    </span><span class="kw">pub </span>stats_timespan: MassaTime,
-    <span class="doccomment">/// max event send wait
-    </span><span class="kw">pub </span>max_send_wait: MassaTime,
     <span class="doccomment">/// force keep at least this number of final periods in RAM for each thread
     </span><span class="kw">pub </span>force_keep_final_periods: u64,
+    <span class="doccomment">/// force keep at least this number of final blocks without ops in RAM for each thread
+    </span><span class="kw">pub </span>force_keep_final_periods_without_ops: u64,
     <span class="doccomment">/// target number of endorsement per block
     </span><span class="kw">pub </span>endorsement_count: u32,
-    <span class="doccomment">/// old blocks are pruned every `block_db_prune_interval`
-    </span><span class="kw">pub </span>block_db_prune_interval: MassaTime,
-    <span class="doccomment">/// max number of items returned while querying
-    </span><span class="kw">pub </span>max_item_return_count: usize,
-    <span class="doccomment">/// Max gas per block for the execution configuration
-    </span><span class="kw">pub </span>max_gas_per_block: u64,
+    <span class="doccomment">/// TESTNET: time when the blockclique is ended.
+    </span><span class="kw">pub </span>end_timestamp: <span class="prelude-ty">Option</span>&lt;MassaTime&gt;,
+    <span class="doccomment">/// stats time span
+    </span><span class="kw">pub </span>stats_timespan: MassaTime,
     <span class="doccomment">/// channel size
     </span><span class="kw">pub </span>channel_size: usize,
+    <span class="doccomment">/// size of a consensus bootstrap streaming part
+    </span><span class="kw">pub </span>bootstrap_part_size: u64,
+    <span class="doccomment">/// whether broadcast is enabled
+    </span><span class="kw">pub </span>broadcast_enabled: bool,
+    <span class="doccomment">/// blocks headers channel capacity
+    </span><span class="kw">pub </span>broadcast_blocks_headers_channel_capacity: usize,
+    <span class="doccomment">/// blocks channel capacity
+    </span><span class="kw">pub </span>broadcast_blocks_channel_capacity: usize,
+    <span class="doccomment">/// filled blocks channel capacity
+    </span><span class="kw">pub </span>broadcast_filled_blocks_channel_capacity: usize,
+    <span class="doccomment">/// last start period
+    </span><span class="kw">pub </span>last_start_period: u64,
 }
-
-<span class="kw">impl </span>From&lt;<span class="kw-2">&amp;</span>ConsensusConfig&gt; <span class="kw">for </span>GraphConfig {
-    <span class="kw">fn </span>from(cfg: <span class="kw-2">&amp;</span>ConsensusConfig) -&gt; <span class="self">Self </span>{
-        GraphConfig {
-            thread_count: cfg.thread_count,
-            genesis_key: cfg.genesis_key.clone(),
-            max_discarded_blocks: cfg.max_discarded_blocks,
-            future_block_processing_max_periods: cfg.future_block_processing_max_periods,
-            max_future_processing_blocks: cfg.max_future_processing_blocks,
-            max_dependency_blocks: cfg.max_dependency_blocks,
-            delta_f0: cfg.delta_f0,
-            operation_validity_periods: cfg.operation_validity_periods,
-            periods_per_cycle: cfg.periods_per_cycle,
-            force_keep_final_periods: cfg.force_keep_final_periods,
-            endorsement_count: cfg.endorsement_count,
-            max_item_return_count: cfg.max_item_return_count,
-        }
-    }
-}
-
-<span class="doccomment">/// Communication asynchronous channels for the consensus worker
-/// Contains consensus channels associated (protocol &amp; execution)
-/// Contains also controller asynchronous channels (command, manager receivers and event sender)
-/// Contains a sender to the pool worker commands
-</span><span class="kw">pub struct </span>ConsensusWorkerChannels {
-    <span class="doccomment">/// Associated protocol command sender.
-    </span><span class="kw">pub </span>protocol_command_sender: ProtocolCommandSender,
-    <span class="doccomment">/// Associated protocol event listener.
-    </span><span class="kw">pub </span>protocol_event_receiver: ProtocolEventReceiver,
-    <span class="doccomment">/// Execution command sender.
-    </span><span class="kw">pub </span>execution_controller: Box&lt;<span class="kw">dyn </span>ExecutionController&gt;,
-    <span class="doccomment">/// Associated Pool command sender.
-    </span><span class="kw">pub </span>pool_command_sender: Box&lt;<span class="kw">dyn </span>PoolController&gt;,
-    <span class="doccomment">/// Selector controller
-    </span><span class="kw">pub </span>selector_controller: Box&lt;<span class="kw">dyn </span>SelectorController&gt;,
-    <span class="doccomment">/// Channel receiving consensus commands.
-    </span><span class="kw">pub </span>controller_command_rx: mpsc::Receiver&lt;ConsensusCommand&gt;,
-    <span class="doccomment">/// Channel sending out consensus events.
-    </span><span class="kw">pub </span>controller_event_tx: mpsc::Sender&lt;ConsensusEvent&gt;,
-    <span class="doccomment">/// Channel receiving consensus management commands.
-    </span><span class="kw">pub </span>controller_manager_rx: mpsc::Receiver&lt;ConsensusManagementCommand&gt;,
-}
-
-<span class="doccomment">/// Public channels associated to the consensus module.
-/// Execution &amp; Protocol Sender/Receiver
-</span><span class="kw">pub struct </span>ConsensusChannels {
-    <span class="doccomment">/// outgoing link to execution component
-    </span><span class="kw">pub </span>execution_controller: Box&lt;<span class="kw">dyn </span>ExecutionController&gt;,
-    <span class="doccomment">/// outgoing link to protocol component
-    </span><span class="kw">pub </span>protocol_command_sender: ProtocolCommandSender,
-    <span class="doccomment">/// incoming link to protocol component
-    </span><span class="kw">pub </span>protocol_event_receiver: ProtocolEventReceiver,
-    <span class="doccomment">/// outgoing link to pool component
-    </span><span class="kw">pub </span>pool_command_sender: Box&lt;<span class="kw">dyn </span>PoolController&gt;,
-    <span class="doccomment">/// selector controller
-    </span><span class="kw">pub </span>selector_controller: Box&lt;<span class="kw">dyn </span>SelectorController&gt;,
-}
-
-<span class="attribute">#[cfg(feature = <span class="string">&quot;testing&quot;</span>)]
-</span><span class="doccomment">///
-/// Create the default value of `ConsensusConfig`.
-///
-/// Configuration has default values described in crate `massa-models`.
-/// The most of `ConsensusConfig` values have in test mode a default value.
-///
-/// You can create a `ConsensusConfig` with classic default values and redefining
-/// dynamically the values of desired parameters:
-///
-/// ```ignore
-/// let cfg = ConsensusConfig {
-///     max_discarded_blocks: 25,
-///     ..Default::default()
-/// };
-/// ```
-///
-/// You can also look at the divers `default()` implementation bellow. For example that
-/// one is used to initialize the _default paths_ :
-///
-/// ```ignore
-/// let cfg = ConsensusConfig {
-///     max_discarded_blocks: 21,
-///     ..ConsensusConfig::default_with_paths(),
-/// };
-/// ```
-///
-</span><span class="kw">impl </span>Default <span class="kw">for </span>ConsensusConfig {
-    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="kw">use </span>massa_models::config::<span class="kw-2">*</span>;
-        <span class="self">Self </span>{
-            <span class="comment">// reset genesis timestamp because we are in test mode that can take a while to process
-            </span>genesis_timestamp: MassaTime::now(<span class="number">0</span>)
-                .expect(<span class="string">&quot;Impossible to reset the timestamp in test&quot;</span>),
-            end_timestamp: <span class="kw-2">*</span>END_TIMESTAMP,
-            thread_count: THREAD_COUNT,
-            t0: T0,
-            genesis_key: GENESIS_KEY.clone(),
-            max_discarded_blocks: <span class="number">100</span>,
-            future_block_processing_max_periods: <span class="number">2</span>,
-            max_future_processing_blocks: <span class="number">10</span>,
-            max_dependency_blocks: <span class="number">100</span>,
-            delta_f0: DELTA_F0,
-            operation_validity_periods: OPERATION_VALIDITY_PERIODS,
-            periods_per_cycle: PERIODS_PER_CYCLE,
-            stats_timespan: MassaTime::from_millis(<span class="number">1000</span>),
-            max_send_wait: MassaTime::from_millis(<span class="number">1000</span>),
-            force_keep_final_periods: <span class="number">20</span>,
-            endorsement_count: ENDORSEMENT_COUNT,
-            block_db_prune_interval: MassaTime::from_millis(<span class="number">1000</span>),
-            max_item_return_count: <span class="number">100</span>,
-            max_gas_per_block: MAX_GAS_PER_BLOCK,
-            channel_size: CHANNEL_SIZE,
-        }
-    }
-}
-</code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="massa_consensus_exports" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0-nightly (17cbdfd07 2022-09-13)" ></div></body></html>
+</code></pre></div></section></main></body></html>

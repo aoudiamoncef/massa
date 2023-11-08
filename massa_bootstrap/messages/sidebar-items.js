@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BootstrapClientMessage","BootstrapServerMessage","MessageClientTypeId","MessageServerTypeId"],"struct":["BootstrapClientMessageDeserializer","BootstrapClientMessageSerializer","BootstrapServerMessageDeserializer","BootstrapServerMessageSerializer"]};

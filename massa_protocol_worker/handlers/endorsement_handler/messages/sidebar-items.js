@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["EndorsementMessage","MessageTypeId"],"struct":["EndorsementMessageDeserializer","EndorsementMessageDeserializerArgs","EndorsementMessageSerializer"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["MessageTypeId","PeerManagementMessage"],"fn":["listener_deserializer"],"struct":["PeerManagementMessageDeserializer","PeerManagementMessageDeserializerArgs","PeerManagementMessageSerializer"]};

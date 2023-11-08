@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BLOCKID_PREFIX"],"enum":["BlockId"],"macro":["BlockId","BlockIdVariant"],"struct":["BlockIdDeserializer","BlockIdSerializer","BlockIdV0"]};

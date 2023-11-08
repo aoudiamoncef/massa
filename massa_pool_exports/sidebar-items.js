@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":[["PoolError","pool error"]],"struct":[["PoolConfig","Pool configuration"]],"trait":[["PoolController","Trait defining a pool controller"]]};
+window.SIDEBAR_ITEMS = {"mod":["channels","config","controller_traits"],"struct":["PoolBroadcasts","PoolChannels","PoolConfig"],"trait":["PoolController","PoolManager"]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["mock_network_controller","mock network controller"],["tools","test utilities"]]};

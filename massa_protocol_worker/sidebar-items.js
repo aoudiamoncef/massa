@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["protocol_worker","protocol worker Copyright (c) 2022 MASSA LABS info@massa.net"],["worker_operations_impl","Contains the implementation of the life cycle of operations"]]};
+window.SIDEBAR_ITEMS = {"fn":["create_protocol_controller","start_protocol_controller"],"mod":["connectivity","context","controller","handlers","ip","manager","messages","sig_verifier","worker","wrap_network","wrap_peer_db"]};

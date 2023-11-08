@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ReadOnlyResult"],"struct":["ExecuteReadOnlyResponse","ReadOnlyBytecodeExecution","ReadOnlyCall"]};

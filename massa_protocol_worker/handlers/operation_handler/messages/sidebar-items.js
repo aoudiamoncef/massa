@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["MessageTypeId","OperationMessage"],"struct":["OperationMessageDeserializer","OperationMessageDeserializerArgs","OperationMessageSerializer"]};

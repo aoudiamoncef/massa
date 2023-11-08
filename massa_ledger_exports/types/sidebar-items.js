@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["SetOrDelete","SetOrKeep","SetUpdateOrDelete"],"struct":["SetOrDeleteDeserializer","SetOrDeleteSerializer","SetOrKeepDeserializer","SetOrKeepSerializer","SetUpdateOrDeleteDeserializer","SetUpdateOrDeleteSerializer"],"trait":["Applicable"]};
