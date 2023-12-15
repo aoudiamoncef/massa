@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - TEST.*
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
@@ -92,18 +93,22 @@ jobs:
             tar czvf massa_${GITHUB_REF/refs\/tags\//}_${{ matrix.name }} massa
           fi
           cd -
-      - name: Generate checksum
+  checksum:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+      - uses: actions/download-artifact@v4
+      - name: Generate checksums file
         uses: jmgilman/actions-generate-checksum@v1
         with:
           method: sha256
           patterns: |
             massa_*.zip
             massa_*.tar.gz
-          output: checksums_${{ matrix.name }}.txt
-      - name: Publish
+          output: checksums.txt
+      - name: Publish checksums file
         uses: softprops/action-gh-release@v1
         with:
           files: |
-           massa_*.zip
-           massa_*.tar.gz
-           checksums_*.txt
+           checksums.txt
