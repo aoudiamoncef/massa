@@ -66,6 +66,12 @@ jobs:
             tar czvf massa_${{ matrix.name }} massa
           fi
           cd -
+      - name: Publish massa artifacts
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            massa_*.zip
+            massa_*.tar.gz
   checksum:
     needs: release
     runs-on: ubuntu-latest
