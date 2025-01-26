@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-grpc/src/public.rs`."><title>public.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="massa_grpc" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.1 (a28077b28 2023-12-04)" data-channel="1.74.1" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../massa_grpc/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `massa-grpc/src/public.rs`."><title>public.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-c5d6553a23f1e5a6.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="massa_grpc" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0 (eeb90cda1 2024-09-04)" data-channel="1.81.0" data-search-js="search-d234aafac6c221dd.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-d2fab2bf619172d3.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1290,6 +1290,240 @@
 <a href="#1290" id="1290">1290</a>
 <a href="#1291" id="1291">1291</a>
 <a href="#1292" id="1292">1292</a>
+<a href="#1293" id="1293">1293</a>
+<a href="#1294" id="1294">1294</a>
+<a href="#1295" id="1295">1295</a>
+<a href="#1296" id="1296">1296</a>
+<a href="#1297" id="1297">1297</a>
+<a href="#1298" id="1298">1298</a>
+<a href="#1299" id="1299">1299</a>
+<a href="#1300" id="1300">1300</a>
+<a href="#1301" id="1301">1301</a>
+<a href="#1302" id="1302">1302</a>
+<a href="#1303" id="1303">1303</a>
+<a href="#1304" id="1304">1304</a>
+<a href="#1305" id="1305">1305</a>
+<a href="#1306" id="1306">1306</a>
+<a href="#1307" id="1307">1307</a>
+<a href="#1308" id="1308">1308</a>
+<a href="#1309" id="1309">1309</a>
+<a href="#1310" id="1310">1310</a>
+<a href="#1311" id="1311">1311</a>
+<a href="#1312" id="1312">1312</a>
+<a href="#1313" id="1313">1313</a>
+<a href="#1314" id="1314">1314</a>
+<a href="#1315" id="1315">1315</a>
+<a href="#1316" id="1316">1316</a>
+<a href="#1317" id="1317">1317</a>
+<a href="#1318" id="1318">1318</a>
+<a href="#1319" id="1319">1319</a>
+<a href="#1320" id="1320">1320</a>
+<a href="#1321" id="1321">1321</a>
+<a href="#1322" id="1322">1322</a>
+<a href="#1323" id="1323">1323</a>
+<a href="#1324" id="1324">1324</a>
+<a href="#1325" id="1325">1325</a>
+<a href="#1326" id="1326">1326</a>
+<a href="#1327" id="1327">1327</a>
+<a href="#1328" id="1328">1328</a>
+<a href="#1329" id="1329">1329</a>
+<a href="#1330" id="1330">1330</a>
+<a href="#1331" id="1331">1331</a>
+<a href="#1332" id="1332">1332</a>
+<a href="#1333" id="1333">1333</a>
+<a href="#1334" id="1334">1334</a>
+<a href="#1335" id="1335">1335</a>
+<a href="#1336" id="1336">1336</a>
+<a href="#1337" id="1337">1337</a>
+<a href="#1338" id="1338">1338</a>
+<a href="#1339" id="1339">1339</a>
+<a href="#1340" id="1340">1340</a>
+<a href="#1341" id="1341">1341</a>
+<a href="#1342" id="1342">1342</a>
+<a href="#1343" id="1343">1343</a>
+<a href="#1344" id="1344">1344</a>
+<a href="#1345" id="1345">1345</a>
+<a href="#1346" id="1346">1346</a>
+<a href="#1347" id="1347">1347</a>
+<a href="#1348" id="1348">1348</a>
+<a href="#1349" id="1349">1349</a>
+<a href="#1350" id="1350">1350</a>
+<a href="#1351" id="1351">1351</a>
+<a href="#1352" id="1352">1352</a>
+<a href="#1353" id="1353">1353</a>
+<a href="#1354" id="1354">1354</a>
+<a href="#1355" id="1355">1355</a>
+<a href="#1356" id="1356">1356</a>
+<a href="#1357" id="1357">1357</a>
+<a href="#1358" id="1358">1358</a>
+<a href="#1359" id="1359">1359</a>
+<a href="#1360" id="1360">1360</a>
+<a href="#1361" id="1361">1361</a>
+<a href="#1362" id="1362">1362</a>
+<a href="#1363" id="1363">1363</a>
+<a href="#1364" id="1364">1364</a>
+<a href="#1365" id="1365">1365</a>
+<a href="#1366" id="1366">1366</a>
+<a href="#1367" id="1367">1367</a>
+<a href="#1368" id="1368">1368</a>
+<a href="#1369" id="1369">1369</a>
+<a href="#1370" id="1370">1370</a>
+<a href="#1371" id="1371">1371</a>
+<a href="#1372" id="1372">1372</a>
+<a href="#1373" id="1373">1373</a>
+<a href="#1374" id="1374">1374</a>
+<a href="#1375" id="1375">1375</a>
+<a href="#1376" id="1376">1376</a>
+<a href="#1377" id="1377">1377</a>
+<a href="#1378" id="1378">1378</a>
+<a href="#1379" id="1379">1379</a>
+<a href="#1380" id="1380">1380</a>
+<a href="#1381" id="1381">1381</a>
+<a href="#1382" id="1382">1382</a>
+<a href="#1383" id="1383">1383</a>
+<a href="#1384" id="1384">1384</a>
+<a href="#1385" id="1385">1385</a>
+<a href="#1386" id="1386">1386</a>
+<a href="#1387" id="1387">1387</a>
+<a href="#1388" id="1388">1388</a>
+<a href="#1389" id="1389">1389</a>
+<a href="#1390" id="1390">1390</a>
+<a href="#1391" id="1391">1391</a>
+<a href="#1392" id="1392">1392</a>
+<a href="#1393" id="1393">1393</a>
+<a href="#1394" id="1394">1394</a>
+<a href="#1395" id="1395">1395</a>
+<a href="#1396" id="1396">1396</a>
+<a href="#1397" id="1397">1397</a>
+<a href="#1398" id="1398">1398</a>
+<a href="#1399" id="1399">1399</a>
+<a href="#1400" id="1400">1400</a>
+<a href="#1401" id="1401">1401</a>
+<a href="#1402" id="1402">1402</a>
+<a href="#1403" id="1403">1403</a>
+<a href="#1404" id="1404">1404</a>
+<a href="#1405" id="1405">1405</a>
+<a href="#1406" id="1406">1406</a>
+<a href="#1407" id="1407">1407</a>
+<a href="#1408" id="1408">1408</a>
+<a href="#1409" id="1409">1409</a>
+<a href="#1410" id="1410">1410</a>
+<a href="#1411" id="1411">1411</a>
+<a href="#1412" id="1412">1412</a>
+<a href="#1413" id="1413">1413</a>
+<a href="#1414" id="1414">1414</a>
+<a href="#1415" id="1415">1415</a>
+<a href="#1416" id="1416">1416</a>
+<a href="#1417" id="1417">1417</a>
+<a href="#1418" id="1418">1418</a>
+<a href="#1419" id="1419">1419</a>
+<a href="#1420" id="1420">1420</a>
+<a href="#1421" id="1421">1421</a>
+<a href="#1422" id="1422">1422</a>
+<a href="#1423" id="1423">1423</a>
+<a href="#1424" id="1424">1424</a>
+<a href="#1425" id="1425">1425</a>
+<a href="#1426" id="1426">1426</a>
+<a href="#1427" id="1427">1427</a>
+<a href="#1428" id="1428">1428</a>
+<a href="#1429" id="1429">1429</a>
+<a href="#1430" id="1430">1430</a>
+<a href="#1431" id="1431">1431</a>
+<a href="#1432" id="1432">1432</a>
+<a href="#1433" id="1433">1433</a>
+<a href="#1434" id="1434">1434</a>
+<a href="#1435" id="1435">1435</a>
+<a href="#1436" id="1436">1436</a>
+<a href="#1437" id="1437">1437</a>
+<a href="#1438" id="1438">1438</a>
+<a href="#1439" id="1439">1439</a>
+<a href="#1440" id="1440">1440</a>
+<a href="#1441" id="1441">1441</a>
+<a href="#1442" id="1442">1442</a>
+<a href="#1443" id="1443">1443</a>
+<a href="#1444" id="1444">1444</a>
+<a href="#1445" id="1445">1445</a>
+<a href="#1446" id="1446">1446</a>
+<a href="#1447" id="1447">1447</a>
+<a href="#1448" id="1448">1448</a>
+<a href="#1449" id="1449">1449</a>
+<a href="#1450" id="1450">1450</a>
+<a href="#1451" id="1451">1451</a>
+<a href="#1452" id="1452">1452</a>
+<a href="#1453" id="1453">1453</a>
+<a href="#1454" id="1454">1454</a>
+<a href="#1455" id="1455">1455</a>
+<a href="#1456" id="1456">1456</a>
+<a href="#1457" id="1457">1457</a>
+<a href="#1458" id="1458">1458</a>
+<a href="#1459" id="1459">1459</a>
+<a href="#1460" id="1460">1460</a>
+<a href="#1461" id="1461">1461</a>
+<a href="#1462" id="1462">1462</a>
+<a href="#1463" id="1463">1463</a>
+<a href="#1464" id="1464">1464</a>
+<a href="#1465" id="1465">1465</a>
+<a href="#1466" id="1466">1466</a>
+<a href="#1467" id="1467">1467</a>
+<a href="#1468" id="1468">1468</a>
+<a href="#1469" id="1469">1469</a>
+<a href="#1470" id="1470">1470</a>
+<a href="#1471" id="1471">1471</a>
+<a href="#1472" id="1472">1472</a>
+<a href="#1473" id="1473">1473</a>
+<a href="#1474" id="1474">1474</a>
+<a href="#1475" id="1475">1475</a>
+<a href="#1476" id="1476">1476</a>
+<a href="#1477" id="1477">1477</a>
+<a href="#1478" id="1478">1478</a>
+<a href="#1479" id="1479">1479</a>
+<a href="#1480" id="1480">1480</a>
+<a href="#1481" id="1481">1481</a>
+<a href="#1482" id="1482">1482</a>
+<a href="#1483" id="1483">1483</a>
+<a href="#1484" id="1484">1484</a>
+<a href="#1485" id="1485">1485</a>
+<a href="#1486" id="1486">1486</a>
+<a href="#1487" id="1487">1487</a>
+<a href="#1488" id="1488">1488</a>
+<a href="#1489" id="1489">1489</a>
+<a href="#1490" id="1490">1490</a>
+<a href="#1491" id="1491">1491</a>
+<a href="#1492" id="1492">1492</a>
+<a href="#1493" id="1493">1493</a>
+<a href="#1494" id="1494">1494</a>
+<a href="#1495" id="1495">1495</a>
+<a href="#1496" id="1496">1496</a>
+<a href="#1497" id="1497">1497</a>
+<a href="#1498" id="1498">1498</a>
+<a href="#1499" id="1499">1499</a>
+<a href="#1500" id="1500">1500</a>
+<a href="#1501" id="1501">1501</a>
+<a href="#1502" id="1502">1502</a>
+<a href="#1503" id="1503">1503</a>
+<a href="#1504" id="1504">1504</a>
+<a href="#1505" id="1505">1505</a>
+<a href="#1506" id="1506">1506</a>
+<a href="#1507" id="1507">1507</a>
+<a href="#1508" id="1508">1508</a>
+<a href="#1509" id="1509">1509</a>
+<a href="#1510" id="1510">1510</a>
+<a href="#1511" id="1511">1511</a>
+<a href="#1512" id="1512">1512</a>
+<a href="#1513" id="1513">1513</a>
+<a href="#1514" id="1514">1514</a>
+<a href="#1515" id="1515">1515</a>
+<a href="#1516" id="1516">1516</a>
+<a href="#1517" id="1517">1517</a>
+<a href="#1518" id="1518">1518</a>
+<a href="#1519" id="1519">1519</a>
+<a href="#1520" id="1520">1520</a>
+<a href="#1521" id="1521">1521</a>
+<a href="#1522" id="1522">1522</a>
+<a href="#1523" id="1523">1523</a>
+<a href="#1524" id="1524">1524</a>
+<a href="#1525" id="1525">1525</a>
+<a href="#1526" id="1526">1526</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (c) 2023 MASSA LABS &lt;info@massa.net&gt;
 
 </span><span class="kw">use </span><span class="kw">crate</span>::error::GrpcError;
@@ -1314,13 +1548,24 @@
 <span class="kw">use </span>massa_models::prehash::{PreHashMap, PreHashSet};
 <span class="kw">use </span>massa_models::slot::Slot;
 <span class="kw">use </span>massa_models::timeslots::get_latest_block_slot_at_timestamp;
-<span class="kw">use </span>massa_proto_rs::massa::api::v1 <span class="kw">as </span>grpc_api;
+<span class="kw">use </span>massa_proto_rs::massa::api::v1::{<span class="self">self </span><span class="kw">as </span>grpc_api};
 <span class="kw">use </span>massa_proto_rs::massa::model::v1::{<span class="self">self </span><span class="kw">as </span>grpc_model, read_only_execution_call};
 <span class="kw">use </span>massa_serialization::{DeserializeError, Deserializer};
 <span class="kw">use </span>massa_time::MassaTime;
 <span class="kw">use </span>massa_versioning::versioning_factory::{FactoryStrategy, VersioningFactory};
 <span class="kw">use </span>std::collections::HashSet;
 <span class="kw">use </span>std::str::FromStr;
+
+<span class="attr">#[cfg(feature = <span class="string">"execution-trace"</span>)]
+</span><span class="kw">use </span>massa_execution_exports::types_trace_info::AbiTrace;
+<span class="attr">#[cfg(feature = <span class="string">"execution-trace"</span>)]
+</span><span class="kw">use </span>massa_proto_rs::massa::api::v1::abi_call_stack_element_parent::CallStackElement;
+<span class="attr">#[cfg(feature = <span class="string">"execution-trace"</span>)]
+</span><span class="kw">use </span>massa_proto_rs::massa::api::v1::{
+    AbiCallStack, AbiCallStackElement, AbiCallStackElementCall, AbiCallStackElementParent,
+    AscabiCallStack, GetOperationAbiCallStacksResponse, GetSlotAbiCallStacksResponse,
+    OperationAbiCallStack, SlotAbiCallStacks, TransferInfo, TransferInfos,
+};
 
 <span class="doccomment">/// Execute read only call (function or bytecode)
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>execute_read_only_call(
@@ -1330,7 +1575,7 @@
     <span class="kw">let </span>call: grpc_model::ReadOnlyExecutionCall = request
         .into_inner()
         .call
-        .ok_or_else(|| GrpcError::InvalidArgument(<span class="string">&quot;no call provided&quot;</span>.to_string()))<span class="question-mark">?</span>;
+        .ok_or_else(|| GrpcError::InvalidArgument(<span class="string">"no call provided"</span>.to_string()))<span class="question-mark">?</span>;
 
     <span class="kw">let </span>caller_address = <span class="kw">match </span>call.caller_address {
         <span class="prelude-val">Some</span>(addr) =&gt; Address::from_str(<span class="kw-2">&amp;</span>addr)<span class="question-mark">?</span>,
@@ -1358,7 +1603,7 @@
                         <span class="prelude-val">Ok</span>((<span class="kw">_</span>, deserialized)) =&gt; <span class="prelude-val">Some</span>(deserialized),
                         <span class="prelude-val">Err</span>(e) =&gt; {
                             <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                                <span class="string">&quot;Datastore deserializing error: {}&quot;</span>,
+                                <span class="string">"Datastore deserializing error: {}"</span>,
                                 e
                             )))
                         }
@@ -1393,7 +1638,7 @@
                     .coins
                     .map(|native_amount| {
                         Amount::from_mantissa_scale(native_amount.mantissa, native_amount.scale)
-                            .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="string">&quot;invalid amount&quot;</span>.to_string()))
+                            .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="string">"invalid amount"</span>.to_string()))
                     })
                     .transpose()<span class="question-mark">?</span>;
 
@@ -1406,7 +1651,7 @@
         }
     } <span class="kw">else </span>{
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(
-            <span class="string">&quot;no call target provided&quot;</span>.to_string(),
+            <span class="string">"no call target provided"</span>.to_string(),
         ));
     };
 
@@ -1419,10 +1664,23 @@
             .fee
             .map(|native_amount| {
                 Amount::from_mantissa_scale(native_amount.mantissa, native_amount.scale)
-                    .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="string">&quot;invalid amount&quot;</span>.to_string()))
+                    .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="string">"invalid amount"</span>.to_string()))
             })
             .transpose()<span class="question-mark">?</span>,
     };
+
+    <span class="kw">if </span>read_only_call
+        .fee
+        .unwrap_or_default()
+        .checked_sub(grpc.grpc_config.minimal_fees)
+        .is_none()
+    {
+        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
+            <span class="string">"fee is too low provided: {} , minimal_fees required: {}"</span>,
+            read_only_call.fee.unwrap_or_default(),
+            grpc.grpc_config.minimal_fees
+        )));
+    }
 
     <span class="kw">let </span>output = grpc
         .execution_controller
@@ -1448,13 +1706,13 @@
 
     <span class="kw">if </span>ids.is_empty() {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(
-            <span class="string">&quot;no block id provided&quot;</span>.to_string(),
+            <span class="string">"no block id provided"</span>.to_string(),
         ));
     }
 
     <span class="kw">if </span>ids.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_operation_ids_per_request {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-            <span class="string">&quot;too many block ids received. Only a maximum of {} block ids are accepted per request&quot;</span>,
+            <span class="string">"too many block ids received. Only a maximum of {} block ids are accepted per request"</span>,
             grpc.grpc_config.max_block_ids_per_request
         )));
     }
@@ -1464,7 +1722,7 @@
         .take(grpc.grpc_config.max_operation_ids_per_request <span class="kw">as </span>usize + <span class="number">1</span>)
         .map(|id| {
             BlockId::from_str(id.as_str())
-                .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid block id: {}&quot;</span>, id)))
+                .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid block id: {}"</span>, id)))
         })
         .collect::&lt;<span class="prelude-ty">Result</span>&lt;<span class="kw">_</span>, <span class="kw">_</span>&gt;&gt;()<span class="question-mark">?</span>;
 
@@ -1505,13 +1763,13 @@
 
     <span class="comment">// return error if entry are empty
     </span><span class="kw">if </span>inner_req.filters.is_empty() {
-        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">&quot;no filter provided&quot;</span>.to_string()));
+        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">"no filter provided"</span>.to_string()));
     }
 
     <span class="comment">// return error if entry are too many filters for a single request
     </span><span class="kw">if </span>inner_req.filters.len() <span class="kw">as </span>u64 &gt; grpc.grpc_config.max_datastore_entries_per_request {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-            <span class="string">&quot;too many datastore entries received. Only a maximum of {} datastore entries are accepted per request&quot;</span>,
+            <span class="string">"too many datastore entries received. Only a maximum of {} datastore entries are accepted per request"</span>,
             grpc.grpc_config.max_datastore_entries_per_request
         )));
     }
@@ -1556,13 +1814,13 @@
 
     <span class="kw">if </span>ids.is_empty() {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(
-            <span class="string">&quot;no endorsement id provided&quot;</span>.to_string(),
+            <span class="string">"no endorsement id provided"</span>.to_string(),
         ));
     }
 
     <span class="kw">if </span>ids.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_endorsement_ids_per_request {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-            <span class="string">&quot;too many endorsement ids received. Only a maximum of {} endorsement ids are accepted per request&quot;</span>,
+            <span class="string">"too many endorsement ids received. Only a maximum of {} endorsement ids are accepted per request"</span>,
             grpc.grpc_config.max_endorsements_per_message
         )));
     }
@@ -1572,7 +1830,7 @@
         .take(grpc.grpc_config.max_operation_ids_per_request <span class="kw">as </span>usize + <span class="number">1</span>)
         .map(|id| {
             EndorsementId::from_str(id.as_str())
-                .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid endorsement id: {}&quot;</span>, id)))
+                .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid endorsement id: {}"</span>, id)))
         })
         .collect::&lt;<span class="prelude-ty">Result</span>&lt;<span class="kw">_</span>, <span class="kw">_</span>&gt;&gt;()<span class="question-mark">?</span>;
 
@@ -1750,6 +2008,214 @@
     <span class="prelude-val">Ok</span>(grpc_api::GetStakersResponse { stakers })
 }
 
+<span class="attr">#[cfg(feature = <span class="string">"execution-trace"</span>)]
+</span><span class="doccomment">/// recursive function to convert a AbiTrace struct
+</span><span class="kw">pub fn </span>into_element(abi_trace: <span class="kw-2">&amp;</span>AbiTrace) -&gt; AbiCallStackElementParent {
+    <span class="kw">if </span>abi_trace.sub_calls.is_none() {
+        AbiCallStackElementParent {
+            call_stack_element: <span class="prelude-val">Some</span>(CallStackElement::Element(AbiCallStackElement {
+                name: abi_trace.name.clone(),
+                parameters: abi_trace
+                    .parameters
+                    .iter()
+                    .map(|p| serde_json::to_string(p).unwrap_or_default())
+                    .collect::&lt;Vec&lt;String&gt;&gt;(),
+                return_value: serde_json::to_string(<span class="kw-2">&amp;</span>abi_trace.return_value).unwrap_or_default(),
+            })),
+        }
+    } <span class="kw">else </span>{
+        AbiCallStackElementParent {
+            call_stack_element: <span class="prelude-val">Some</span>(CallStackElement::ElementCall(AbiCallStackElementCall {
+                name: abi_trace.name.clone(),
+                parameters: abi_trace
+                    .parameters
+                    .iter()
+                    .map(|p| serde_json::to_string(p).unwrap_or_default())
+                    .collect(),
+                return_value: serde_json::to_string(<span class="kw-2">&amp;</span>abi_trace.return_value).unwrap_or_default(),
+                sub_calls: abi_trace
+                    .sub_calls
+                    .clone()
+                    .unwrap_or_default()
+                    .iter()
+                    .map(into_element)
+                    .collect(),
+            })),
+        }
+    }
+}
+
+<span class="attr">#[cfg(feature = <span class="string">"execution-trace"</span>)]
+</span><span class="doccomment">/// Get slot transfers
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>get_slot_transfers(
+    grpc: <span class="kw-2">&amp;</span>MassaPublicGrpc,
+    request: tonic::Request&lt;grpc_api::GetSlotTransfersRequest&gt;,
+) -&gt; <span class="prelude-ty">Result</span>&lt;grpc_api::GetSlotTransfersResponse, GrpcError&gt; {
+    <span class="kw">use </span>massa_proto_rs::massa::api::v1::GetSlotTransfersResponse;
+
+    <span class="kw">let </span>slots = request.into_inner().slots;
+
+    <span class="kw">let </span><span class="kw-2">mut </span>transfer_each_slot: Vec&lt;TransferInfos&gt; = <span class="macro">vec!</span>[];
+    <span class="kw">for </span>slot <span class="kw">in </span>slots {
+        <span class="kw">let </span><span class="kw-2">mut </span>slot_transfers = TransferInfos {
+            slot: slot.clone().into(),
+            transfers: <span class="macro">vec!</span>[],
+        };
+        <span class="kw">let </span>abi_calls = grpc
+            .execution_controller
+            .get_slot_abi_call_stack(slot.clone().into());
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(abi_calls) = abi_calls {
+            <span class="comment">// flatten &amp; filter transfer trace in asc_call_stacks
+
+            </span><span class="kw">let </span>abi_transfer_1 = <span class="string">"assembly_script_transfer_coins"</span>.to_string();
+            <span class="kw">let </span>abi_transfer_2 = <span class="string">"assembly_script_transfer_coins_for"</span>.to_string();
+            <span class="kw">let </span>abi_transfer_3 = <span class="string">"abi_transfer_coins"</span>.to_string();
+            <span class="kw">let </span>transfer_abi_names = <span class="macro">vec!</span>[abi_transfer_1, abi_transfer_2, abi_transfer_3];
+            <span class="kw">for </span>(i, asc_call_stack) <span class="kw">in </span>abi_calls.asc_call_stacks.iter().enumerate() {
+                <span class="kw">for </span>abi_trace <span class="kw">in </span>asc_call_stack {
+                    <span class="kw">let </span>only_transfer = abi_trace.flatten_filter(<span class="kw-2">&amp;</span>transfer_abi_names);
+                    <span class="kw">for </span>transfer <span class="kw">in </span>only_transfer {
+                        <span class="kw">let </span>(t_from, t_to, t_amount) = transfer.parse_transfer();
+                        slot_transfers.transfers.push(TransferInfo {
+                            from: t_from.clone(),
+                            to: t_to.clone(),
+                            amount: t_amount,
+                            operation_id_or_asc_index: <span class="prelude-val">Some</span>(
+                                grpc_api::transfer_info::OperationIdOrAscIndex::AscIndex(i <span class="kw">as </span>u64),
+                            ),
+                        });
+                    }
+                }
+            }
+
+            <span class="kw">for </span>op_call_stack <span class="kw">in </span>abi_calls.operation_call_stacks {
+                <span class="kw">let </span>op_id = op_call_stack.<span class="number">0</span>;
+                <span class="kw">let </span>op_call_stack = op_call_stack.<span class="number">1</span>;
+                <span class="kw">for </span>abi_trace <span class="kw">in </span>op_call_stack {
+                    <span class="kw">let </span>only_transfer = abi_trace.flatten_filter(<span class="kw-2">&amp;</span>transfer_abi_names);
+                    <span class="kw">for </span>transfer <span class="kw">in </span>only_transfer {
+                        <span class="kw">let </span>(t_from, t_to, t_amount) = transfer.parse_transfer();
+                        slot_transfers.transfers.push(TransferInfo {
+                            from: t_from.clone(),
+                            to: t_to.clone(),
+                            amount: t_amount,
+                            operation_id_or_asc_index: <span class="prelude-val">Some</span>(
+                                grpc_api::transfer_info::OperationIdOrAscIndex::OperationId(
+                                    op_id.to_string(),
+                                ),
+                            ),
+                        });
+                    }
+                }
+            }
+        }
+
+        <span class="kw">let </span>transfers = grpc
+            .execution_controller
+            .get_transfers_for_slot(slot.into());
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(transfers) = transfers {
+            <span class="kw">for </span>transfer <span class="kw">in </span>transfers {
+                slot_transfers.transfers.push(TransferInfo {
+                    from: transfer.from.to_string(),
+                    to: transfer.to.to_string(),
+                    amount: transfer.amount.to_raw(),
+                    operation_id_or_asc_index: <span class="prelude-val">Some</span>(
+                        grpc_api::transfer_info::OperationIdOrAscIndex::OperationId(
+                            transfer.op_id.to_string(),
+                        ),
+                    ),
+                });
+            }
+        }
+
+        transfer_each_slot.push(slot_transfers);
+    }
+
+    <span class="prelude-val">Ok</span>(GetSlotTransfersResponse { transfer_each_slot })
+}
+
+<span class="attr">#[cfg(feature = <span class="string">"execution-trace"</span>)]
+</span><span class="doccomment">/// Get operation ABI call stacks
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>get_operation_abi_call_stacks(
+    grpc: <span class="kw-2">&amp;</span>MassaPublicGrpc,
+    request: tonic::Request&lt;grpc_api::GetOperationAbiCallStacksRequest&gt;,
+) -&gt; <span class="prelude-ty">Result</span>&lt;grpc_api::GetOperationAbiCallStacksResponse, GrpcError&gt; {
+    <span class="kw">let </span>op_ids_ = request.into_inner().operation_ids;
+
+    <span class="kw">let </span>op_ids: Vec&lt;OperationId&gt; = op_ids_
+        .iter()
+        .map(|o| OperationId::from_str(o))
+        .collect::&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;<span class="kw">_</span>&gt;, <span class="kw">_</span>&gt;&gt;()<span class="question-mark">?</span>;
+
+    <span class="kw">let </span><span class="kw-2">mut </span>elements = <span class="macro">vec!</span>[];
+    <span class="kw">for </span>op_id <span class="kw">in </span>op_ids {
+        <span class="kw">let </span>abi_traces_ = grpc
+            .execution_controller
+            .get_operation_abi_call_stack(op_id);
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(abi_traces) = abi_traces_ {
+            <span class="kw">for </span>abi_trace <span class="kw">in </span>abi_traces.iter() {
+                elements.push(into_element(abi_trace));
+            }
+        } <span class="kw">else </span>{
+            elements.push(AbiCallStackElementParent {
+                call_stack_element: <span class="prelude-val">None</span>,
+            })
+        }
+    }
+
+    <span class="kw">let </span>resp = GetOperationAbiCallStacksResponse {
+        call_stacks: <span class="macro">vec!</span>[AbiCallStack {
+            call_stack: elements,
+        }],
+    };
+
+    <span class="prelude-val">Ok</span>(resp)
+}
+
+<span class="attr">#[cfg(feature = <span class="string">"execution-trace"</span>)]
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>get_slot_abi_call_stacks(
+    grpc: <span class="kw-2">&amp;</span>MassaPublicGrpc,
+    request: tonic::Request&lt;grpc_api::GetSlotAbiCallStacksRequest&gt;,
+) -&gt; <span class="prelude-ty">Result</span>&lt;grpc_api::GetSlotAbiCallStacksResponse, GrpcError&gt; {
+    <span class="kw">let </span>slots = request.into_inner().slots;
+
+    <span class="kw">let </span><span class="kw-2">mut </span>slot_elements = <span class="macro">vec!</span>[];
+    <span class="kw">for </span>slot <span class="kw">in </span>slots {
+        <span class="kw">let </span>call_stack_ = grpc
+            .execution_controller
+            .get_slot_abi_call_stack(slot.into());
+
+        <span class="kw">let </span><span class="kw-2">mut </span>slot_abi_call_stacks = SlotAbiCallStacks {
+            asc_call_stacks: <span class="macro">vec!</span>[],
+            operation_call_stacks: <span class="macro">vec!</span>[],
+        };
+
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(call_stack) = call_stack_ {
+            <span class="kw">for </span>(i, asc_call_stack) <span class="kw">in </span>call_stack.asc_call_stacks.into_iter().enumerate() {
+                slot_abi_call_stacks.asc_call_stacks.push(AscabiCallStack {
+                    index: i <span class="kw">as </span>u64,
+                    call_stack: asc_call_stack.iter().map(into_element).collect(),
+                })
+            }
+            <span class="kw">for </span>(op_id, op_call_stack) <span class="kw">in </span>call_stack.operation_call_stacks {
+                slot_abi_call_stacks
+                    .operation_call_stacks
+                    .push(OperationAbiCallStack {
+                        operation_id: op_id.to_string(),
+                        call_stack: op_call_stack.iter().map(into_element).collect(),
+                    })
+            }
+        }
+        slot_elements.push(slot_abi_call_stacks);
+    }
+
+    <span class="kw">let </span>resp = GetSlotAbiCallStacksResponse {
+        slot_call_stacks: slot_elements,
+    };
+
+    <span class="prelude-val">Ok</span>(resp)
+}
+
 <span class="doccomment">/// Get next block best parents
 </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>get_next_block_best_parents(
     grpc: <span class="kw-2">&amp;</span>MassaPublicGrpc,
@@ -1776,12 +2242,12 @@
 
     <span class="kw">if </span>operation_ids.is_empty() {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(
-            <span class="string">&quot;no operations ids specified&quot;</span>.to_string(),
+            <span class="string">"no operations ids specified"</span>.to_string(),
         ));
     }
 
     <span class="kw">if </span>operation_ids.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_operation_ids_per_request {
-        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;too many operations received. Only a maximum of {} operations are accepted per request&quot;</span>, grpc.grpc_config.max_operation_ids_per_request)));
+        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"too many operations received. Only a maximum of {} operations are accepted per request"</span>, grpc.grpc_config.max_operation_ids_per_request)));
     }
 
     <span class="kw">let </span>operation_ids: Vec&lt;OperationId&gt; = operation_ids
@@ -1789,7 +2255,7 @@
         .take(grpc.grpc_config.max_operation_ids_per_request <span class="kw">as </span>usize + <span class="number">1</span>)
         .map(|id| {
             OperationId::from_str(id.as_str())
-                .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid operation id: {}&quot;</span>, id)))
+                .map_err(|<span class="kw">_</span>| GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid operation id: {}"</span>, id)))
         })
         .collect::&lt;<span class="prelude-ty">Result</span>&lt;<span class="kw">_</span>, <span class="kw">_</span>&gt;&gt;()<span class="question-mark">?</span>;
 
@@ -1861,7 +2327,7 @@
     <span class="kw">let </span>inner_req = request.into_inner();
     <span class="kw">if </span>inner_req.filters.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_filters_per_request {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-            <span class="string">&quot;too many filters received. Only a maximum of {} filters are accepted per request&quot;</span>,
+            <span class="string">"too many filters received. Only a maximum of {} filters are accepted per request"</span>,
             grpc.grpc_config.max_filters_per_request
         )));
     }
@@ -1875,14 +2341,14 @@
                 grpc_api::selector_draws_filter::Filter::Addresses(addrs) =&gt; {
                     <span class="kw">if </span>addrs.addresses.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_addresses_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many addresses received. Only a maximum of {} addresses are accepted per request&quot;</span>,
+                            <span class="string">"too many addresses received. Only a maximum of {} addresses are accepted per request"</span>,
                             grpc.grpc_config.max_addresses_per_request
                         )));
                     }
                     <span class="kw">let </span>addresses = addresses_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>address <span class="kw">in </span>addrs.addresses {
                         addresses.insert(Address::from_str(<span class="kw-2">&amp;</span>address).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid address: {}&quot;</span>, address))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid address: {}"</span>, address))
                         })<span class="question-mark">?</span>);
                     }
                 }
@@ -1890,7 +2356,7 @@
                     <span class="kw">let </span>slot_ranges = slot_ranges_filter.get_or_insert_with(HashSet::new);
                     <span class="kw">if </span>slot_ranges.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_slot_ranges_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many slot ranges received. Only a maximum of {} slot ranges are accepted per request&quot;</span>,
+                            <span class="string">"too many slot ranges received. Only a maximum of {} slot ranges are accepted per request"</span>,
                             grpc.grpc_config.max_slot_ranges_per_request
                         )));
                     }
@@ -1913,7 +2379,7 @@
     </span><span class="kw">let </span>selection_draws: HashSet&lt;SlotDraw&gt; = <span class="kw">if let </span><span class="prelude-val">Some</span>(slot_ranges) = slot_ranges_filter {
         <span class="kw">if </span>slot_ranges.is_empty() {
             <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(
-                <span class="string">&quot;at least, one slot range is required&quot;</span>.to_string(),
+                <span class="string">"at least, one slot range is required"</span>.to_string(),
             ));
         }
 
@@ -1961,7 +2427,7 @@
             .collect()
     } <span class="kw">else </span>{
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(
-            <span class="string">&quot;at least, one slot range is required&quot;</span>.to_string(),
+            <span class="string">"at least, one slot range is required"</span>.to_string(),
         ));
     };
 
@@ -2018,6 +2484,8 @@
         last_executed_speculative_slot: <span class="prelude-val">Some</span>(state.candidate_cursor.into()),
         final_state_fingerprint: state.final_state_fingerprint.to_string(),
         config: <span class="prelude-val">Some</span>(config.into()),
+        chain_id: grpc.grpc_config.chain_id,
+        minimal_fees: <span class="prelude-val">Some</span>(grpc.grpc_config.minimal_fees.into()),
     };
 
     <span class="prelude-val">Ok</span>(grpc_api::GetStatusResponse {
@@ -2059,12 +2527,12 @@
 
     <span class="kw">if </span>queries.is_empty() {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(
-            <span class="string">&quot;no query items specified&quot;</span>.to_string(),
+            <span class="string">"no query items specified"</span>.to_string(),
         ));
     }
 
     <span class="kw">if </span>queries.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_query_items_per_request {
-        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;too many query items received. Only a maximum of {} operations are accepted per request&quot;</span>, grpc.grpc_config.max_operation_ids_per_request)));
+        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"too many query items received. Only a maximum of {} operations are accepted per request"</span>, grpc.grpc_config.max_operation_ids_per_request)));
     }
 
     <span class="kw">let </span>response = grpc
@@ -2091,7 +2559,7 @@
     <span class="kw">let </span>inner_req = request.into_inner();
     <span class="kw">if </span>inner_req.filters.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_filters_per_request {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-            <span class="string">&quot;too many filters received. Only a maximum of {} filters are accepted per request&quot;</span>,
+            <span class="string">"too many filters received. Only a maximum of {} filters are accepted per request"</span>,
             grpc.grpc_config.max_filters_per_request
         )));
     }
@@ -2107,28 +2575,28 @@
                 grpc_api::search_blocks_filter::Filter::BlockIds(ids) =&gt; {
                     <span class="kw">if </span>ids.block_ids.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_block_ids_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many block ids received. Only a maximum of {} block ids are accepted per request&quot;</span>,
+                            <span class="string">"too many block ids received. Only a maximum of {} block ids are accepted per request"</span>,
                             grpc.grpc_config.max_block_ids_per_request
                         )));
                     }
                     <span class="kw">let </span>block_ids = block_ids_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>block_id <span class="kw">in </span>ids.block_ids {
                         block_ids.insert(BlockId::from_str(<span class="kw-2">&amp;</span>block_id).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid block id: {}&quot;</span>, block_id))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid block id: {}"</span>, block_id))
                         })<span class="question-mark">?</span>);
                     }
                 }
                 grpc_api::search_blocks_filter::Filter::Addresses(addrs) =&gt; {
                     <span class="kw">if </span>addrs.addresses.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_addresses_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many addresses received. Only a maximum of {} addresses are accepted per request&quot;</span>,
+                            <span class="string">"too many addresses received. Only a maximum of {} addresses are accepted per request"</span>,
                             grpc.grpc_config.max_addresses_per_request
                         )));
                     }
                     <span class="kw">let </span>addresses = addresses_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>address <span class="kw">in </span>addrs.addresses {
                         addresses.insert(Address::from_str(<span class="kw-2">&amp;</span>address).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid address: {}&quot;</span>, address))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid address: {}"</span>, address))
                         })<span class="question-mark">?</span>);
                     }
                 }
@@ -2136,7 +2604,7 @@
                     <span class="kw">let </span>slot_ranges = slot_ranges_filter.get_or_insert_with(HashSet::new);
                     <span class="kw">if </span>slot_ranges.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_slot_ranges_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many slot ranges received. Only a maximum of {} slot ranges are accepted per request&quot;</span>,
+                            <span class="string">"too many slot ranges received. Only a maximum of {} slot ranges are accepted per request"</span>,
                             grpc.grpc_config.max_slot_ranges_per_request
                         )));
                     }
@@ -2157,7 +2625,7 @@
 
     <span class="comment">// if no filter provided return an error
     </span><span class="kw">if </span>block_ids_filter.is_none() &amp;&amp; addresses_filter.is_none() &amp;&amp; slot_ranges_filter.is_none() {
-        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">&quot;no filter provided&quot;</span>.to_string()));
+        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">"no filter provided"</span>.to_string()));
     }
 
     <span class="kw">let </span><span class="kw-2">mut </span>res: <span class="prelude-ty">Option</span>&lt;PreHashSet&lt;BlockId&gt;&gt; = <span class="prelude-val">None</span>;
@@ -2247,7 +2715,7 @@
     <span class="kw">let </span>inner_req = request.into_inner();
     <span class="kw">if </span>inner_req.filters.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_filters_per_request {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-            <span class="string">&quot;too many filters received. Only a maximum of {} filters are accepted per request&quot;</span>,
+            <span class="string">"too many filters received. Only a maximum of {} filters are accepted per request"</span>,
             grpc.grpc_config.max_filters_per_request
         )));
     }
@@ -2265,7 +2733,7 @@
                         &gt; grpc.grpc_config.max_endorsement_ids_per_request
                     {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many endorsement ids received. Only a maximum of {} endorsement ids are accepted per request&quot;</span>,
+                            <span class="string">"too many endorsement ids received. Only a maximum of {} endorsement ids are accepted per request"</span>,
                             grpc.grpc_config.max_endorsement_ids_per_request
                         )));
                     }
@@ -2273,35 +2741,35 @@
                         endorsement_ids_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>id <span class="kw">in </span>ids.endorsement_ids {
                         endorsement_ids.insert(EndorsementId::from_str(<span class="kw-2">&amp;</span>id).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid endorsement id: {}&quot;</span>, id))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid endorsement id: {}"</span>, id))
                         })<span class="question-mark">?</span>);
                     }
                 }
                 grpc_api::search_endorsements_filter::Filter::Addresses(addrs) =&gt; {
                     <span class="kw">if </span>addrs.addresses.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_addresses_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many addresses received. Only a maximum of {} addresses are accepted per request&quot;</span>,
+                            <span class="string">"too many addresses received. Only a maximum of {} addresses are accepted per request"</span>,
                             grpc.grpc_config.max_addresses_per_request
                         )));
                     }
                     <span class="kw">let </span>addresses = addresses_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>address <span class="kw">in </span>addrs.addresses {
                         addresses.insert(Address::from_str(<span class="kw-2">&amp;</span>address).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid address: {}&quot;</span>, address))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid address: {}"</span>, address))
                         })<span class="question-mark">?</span>);
                     }
                 }
                 grpc_api::search_endorsements_filter::Filter::BlockIds(ids) =&gt; {
                     <span class="kw">if </span>ids.block_ids.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_block_ids_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many block ids received. Only a maximum of {} block ids are accepted per request&quot;</span>,
+                            <span class="string">"too many block ids received. Only a maximum of {} block ids are accepted per request"</span>,
                             grpc.grpc_config.max_block_ids_per_request
                         )));
                     }
                     <span class="kw">let </span>block_ids = block_ids_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>block_id <span class="kw">in </span>ids.block_ids {
                         block_ids.insert(BlockId::from_str(<span class="kw-2">&amp;</span>block_id).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid block id: {}&quot;</span>, block_id))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid block id: {}"</span>, block_id))
                         })<span class="question-mark">?</span>);
                     }
                 }
@@ -2312,7 +2780,7 @@
     <span class="comment">// if no filter provided return an error
     </span><span class="kw">if </span>endorsement_ids_filter.is_none() &amp;&amp; addresses_filter.is_none() &amp;&amp; block_ids_filter.is_none()
     {
-        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">&quot;no filter provided&quot;</span>.to_string()));
+        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">"no filter provided"</span>.to_string()));
     }
 
     <span class="kw">let </span><span class="kw-2">mut </span>eds_ids: <span class="prelude-ty">Option</span>&lt;PreHashSet&lt;EndorsementId&gt;&gt; = <span class="prelude-val">None</span>;
@@ -2455,7 +2923,7 @@
     <span class="kw">let </span>inner_req: grpc_api::SearchOperationsRequest = request.into_inner();
     <span class="kw">if </span>inner_req.filters.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_filters_per_request {
         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-            <span class="string">&quot;too many filters received. Only a maximum of {} filters are accepted per request&quot;</span>,
+            <span class="string">"too many filters received. Only a maximum of {} filters are accepted per request"</span>,
             grpc.grpc_config.max_filters_per_request
         )));
     }
@@ -2471,7 +2939,7 @@
                         &gt; grpc.grpc_config.max_operation_ids_per_request
                     {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many operation ids received. Only a maximum of {} operation ids are accepted per request&quot;</span>,
+                            <span class="string">"too many operation ids received. Only a maximum of {} operation ids are accepted per request"</span>,
                             grpc.grpc_config.max_block_ids_per_request
                         )));
                     }
@@ -2479,21 +2947,21 @@
                         operation_ids_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>id <span class="kw">in </span>ids.operation_ids {
                         operation_ids.insert(OperationId::from_str(<span class="kw-2">&amp;</span>id).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid operation id: {}&quot;</span>, id))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid operation id: {}"</span>, id))
                         })<span class="question-mark">?</span>);
                     }
                 }
                 grpc_api::search_operations_filter::Filter::Addresses(addrs) =&gt; {
                     <span class="kw">if </span>addrs.addresses.len() <span class="kw">as </span>u32 &gt; grpc.grpc_config.max_addresses_per_request {
                         <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="macro">format!</span>(
-                            <span class="string">&quot;too many addresses received. Only a maximum of {} addresses are accepted per request&quot;</span>,
+                            <span class="string">"too many addresses received. Only a maximum of {} addresses are accepted per request"</span>,
                             grpc.grpc_config.max_addresses_per_request
                         )));
                     }
                     <span class="kw">let </span>addresses = addresses_filter.get_or_insert_with(PreHashSet::default);
                     <span class="kw">for </span>address <span class="kw">in </span>addrs.addresses {
                         addresses.insert(Address::from_str(<span class="kw-2">&amp;</span>address).map_err(|<span class="kw">_</span>| {
-                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">&quot;invalid address: {}&quot;</span>, address))
+                            GrpcError::InvalidArgument(<span class="macro">format!</span>(<span class="string">"invalid address: {}"</span>, address))
                         })<span class="question-mark">?</span>);
                     }
                 }
@@ -2502,7 +2970,7 @@
     }
 
     <span class="kw">if </span>operation_ids_filter.is_none() &amp;&amp; addresses_filter.is_none() {
-        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">&quot;no filter provided&quot;</span>.to_string()));
+        <span class="kw">return </span><span class="prelude-val">Err</span>(GrpcError::InvalidArgument(<span class="string">"no filter provided"</span>.to_string()));
     }
 
     <span class="kw">let </span><span class="kw-2">mut </span>ops_ids: <span class="prelude-ty">Option</span>&lt;PreHashSet&lt;OperationId&gt;&gt; = <span class="prelude-val">None</span>;

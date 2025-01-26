@@ -1,3 +1,0 @@
-(function() {var implementors = {
-"massa_consensus_worker":[["impl <a class=\"trait\" href=\"massa_consensus_exports/controller_trait/trait.ConsensusController.html\" title=\"trait massa_consensus_exports::controller_trait::ConsensusController\">ConsensusController</a> for <a class=\"struct\" href=\"massa_consensus_worker/controller/struct.ConsensusControllerImpl.html\" title=\"struct massa_consensus_worker::controller::ConsensusControllerImpl\">ConsensusControllerImpl</a>"]]
-};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
